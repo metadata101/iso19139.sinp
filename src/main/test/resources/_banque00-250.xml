@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://www.rnde.tm.fr/francais/sa/xml/scenario/si_dc/1">
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0953</CdIntervenant>
+    <NomIntervenant>Association des botanistes Lorrains</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2008-07-09</DateCreationIntervenant>
+    <DateMajIntervenant>2009-03-10T17:49:31</DateMajIntervenant>
+    <RueIntervenant>100, rue du jardin botanique</RueIntervenant>
+    <VilleIntervenant>Villers-l&#232;s-Nancy</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>54600</CPIntervenant>
+    <NomInternationalIntervenant>FLORAINE</NomInternationalIntervenant>
+    <URLWeb>www.floraine.net</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-954</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <RegionInt>
+      <CdRegion>41</CdRegion>
+      <LbRegion>Lorraine</LbRegion>
+    </RegionInt>
+    <Pays>FRANCE</Pays>
+    <Tel>06.11.14.51.83.</Tel>
+    <Mail>francois.vernier@numericable.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Bdd>
+    <CdBdd>250</CdBdd>
+    <LbBdd>Atlas des plantes de Lorraine</LbBdd>
+    <DateMajBdd>2008-07-09T09:25:08</DateMajBdd>
+    <TypeBdd>
+      <CdTypeBanque>3</CdTypeBanque>
+      <LbTypeBanque>Base de donn&#233;es syst&#232;me</LbTypeBanque>
+    </TypeBdd>
+    <EmpriseAdminBdd>
+      <LbEmpriseAdmin></LbEmpriseAdmin>
+    </EmpriseAdminBdd>
+    <ExploitantBdd>
+      <CdIntervenant schemeAgencyID="SIRET">00-0953</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-954</IdEchangeInt>
+    </ExploitantBdd>
+    <MOuvrageBdd>
+      <CdIntervenant schemeAgencyID="SIRET">00-0953</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-954</IdEchangeInt>
+    </MOuvrageBdd>
+    <AdresseURLBdd>http://www.floraine.net</AdresseURLBdd>
+    <IdEchangeBdd schemeID="BDD" schemeAgencyID="SI_DC">00-250</IdEchangeBdd>
+    <AnneeBdd>2002</AnneeBdd>
+    <LbUsuelBdd></LbUsuelBdd>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>PICHARD</NomContact>
+      <FonctionContact>Administrateur de donn&#233;es</FonctionContact>
+      <TelephoneContact></TelephoneContact>
+      <PrenomContact>Olivier</PrenomContact>
+      <MailContact>stegonia80@gidouille.fr</MailContact>
+      <ServiceContact></ServiceContact>
+    </Contact>
+    <CommBdd>Les donn&#233;es disponibles sur Internet sont localis&#233;es sur des mailles de 5 Km x 5 Km.
+
+Les donn&#233;es des esp&#232;ces patrimoniales de Lorraine sont cartographi&#233;es &#224; 100 m pr&#232;s. Elles peuvent &#234;tres disponibles sur demande et moyennant une convention.</CommBdd>
+    <EtatAvancementBdd>A</EtatAvancementBdd>
+    <RegionBdd>
+      <CdRegion>41</CdRegion>
+      <LbRegion>Lorraine</LbRegion>
+    </RegionBdd>
+    <TerreOuMerBdd>T</TerreOuMerBdd>
+    <BddRdd>
+      <DispositifCollecte>
+        <CodeSandreRdd></CodeSandreRdd>
+        <NomRdd>Atlas des plantes de Lorraine</NomRdd>
+        <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-950</IdEchangeRdd>
+      </DispositifCollecte>
+    </BddRdd>
+    <Utilisateur>
+      <nomPrenom>VERNIER Fran&#231;ois</nomPrenom>
+      <fonction>FLORAINE Association des Botanistes Lorrains</fonction>
+    </Utilisateur>
+  </Bdd>
+</SI_DC>

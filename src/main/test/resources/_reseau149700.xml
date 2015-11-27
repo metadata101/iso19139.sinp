@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0683</CdIntervenant>
+    <NomIntervenant>Association des Amis de la For&#234;t de la Massane</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2007-10-26</DateCreationIntervenant>
+    <DateMajIntervenant>2009-10-22T12:10:10</DateMajIntervenant>
+    <RueIntervenant>Laboratoire Arago</RueIntervenant>
+    <VilleIntervenant>Banyuls sur Mer</VilleIntervenant>
+    <CommentairesIntervenant>Gestionnaire avec la F&#233;d&#233;ration des R&#233;serves Naturelles Catalanes (FRNC)de la R&#233;serve Naturelle de la For&#234;t de la Massane.</CommentairesIntervenant>
+    <CPIntervenant>66650</CPIntervenant>
+    <NomInternationalIntervenant>RN de la For&#234;t de la Massane</NomInternationalIntervenant>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-684</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <DepartementInt>
+      <CdDepartement>66</CdDepartement>
+      <LbDepartement>Pyr&#233;n&#233;es-Orientales</LbDepartement>
+    </DepartementInt>
+    <EvenementsInt>
+      <DateEvenement>1973-08-12T00:00:00</DateEvenement>
+      <LbEvenement>Cr&#233;ation de la r&#233;serve naturelle de la For&#234;t de la Massane</LbEvenement>
+    </EvenementsInt>
+    <Pays>France</Pays>
+    <Tel>0468880589</Tel>
+    <Mail>massane.rn@free.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0681</CdIntervenant>
+    <NomIntervenant>F&#233;d&#233;ration des R&#233;serves Naturelles Catalanes</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2007-10-26</DateCreationIntervenant>
+    <DateMajIntervenant>2010-12-09T09:20:15</DateMajIntervenant>
+    <RueIntervenant>24, rue Jean Jaur&#232;s</RueIntervenant>
+    <VilleIntervenant>PRADES</VilleIntervenant>
+    <CommentairesIntervenant>F&#233;d&#232;re neuf r&#233;serves naturelles du d&#233;partement des Pyr&#233;n&#233;es-Orientales</CommentairesIntervenant>
+    <CPIntervenant>66500</CPIntervenant>
+    <NomInternationalIntervenant>FRNC</NomInternationalIntervenant>
+    <URLWeb>http://www.catalanes.reserves-naturelles.org</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-682</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <DepartementInt>
+      <CdDepartement>66</CdDepartement>
+      <LbDepartement>Pyr&#233;n&#233;es-Orientales</LbDepartement>
+    </DepartementInt>
+    <EvenementsInt>
+      <DateEvenement>1991-01-01T00:00:00</DateEvenement>
+      <LbEvenement>Cr&#233;ation de l'association "Conf&#233;d&#233;ration des R&#233;serves Naturelles Catalanes". Embauche des conservateurs des R&#233;serves Naturelles.</LbEvenement>
+    </EvenementsInt>
+    <EvenementsInt>
+      <DateEvenement>1998-01-01T00:00:00</DateEvenement>
+      <LbEvenement>Cr&#233;ation de services mutualis&#233;s, bas&#233;s &#224; Prades et Eyne : P&#244;les d'&#233;ducation &#224; l'environnement, de coordination scientifique et de comptabilit&#233;.</LbEvenement>
+    </EvenementsInt>
+    <EvenementsInt>
+      <DateEvenement>2004-12-01T00:00:00</DateEvenement>
+      <LbEvenement>Changements de statuts, red&#233;finissant les objectifs et le fonctionnement de l'association "Conf&#233;d&#233;ration des R&#233;serves Naturelles Catalanes".
+</LbEvenement>
+    </EvenementsInt>
+    <EvenementsInt>
+      <DateEvenement>2007-07-21T00:00:00</DateEvenement>
+      <LbEvenement>Changement de d&#233;nomination et de statuts: La F&#233;d&#233;ration des R&#233;serves Naturelles Catalanes est gestionnaire principal et co-gestionnaire de huit r&#233;serves naturelles du d&#233;partement des Pyr&#233;n&#233;es-Orientales, associ&#233;e &#224; des gestionnaires locaux.</LbEvenement>
+    </EvenementsInt>
+    <EvenementsInt>
+      <DateEvenement>2010-01-01T00:00:00</DateEvenement>
+      <LbEvenement>Entr&#233;e de la RNN de Conat dans la FRNC</LbEvenement>
+    </EvenementsInt>
+    <Pays>F</Pays>
+    <Tel>04 68 05 38 20</Tel>
+    <Mail>conf.reserves.catalanes@espaces-naturels.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Bdd>
+    <CdBdd>376</CdBdd>
+    <LbBdd>Base de donn&#233;e Faune Flore des R&#233;serves Naturelles Catalanes</LbBdd>
+    <DateMajBdd>2009-09-23T10:55:27</DateMajBdd>
+    <TypeBdd>
+      <CdTypeBanque>2</CdTypeBanque>
+      <LbTypeBanque>Base de donn&#233;es bureautique</LbTypeBanque>
+    </TypeBdd>
+    <EmpriseAdminBdd>
+      <LbEmpriseAdmin></LbEmpriseAdmin>
+    </EmpriseAdminBdd>
+    <MOuvrageBdd>
+      <CdIntervenant schemeAgencyID="SIRET">00-0681</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-682</IdEchangeInt>
+    </MOuvrageBdd>
+    <AdresseURLBdd></AdresseURLBdd>
+    <IdEchangeBdd schemeID="BDD" schemeAgencyID="SI_DC">00-376</IdEchangeBdd>
+    <AnneeBdd>2008</AnneeBdd>
+    <LbUsuelBdd>Base de donn&#233;es Faune Flore des RN Catalanes</LbUsuelBdd>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>Hurson</NomContact>
+      <FonctionContact>Responsable du Syst&#232;me d'Information G&#233;ographique</FonctionContact>
+      <TelephoneContact>04 68 05 3</TelephoneContact>
+      <PrenomContact>Christophe</PrenomContact>
+      <MailContact>christophe.hurson@espaces-naturels.fr</MailContact>
+      <ServiceContact>Service SIG</ServiceContact>
+    </Contact>
+    <CommBdd>Cette base stocke les observations faunistiques et floristiques r&#233;alis&#233;es sur le territoire des R&#233;serves Naturelles Catalanes (17 000 hectares; Pyr&#233;n&#233;es Orientales). L'ensemble est organis&#233; en plusieurs lots de donn&#233;es, propres &#224; une r&#233;serve particuli&#232;re, et g&#233;r&#233; &#224; l'aide du logiciel Serena d&#233;velopp&#233; par RNF.
+
+
+Au 01/10/2009, 130 000 donn&#233;es sont int&#233;gr&#233;es. Elles sont relativement  h&#233;t&#233;rog&#232;nes dans leur pr&#233;cision g&#233;ographique, les param&#232;tres relev&#233;s et protocoles utilis&#233;s.</CommBdd>
+    <EtatAvancementBdd>A</EtatAvancementBdd>
+    <DepartementBdd>
+      <CdDepartement>66</CdDepartement>
+      <LbDepartement>Pyr&#233;n&#233;es-Orientales</LbDepartement>
+    </DepartementBdd>
+    <EvenementsBdd>
+      <DateEvenement>2006-01-01T00:00:00</DateEvenement>
+      <LbEvenement>D&#233;but de la mise en place du logiciel Serena pour la collecte et le traitement des donn&#233;es d'observations faune et flore.</LbEvenement>
+    </EvenementsBdd>
+    <EvenementsBdd>
+      <DateEvenement>1999-12-31T00:00:00</DateEvenement>
+      <LbEvenement>Synth&#232;se des connaissances naturalistes (Faune/Flore/Habitats Naturels) sur les 11 R&#233;serves Naturelles des Pyr&#233;n&#233;es-Orientales : "Observatoire du patrimoine Naturel des RN Catalanes", comprenant notamment la liste des esp&#232;ces connues par r&#233;serve, diffus&#233;</LbEvenement>
+    </EvenementsBdd>
+    <TerreOuMerBdd>T</TerreOuMerBdd>
+  </Bdd>
+  <OtherInfos>
+    <php_self>http://inventaire.naturefrance.fr/presentation/consultation/popup_choix_format.php</php_self>
+    <url_xlink>http://inventaire.naturefrance.fr/</url_xlink>
+  </OtherInfos>
+  <DispositifCollecte>
+    <ExtentRdd>
+      <xmin>1.761</xmin>
+      <ymin>42.34</ymin>
+      <xmax>3.846</xmax>
+      <ymax>42.917</ymax>
+    </ExtentRdd>
+    <CodeSandreRdd></CodeSandreRdd>
+    <NomRdd>Analyse des contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999</NomRdd>
+    <MnRdd>Analyse des contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999</MnRdd>
+    <TypeRdd>
+      <CdTypeRdd>1</CdTypeRdd>
+      <LbTypeRdd>R&#233;seau de mesure</LbTypeRdd>
+    </TypeRdd>
+    <DureeRdd>
+      <CdDuree>2</CdDuree>
+      <LbDuree>Dispositif temporaire</LbDuree>
+    </DureeRdd>
+    <AnneeMisePlaceRdd>1996</AnneeMisePlaceRdd>
+    <ContactRdd>Garrigue</ContactRdd>
+    <CommentairesRdd></CommentairesRdd>
+    <NbTotalRdd>97</NbTotalRdd>
+    <DescriptionFinaliteRdd>La truite a &#233;t&#233; introduite &#224; la Massane en 1959 par le service des eaux et for&#234;t. L'apparition de cette esp&#232;ce exog&#232;ne peut perturber la fonctionnalit&#233; de l'&#233;cosyst&#232;me en impactant qualitativement et quantitativement sur la population d'invert&#233;br&#233;s.</DescriptionFinaliteRdd>
+    <TypoMilieuRss>
+      <CdTypoMilieu>15</CdTypoMilieu>
+      <LbTypoMilieu>R&#233;serve Naturelle Nationale (RNN)</LbTypoMilieu>
+    </TypoMilieuRss>
+    <DepartementRdd>
+      <CdDepartement>66</CdDepartement>
+      <LbDepartement>Pyr&#233;n&#233;es-Orientales</LbDepartement>
+    </DepartementRdd>
+    <EtatAvancementFicheRdd>Approuv&#233;</EtatAvancementFicheRdd>
+    <DateMajFicheRdd>2010-09-27T14:45:00</DateMajFicheRdd>
+    <ModeStockageRdd>
+      <CdModeStockage>3</CdModeStockage>
+      <LbModeStockage>Informatique organis&#233;</LbModeStockage>
+      <PrecisionModeStockage>BDD Serena</PrecisionModeStockage>
+    </ModeStockageRdd>
+    <AccesDonneesRdd>
+      <CdAcces>2</CdAcces>
+      <LbAcces>Restreinte</LbAcces>
+    </AccesDonneesRdd>
+    <Tarification>
+      <CdTarification>3</CdTarification>
+      <LbTarification>Co&#251;t de la mise &#224; disposition</LbTarification>
+    </Tarification>
+    <ModeDiffusionRdd>
+      <ModeDiffusion>
+        <CdModeTransmission>2</CdModeTransmission>
+        <LbModeTransmission>Support informatique</LbModeTransmission>
+      </ModeDiffusion>
+    </ModeDiffusionRdd>
+    <BddRdd>
+      <Bdd>
+        <CdBdd>376</CdBdd>
+        <MOuvrageBdd>
+          <CdIntervenant schemeAgencyID="SIRET">00-0681</CdIntervenant>
+          <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-682</IdEchangeInt>
+        </MOuvrageBdd>
+        <IdEchangeBdd schemeID="BDD" schemeAgencyID="SI_DC">00-376</IdEchangeBdd>
+      </Bdd>
+    </BddRdd>
+    <EmpriseAdminRdd>
+      <CdEmpriseAdmin>6</CdEmpriseAdmin>
+      <LbEmpriseAdmin>D&#233;partemental ou intercommunal</LbEmpriseAdmin>
+    </EmpriseAdminRdd>
+    <EvenementsRdd>
+      <DateEvenement>1959-01-01</DateEvenement>
+      <LbEvenement>Introduction de la truite &#224; la Massane</LbEvenement>
+    </EvenementsRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>1</CdTypeQualite>
+        <LbTypeQualite>D&#233;marche qualit&#233; pour le pr&#233;l&#232;vement ou la collecte</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>10</CdMethodeQualite>
+        <LbMethodeQualite>Enqu&#234;tes / entretiens</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>2</CdTypeQualite>
+        <LbTypeQualite>Plans d'echantillonage</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>M1</CdMethodeQualite>
+        <LbMethodeQualite>Aucun</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">FA</CdSupport>
+        <LbSupport>Faune</LbSupport>
+      </Support>
+      <FrequenceAnalyse>au cours des p&#233;riodes d'ouverture de la p&#234;che</FrequenceAnalyse>
+      <DescriptifParametres>- Truites : Taille et sexes
+- D&#233;termination des contenus stomacaux  sous loupe binoculaire</DescriptifParametres>
+      <ResolutionParametres></ResolutionParametres>
+      <FrequenceActualisation>tous les ans</FrequenceActualisation>
+      <DescriptifTaxon>Truite et invert&#233;br&#233;s dont elle se nourrit</DescriptifTaxon>
+    </SupportRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOE">
+        <CdIntervenant schemeAgencyID="SIRET">00-0683</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-684</IdEchangeInt>
+      </Intervenant>
+      <DateDebutIntervenant>1996-01-01</DateDebutIntervenant>
+      <DateFinIntervenant>1999-12-31</DateFinIntervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="POC">
+        <CdIntervenant schemeAgencyID="SIRET">00-0683</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-684</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="COL">
+        <CdIntervenant schemeAgencyID="SIRET">00-0683</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-684</IdEchangeInt>
+      </Intervenant>
+      <PrecisionServiceIntervenant>Participation volontaire des p&#234;cheurs qui donne les estomacs des truites p&#234;ch&#233;es.</PrecisionServiceIntervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOU">
+        <CdIntervenant schemeAgencyID="SIRET">00-0683</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-684</IdEchangeInt>
+      </Intervenant>
+      <DateDebutIntervenant>1996-01-01</DateDebutIntervenant>
+      <DateFinIntervenant>1999-12-21</DateFinIntervenant>
+    </IntervenantRdd>
+    <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-1497</IdEchangeRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-09-28T10:47:35</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Analyse des contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999 a &#233;t&#233; rendu visible.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-09-27T14:45:02</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Analyse des contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999 a &#233;t&#233; approuv&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-09-22T11:29:52</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Analyse de contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999 a &#233;t&#233; valid&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte Nature DREAL Languedoc-Roussillon</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-07-28T11:29:08</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Analyse de contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999 a &#233;t&#233; rendu provisoire.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Christophe Hurson</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-07-28T11:28:28</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>1</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Analyse de contenus stomacaux de truite sur la R&#233;serve de la Massane de 1996 &#224; 1999 de type R&#233;seau de mesure est cr&#233;&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Christophe Hurson</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword></keyword>
+        <type>environnement</type>
+        <codeMotCle>http://geonetwork-opensource.org/environnement#1205</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>MACROALGUE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://inventaire.naturefrance.fr/environnement#31</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword></keyword>
+        <type>environnement</type>
+        <codeMotCle>http://geonetwork-opensource.org/environnement#101</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <terre_ou_mer>T</terre_ou_mer>
+    <keyword>Terrestre</keyword>
+    <PrecisionNbTotalRdd>A l&#92;'echelle de la rivi&#232;re</PrecisionNbTotalRdd>
+    <precisionTerritoire>R&#233;serve Naturelle de la for&#234;t de la Massane</precisionTerritoire>
+    <EtatActivite>
+      <CdEtatActivite>2</CdEtatActivite>
+      <LbEtatActivite>Termin&#233;</LbEtatActivite>
+    </EtatActivite>
+    <Thematique19115>
+      <CdThematique19115>02</CdThematique19115>
+      <LbThematique19115>Flore et faune</LbThematique19115>
+    </Thematique19115>
+    <LanguesDonnees>
+      <CdLangue>fra</CdLangue>
+      <LbLangue>Fran&#231;ais</LbLangue>
+    </LanguesDonnees>
+    <GeoReferencement>true</GeoReferencement>
+    <RefGeographiques>
+      <CdRefMetier>9</CdRefMetier>
+      <LbRefMetier>Scan 25 IGN</LbRefMetier>
+    </RefGeographiques>
+    <CRS>
+      <CdCRS>27573</CdCRS>
+      <LbCRS>NTF (Paris) / Lambert zone III (Sud)</LbCRS>
+    </CRS>
+    <ConditionsUtilisation></ConditionsUtilisation>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>Garrigue</NomContact>
+      <FonctionContact>Conservateur RNN Massane</FonctionContact>
+      <TelephoneContact>04 68 88 12 18</TelephoneContact>
+      <PrenomContact>Joseph</PrenomContact>
+      <MailContact>massane.rn@free.fr</MailContact>
+    </Contact>
+    <PrProducteur>Participation volontaire des p&#234;cheurs qui donne les estomacs des truites p&#234;ch&#233;es.</PrProducteur>
+    <Publications>
+      <IdDoc>0</IdDoc>
+      <AuteurDoc>Garrigue J, Trav&#233; J.,</AuteurDoc>
+      <TitreDoc>Analyse de contenus stomacaux de truite sur la R&#233;serve Naturelle de la Massane de 1996 &#224; 1999.</TitreDoc>
+      <AnneeDoc>2000</AnneeDoc>
+      <FrequenceDoc>Lorsque n&#233;cessaire</FrequenceDoc>
+      <FrequenceCodeDoc>00</FrequenceCodeDoc>
+      <TitreVolDoc>Travaux de la R&#233;serve Naturelle de la for&#234;t de la Massane</TitreVolDoc>
+      <VolumeDoc>56</VolumeDoc>
+      <PageDoc>16 p.</PageDoc>
+    </Publications>
+    <Responsable>
+      <CdResponsable>hurson</CdResponsable>
+      <NomResponsable>Christophe Hurson</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>F&#233;d&#233;ration des R&#233;serves Naturelles Catalanes</OrganismeResponsable>
+      <ServiceResponsable>SIG et animation scientifique</ServiceResponsable>
+      <NomInternationalResponsable>Christophe Hurson</NomInternationalResponsable>
+      <URLWeb>christophe.hurson@espaces-naturels.fr</URLWeb>
+      <RueResponsable>R&#233;serves Naturelles Catalanes
+24, rue Jean Jaur&#232;s</RueResponsable>
+      <VilleResponsable>PRADES</VilleResponsable>
+      <CPResponsable>66500</CPResponsable>
+      <RegionResponsable>91</RegionResponsable>
+      <Tel>04 68 05 38 20</Tel>
+      <Mail>christophe.hurson@espaces-naturels.fr</Mail>
+    </Responsable>
+    <DataDesc></DataDesc>
+    <DataIdentifier></DataIdentifier>
+    <DataKwInspire></DataKwInspire>
+    <DataNom></DataNom>
+    <Genealogie></Genealogie>
+    <DispositifAssocie>
+      <IdReseauPere></IdReseauPere>
+      <LibelleReseauPere></LibelleReseauPere>
+    </DispositifAssocie>
+    <Utilisateur>
+      <nomPrenom>Hurson Christophe</nomPrenom>
+      <fonction>F&#233;d&#233;ration des R&#233;serves Naturelles Catalanes</fonction>
+    </Utilisateur>
+  </DispositifCollecte>
+</SI_DC>

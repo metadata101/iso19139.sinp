@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <skos:ConceptScheme
+          rdf:about="http://inventaire.naturefrance.fr/thesaurus/sinp/plan-d-echantillonnage">
+    <dc:title>Plan d'échantillonnage</dc:title>
+    <dc:description/>
+    <dcterms:issued>2015-11-27</dcterms:issued>
+    <dcterms:modified>2015-11-27</dcterms:modified>
+  </skos:ConceptScheme>
+  <skos:Concept
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/plan-d-echantillonnage#aucun'>
+    <skos:prefLabel xml:lang='fr'>Aucun</skos:prefLabel>
+    <skos:definition xml:lang='fr'></skos:definition>
+  </skos:Concept>
+  <skos:Concept
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/plan-d-echantillonnage#aleatoire'>
+    <skos:prefLabel xml:lang='fr'>Aléatoire</skos:prefLabel>
+    <skos:definition xml:lang='fr'>Dans un échantillonnage aléatoire, toutes les
+      combinaisons possibles d’unités d’échantillonnage tirées de la population
+      ont les mêmes chances d’être sélectionnées. Dans la pratique, la sélection
+      d’un échantillon aléatoire se fait unité par unité, soit par tirage, soit
+      au moyen de tables de nombres aléatoires
+    </skos:definition>
+  </skos:Concept>
+  <skos:Concept
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/plan-d-echantillonnage#spatial'>
+    <skos:prefLabel xml:lang='fr'>Spatial</skos:prefLabel>
+    <skos:definition xml:lang='fr'>L'échantillonnage spatial est représenté par
+      la méthode des unités types qui consiste à diviser la population (le
+      paysage par exemple) en un certain nombre de sous-unités homogènes. Ce
+      type de méthode est assez courant en télédétection lorsqu’il s’agit de
+      qualifier des paysages ou de réaliser une couverture d’occupation du sol.
+    </skos:definition>
+  </skos:Concept>
+  <skos:Concept
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/plan-d-echantillonnage#stratifie'>
+    <skos:prefLabel xml:lang='fr'>Stratifié</skos:prefLabel>
+    <skos:definition xml:lang='fr'>Un échantillonnage stratifié permet de
+      diviser une population hétérogène en sous-populations appelées strates,
+      constituées d’éléments homogènes.
+      L’échantillonnage stratifié donne une meilleure section transversale de la
+      population que la procédure d’échantillonnage aléatoire simple
+    </skos:definition>
+  </skos:Concept>
+</rdf:RDF>
+

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0644</CdIntervenant>
+    <NomIntervenant>Agence de l'eau Seine-Normandie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2007-08-13</DateCreationIntervenant>
+    <DateMajIntervenant>2008-03-06T11:48:52</DateMajIntervenant>
+    <RueIntervenant>51 rue Salvador Allende</RueIntervenant>
+    <VilleIntervenant>NANTERRE</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>92027</CPIntervenant>
+    <NomInternationalIntervenant>AESN</NomInternationalIntervenant>
+    <URLWeb>http://www.aesn.fr</URLWeb>
+    <StructureMere>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">3</IdEchangeInt>
+      <NomIntervenant>Minist&#232;re de l'Ecologie,  du D&#233;veloppement Durable et de l'Energie</NomIntervenant>
+    </StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-645</IdEchangeInt>
+    <Statut>4</Statut>
+    <LbStatut>Etablissement public de l'Etat</LbStatut>
+    <StructureMere>
+      <CdIntervenant schemeAgencyID="SIRET">00-0003</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-3</IdEchangeInt>
+    </StructureMere>
+    <RegionInt>
+      <CdRegion>11</CdRegion>
+      <LbRegion>Ile-de-France</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>21</CdRegion>
+      <LbRegion>Champagne-Ardenne</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>22</CdRegion>
+      <LbRegion>Picardie</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>23</CdRegion>
+      <LbRegion>Haute-Normandie</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>24</CdRegion>
+      <LbRegion>Centre</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>25</CdRegion>
+      <LbRegion>Basse-Normandie</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>26</CdRegion>
+      <LbRegion>Bourgogne</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>41</CdRegion>
+      <LbRegion>Lorraine</LbRegion>
+    </RegionInt>
+    <Pays>FRANCE</Pays>
+    <Tel>0141201600</Tel>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0003</CdIntervenant>
+    <NomIntervenant>Minist&#232;re de l'Ecologie,  du D&#233;veloppement Durable et de l'Energie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2006-10-05</DateCreationIntervenant>
+    <DateMajIntervenant>2010-08-26T11:05:16</DateMajIntervenant>
+    <RueIntervenant></RueIntervenant>
+    <VilleIntervenant>La D&#233;fense Cedex</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant> 92055</CPIntervenant>
+    <NomInternationalIntervenant>MEDDE</NomInternationalIntervenant>
+    <URLWeb>http://www.developpement-durable.gouv.fr</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-3</IdEchangeInt>
+    <Statut>5</Statut>
+    <LbStatut>Etat</LbStatut>
+    <RegionInt>
+      <CdRegion>FR</CdRegion>
+      <LbRegion>France enti&#232;re</LbRegion>
+    </RegionInt>
+    <Pays>France</Pays>
+    <Tel>0140812122</Tel>
+    <Mail>x@x.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1627</CdIntervenant>
+    <NomIntervenant>Conseil G&#233;n&#233;ral de l'Eure</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2010-07-19</DateCreationIntervenant>
+    <DateMajIntervenant>2011-02-04T12:10:48</DateMajIntervenant>
+    <RueIntervenant>6 boulevard Georges Chauvin</RueIntervenant>
+    <VilleIntervenant>Evreux</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>27000</CPIntervenant>
+    <NomInternationalIntervenant>CG 27</NomInternationalIntervenant>
+    <URLWeb>http://www.eure-en-ligne.fr/cg27/</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1649</IdEchangeInt>
+    <Statut>2</Statut>
+    <LbStatut>Collectivit&#233; territoriale</LbStatut>
+    <DepartementInt>
+      <CdDepartement>27</CdDepartement>
+      <LbDepartement>Eure</LbDepartement>
+    </DepartementInt>
+    <Pays>France</Pays>
+    <Tel>02.32.31.50.50</Tel>
+    <Mail>prenom.nom@cg27.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1310</CdIntervenant>
+    <NomIntervenant>Conseil G&#233;n&#233;ral de Seine-Maritime</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2009-02-04</DateCreationIntervenant>
+    <DateMajIntervenant>2011-01-13T17:07:31</DateMajIntervenant>
+    <RueIntervenant>H&#244;tel du D&#233;partement - Quai Jean Moulin</RueIntervenant>
+    <VilleIntervenant>Rouen</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>76101</CPIntervenant>
+    <URLWeb>http://www.seinemaritime.net</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1313</IdEchangeInt>
+    <Statut>2</Statut>
+    <LbStatut>Collectivit&#233; territoriale</LbStatut>
+    <DepartementInt>
+      <CdDepartement>76</CdDepartement>
+      <LbDepartement>Seine-Maritime</LbDepartement>
+    </DepartementInt>
+    <Pays>FRANCE</Pays>
+    <Tel>02.35.03.55.55</Tel>
+    <Mail>prenom.nom@cg76.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1537</CdIntervenant>
+    <NomIntervenant>Conseil R&#233;gional de Haute-Normandie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2010-04-01</DateCreationIntervenant>
+    <DateMajIntervenant>2010-05-26T10:02:31</DateMajIntervenant>
+    <RueIntervenant>5 rue Robert Schuman</RueIntervenant>
+    <VilleIntervenant>Rouen</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>76000</CPIntervenant>
+    <NomInternationalIntervenant>CRHN</NomInternationalIntervenant>
+    <URLWeb>http://www.hautenormandie.fr/</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1553</IdEchangeInt>
+    <Statut>2</Statut>
+    <LbStatut>Collectivit&#233; territoriale</LbStatut>
+    <DepartementInt>
+      <CdDepartement>27</CdDepartement>
+      <LbDepartement>Eure</LbDepartement>
+    </DepartementInt>
+    <DepartementInt>
+      <CdDepartement>76</CdDepartement>
+      <LbDepartement>Seine-Maritime</LbDepartement>
+    </DepartementInt>
+    <Pays>France</Pays>
+    <Tel>02.35.52.56.00</Tel>
+    <Mail>sylvie.brugot@cr-haute-normandie.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+    <NomIntervenant>Conservatoire d'Espaces Naturels de Haute-Normandie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2010-05-19</DateCreationIntervenant>
+    <DateMajIntervenant>2012-09-14T17:07:17</DateMajIntervenant>
+    <RueIntervenant>rue Pierre de Coubertin</RueIntervenant>
+    <VilleIntervenant>Saint-Etienne-du-Rouvray cedex</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>76805</CPIntervenant>
+    <NomInternationalIntervenant>CENHN</NomInternationalIntervenant>
+    <URLWeb>http://www.cren-haute-normandie.com/</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <RegionInt>
+      <CdRegion>23</CdRegion>
+      <LbRegion>Haute-Normandie</LbRegion>
+    </RegionInt>
+    <Pays>France</Pays>
+    <Tel>02.35.65.47.10</Tel>
+    <Mail>conservatoiredessites@cren-haute-normandie.com</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0643</CdIntervenant>
+    <NomIntervenant>Direction R&#233;gionale de l'Environnement, de l'Am&#233;nagement et du Logement de Haute-Normandie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2007-08-07</DateCreationIntervenant>
+    <DateMajIntervenant>2010-07-27T11:03:09</DateMajIntervenant>
+    <RueIntervenant>1 rue Dufay</RueIntervenant>
+    <VilleIntervenant>Rouen</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>76100</CPIntervenant>
+    <NomInternationalIntervenant>DREAL Haute-Normandie</NomInternationalIntervenant>
+    <URLWeb>http://www.haute-normandie.developpement-durable.gouv.fr</URLWeb>
+    <StructureMere>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">3</IdEchangeInt>
+      <NomIntervenant>Minist&#232;re de l'Ecologie,  du D&#233;veloppement Durable et de l'Energie</NomIntervenant>
+    </StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-644</IdEchangeInt>
+    <Statut>5</Statut>
+    <LbStatut>Etat</LbStatut>
+    <StructureMere>
+      <CdIntervenant schemeAgencyID="SIRET">00-0003</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-3</IdEchangeInt>
+    </StructureMere>
+    <DepartementInt>
+      <CdDepartement>27</CdDepartement>
+      <LbDepartement>Eure</LbDepartement>
+    </DepartementInt>
+    <DepartementInt>
+      <CdDepartement>76</CdDepartement>
+      <LbDepartement>Seine-Maritime</LbDepartement>
+    </DepartementInt>
+    <Pays>France</Pays>
+    <Tel>02.32.81.35.80</Tel>
+    <Mail>dreal-HNormandie@developpement-durable.gouv.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0003</CdIntervenant>
+    <NomIntervenant>Minist&#232;re de l'Ecologie,  du D&#233;veloppement Durable et de l'Energie</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2006-10-05</DateCreationIntervenant>
+    <DateMajIntervenant>2010-08-26T11:05:16</DateMajIntervenant>
+    <RueIntervenant></RueIntervenant>
+    <VilleIntervenant>La D&#233;fense Cedex</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant> 92055</CPIntervenant>
+    <NomInternationalIntervenant>MEDDE</NomInternationalIntervenant>
+    <URLWeb>http://www.developpement-durable.gouv.fr</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-3</IdEchangeInt>
+    <Statut>5</Statut>
+    <LbStatut>Etat</LbStatut>
+    <RegionInt>
+      <CdRegion>FR</CdRegion>
+      <LbRegion>France enti&#232;re</LbRegion>
+    </RegionInt>
+    <Pays>France</Pays>
+    <Tel>0140812122</Tel>
+    <Mail>x@x.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-0004</CdIntervenant>
+    <NomIntervenant>Union Europ&#233;enne</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2006-10-05</DateCreationIntervenant>
+    <DateMajIntervenant>2010-08-26T17:21:39</DateMajIntervenant>
+    <RueIntervenant></RueIntervenant>
+    <VilleIntervenant>Bruxelles</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>inconnu</CPIntervenant>
+    <NomInternationalIntervenant>UE</NomInternationalIntervenant>
+    <URLWeb>http://europa.eu/index_fr.htm</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-4</IdEchangeInt>
+    <Statut>10</Statut>
+    <LbStatut>Union Europ&#233;enne</LbStatut>
+    <RegionInt>
+      <CdRegion>FR</CdRegion>
+      <LbRegion>France enti&#232;re</LbRegion>
+    </RegionInt>
+    <Pays>Belgique</Pays>
+    <Tel>00800 6 7 8 9 10 11</Tel>
+    <Mail>ue@ue</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Bdd>
+    <CdBdd>605</CdBdd>
+    <LbBdd>Base de donn&#233;es naturalistes du Conservatoire d'Espaces Naturels de Haute-Normandie</LbBdd>
+    <DateMajBdd>2012-09-14T17:01:46</DateMajBdd>
+    <TypeBdd>
+      <CdTypeBanque>2</CdTypeBanque>
+      <LbTypeBanque>Base de donn&#233;es bureautique</LbTypeBanque>
+    </TypeBdd>
+    <EmpriseAdminBdd>
+      <LbEmpriseAdmin></LbEmpriseAdmin>
+    </EmpriseAdminBdd>
+    <ExploitantBdd>
+      <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+    </ExploitantBdd>
+    <MOuvrageBdd>
+      <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+    </MOuvrageBdd>
+    <AdresseURLBdd></AdresseURLBdd>
+    <IdEchangeBdd schemeID="BDD" schemeAgencyID="SI_DC">00-605</IdEchangeBdd>
+    <AnneeBdd>2012</AnneeBdd>
+    <LbUsuelBdd></LbUsuelBdd>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>Bouteiller</NomContact>
+      <FonctionContact>Charg&#233; de mission SI et R&#233;seau</FonctionContact>
+      <TelephoneContact></TelephoneContact>
+      <PrenomContact>Charles</PrenomContact>
+      <MailContact>c.bouteiller@cren-haute-normandie.com</MailContact>
+      <ServiceContact></ServiceContact>
+    </Contact>
+    <CommBdd>Logiciel utilis&#233; : SERENA</CommBdd>
+    <EtatAvancementBdd>A</EtatAvancementBdd>
+    <RegionBdd>
+      <CdRegion>23</CdRegion>
+      <LbRegion>Haute-Normandie</LbRegion>
+    </RegionBdd>
+    <TerreOuMerBdd>T</TerreOuMerBdd>
+  </Bdd>
+  <OtherInfos>
+    <php_self>http://inventaire.naturefrance.fr/presentation/consultation/popup_choix_format.php</php_self>
+    <url_xlink>http://inventaire.naturefrance.fr/</url_xlink>
+  </OtherInfos>
+  <DispositifCollecte>
+    <ExtentRdd>
+      <xmin>-0.326</xmin>
+      <ymin>48.657</ymin>
+      <xmax>1.792</xmax>
+      <ymax>50.156</ymax>
+    </ExtentRdd>
+    <CodeSandreRdd></CodeSandreRdd>
+    <NomRdd>Etat des lieux sur la faune, la flore et les habitats des sites naturels g&#233;r&#233;s par le CEN Haute-Normandie</NomRdd>
+    <MnRdd></MnRdd>
+    <TypeRdd>
+      <CdTypeRdd>1</CdTypeRdd>
+      <LbTypeRdd>R&#233;seau de mesure</LbTypeRdd>
+    </TypeRdd>
+    <DureeRdd>
+      <CdDuree>1</CdDuree>
+      <LbDuree>Dispositif p&#233;renne</LbDuree>
+    </DureeRdd>
+    <AnneeMisePlaceRdd>1993</AnneeMisePlaceRdd>
+    <ContactRdd>Vochelet</ContactRdd>
+    <CommentairesRdd>Certaines communes, communaut&#233;s de communes et entreprises priv&#233;es de Haute-Normandie sont financeurs de ce dispositif.
+Programme europ&#233;en LIFE et FEDER</CommentairesRdd>
+    <NbTotalRdd>90</NbTotalRdd>
+    <DescriptionFinaliteRdd>&#201;tat initial r&#233;alis&#233; lors de la prise en charge par le CEN d'un site naturel, comprenant la d&#233;termination d'une liste des esp&#232;ces, une cartographie des formations v&#233;g&#233;tales, et la localisation des esp&#232;ces exotiques envahissantes et des esp&#232;ces patrimoniales. Cet &#233;tat initial est actualis&#233; tous les 6 ans.</DescriptionFinaliteRdd>
+    <TypoMilieuRss>
+      <CdTypoMilieu>23</CdTypoMilieu>
+      <LbTypoMilieu>Sites g&#233;r&#233;s par les Conservatoires d'espaces naturels (CEN)</LbTypoMilieu>
+    </TypoMilieuRss>
+    <EtatAvancementFicheRdd>Approuv&#233;</EtatAvancementFicheRdd>
+    <DateMajFicheRdd>2013-09-18T15:23:03</DateMajFicheRdd>
+    <ModeStockageRdd>
+      <CdModeStockage>2</CdModeStockage>
+      <LbModeStockage>Informatique non organis&#233;</LbModeStockage>
+      <PrecisionModeStockage>les donn&#233;es r&#233;colt&#233;es sont stock&#233;es sous forme de listes d&#146;esp&#232;ces (excel ou word) mises &#224; jour r&#233;guli&#232;rement lors des ann&#233;es suivantes et int&#233;gr&#233;es &#224; un document global appell&#233; &#92;"fichier de site&#92;"</PrecisionModeStockage>
+    </ModeStockageRdd>
+    <AccesDonneesRdd>
+      <CdAcces>2</CdAcces>
+      <LbAcces>Restreinte</LbAcces>
+    </AccesDonneesRdd>
+    <Tarification>
+      <CdTarification>1</CdTarification>
+      <LbTarification>Gratuit</LbTarification>
+    </Tarification>
+    <Tarification>
+      <CdTarification>3</CdTarification>
+      <LbTarification>Co&#251;t de la mise &#224; disposition</LbTarification>
+    </Tarification>
+    <BddRdd>
+      <Bdd>
+        <CdBdd>605</CdBdd>
+        <MOuvrageBdd>
+          <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+          <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+        </MOuvrageBdd>
+        <IdEchangeBdd schemeID="BDD" schemeAgencyID="SI_DC">00-605</IdEchangeBdd>
+      </Bdd>
+    </BddRdd>
+    <EmpriseAdminRdd>
+      <CdEmpriseAdmin>5</CdEmpriseAdmin>
+      <LbEmpriseAdmin>R&#233;gional</LbEmpriseAdmin>
+    </EmpriseAdminRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>1</CdTypeQualite>
+        <LbTypeQualite>D&#233;marche qualit&#233; pour le pr&#233;l&#232;vement ou la collecte</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>5</CdMethodeQualite>
+        <LbMethodeQualite>Observation directe</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">FA</CdSupport>
+        <LbSupport>Faune</LbSupport>
+      </Support>
+      <FrequenceAnalyse></FrequenceAnalyse>
+      <DescriptifParametres>Pr&#233;sence de l'esp&#232;ce</DescriptifParametres>
+      <ResolutionParametres>au site</ResolutionParametres>
+      <FrequenceActualisation>6 ans</FrequenceActualisation>
+      <DescriptifTaxon>Groupes g&#233;n&#233;ralement &#233;tudi&#233;s : Oiseaux, Insectes (Rhopaloc&#232;res, Orthopt&#232;res, Odonates), Reptiles, Amphibiens</DescriptifTaxon>
+    </SupportRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">FL</CdSupport>
+        <LbSupport>Flore</LbSupport>
+      </Support>
+      <FrequenceAnalyse></FrequenceAnalyse>
+      <DescriptifParametres>Pr&#233;sence de l'esp&#232;ce / Localisation et parfois effectifs pour les esp&#232;ces patrimoniales</DescriptifParametres>
+      <ResolutionParametres>Au site pour la liste exhaustive des esp&#232;ces / localisation pr&#233;cise (GPS ou sur photographie a&#233;rienne) pour les esp&#232;ces patrimoniales</ResolutionParametres>
+      <FrequenceActualisation>6 ans</FrequenceActualisation>
+      <DescriptifTaxon>Liste exhaustive des esp&#232;ces (non g&#233;olocalis&#233;) / Esp&#232;ces patrimoniales (g&#233;olocalis&#233;)</DescriptifTaxon>
+    </SupportRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">HA</CdSupport>
+        <LbSupport>Habitats</LbSupport>
+      </Support>
+      <FrequenceAnalyse></FrequenceAnalyse>
+      <DescriptifParametres>Contour de la formation v&#233;g&#233;tale, par cheminement progressif ou digitalisation manuelle sur fond de carte</DescriptifParametres>
+      <ResolutionParametres>1/2.000e</ResolutionParametres>
+      <FrequenceActualisation>6 ans</FrequenceActualisation>
+      <DescriptifTaxon></DescriptifTaxon>
+    </SupportRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-0644</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-645</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-1627</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1649</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-1310</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1313</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-1537</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1553</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="COL">
+        <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+      </Intervenant>
+      <PrecisionServiceIntervenant>Partenariat avec le Groupe Mammalogique Normand et la Ligue de Protection des Oiseaux de Haute-Normandie pour certains sites sp&#233;cifiques.</PrecisionServiceIntervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOU">
+        <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOE">
+        <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="POC">
+        <CdIntervenant schemeAgencyID="SIRET">00-1567</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1589</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-0643</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-644</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="FIN">
+        <CdIntervenant schemeAgencyID="SIRET">00-0004</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-4</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-1328</IdEchangeRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2013-09-18T16:02:25</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Etat des lieux sur la faune, la flore et les habitats des sites naturels g&#233;r&#233;s par le CEN Haute-Normandie a &#233;t&#233; rendu visible.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2013-09-18T15:23:05</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Etat des lieux sur la faune, la flore et les habitats des sites naturels g&#233;r&#233;s par le CEN Haute-Normandie a &#233;t&#233; approuv&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2013-09-18T02:09:15</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Etat des lieux sur la faune, la flore et les habitats des sites naturels g&#233;r&#233;s par le CEN Haute-Normandie a &#233;t&#233; valid&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte IDCNP Observatoire de la Biodiversit&#233; de Haute-Normandie</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2013-07-04T17:34:22</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Etat des lieux sur la faune, la flore et les habitats des sites naturels de Haute-Normandie a &#233;t&#233; rendu provisoire.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte Nature DREAL Haute-Normandie</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2010-05-19T11:40:00</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>1</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Etat des lieux sur la faune et la flore et les habitats des sites naturels de Haute-Normandie de type R&#233;seau de mesure est cr&#233;&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte Nature DREAL Haute-Normandie</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword></keyword>
+        <type>environnement</type>
+        <codeMotCle>http://geonetwork-opensource.org/environnement#202</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword></keyword>
+        <type>environnement</type>
+        <codeMotCle>http://geonetwork-opensource.org/environnement#205</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <terre_ou_mer>T</terre_ou_mer>
+    <keyword>Terrestre</keyword>
+    <PrecisionNbTotalRdd>pr&#232;s de 85 des 90 sites font l'objet d'un &#233;tat initial complet</PrecisionNbTotalRdd>
+    <precisionTerritoire>90 sites g&#233;r&#233;s par le CENHN (en 2013)</precisionTerritoire>
+    <EtatActivite>
+      <CdEtatActivite>1</CdEtatActivite>
+      <LbEtatActivite>Toujours actif</LbEtatActivite>
+    </EtatActivite>
+    <Thematique19115>
+      <CdThematique19115>02</CdThematique19115>
+      <LbThematique19115>Flore et faune</LbThematique19115>
+    </Thematique19115>
+    <RegionRdd>
+      <CdRegion>23</CdRegion>
+      <LbRegion>Haute-Normandie</LbRegion>
+    </RegionRdd>
+    <LanguesDonnees>
+      <CdLangue>fra</CdLangue>
+      <LbLangue>Fran&#231;ais</LbLangue>
+    </LanguesDonnees>
+    <RefMilieux>
+      <CdRefMetier>10</CdRefMetier>
+      <LbRefMetier>Cahiers d'habitat Natura 2000</LbRefMetier>
+    </RefMilieux>
+    <RefMilieux>
+      <CdRefMetier>11</CdRefMetier>
+      <LbRefMetier>R&#233;f&#233;rentiel sp&#233;cifique utilis&#233; en interne</LbRefMetier>
+    </RefMilieux>
+    <RefMilieux>
+      <CdRefMetier>3</CdRefMetier>
+      <LbRefMetier>EUR 15 / EUR 25 / EUR 27</LbRefMetier>
+    </RefMilieux>
+    <RefMilieux>
+      <CdRefMetier>8</CdRefMetier>
+      <LbRefMetier>Prodrome des v&#233;g&#233;tations de France</LbRefMetier>
+    </RefMilieux>
+    <RefTaxons>
+      <CdRefMetier>40</CdRefMetier>
+      <LbRefMetier>Annexes de la Directive Oiseaux</LbRefMetier>
+    </RefTaxons>
+    <RefTaxons>
+      <CdRefMetier>41</CdRefMetier>
+      <LbRefMetier>Annexes de la Directive Habitats</LbRefMetier>
+    </RefTaxons>
+    <RefTaxons>
+      <CdRefMetier>43</CdRefMetier>
+      <LbRefMetier>Inventaire de la flore vasculaire de Haute-Normandie (CBNBL, 2005)</LbRefMetier>
+    </RefTaxons>
+    <RefTaxons>
+      <CdRefMetier>5</CdRefMetier>
+      <LbRefMetier>Fauna Europaea (v.1.2 du 7 mars 2005)</LbRefMetier>
+    </RefTaxons>
+    <RefTaxons>
+      <CdRefMetier>50</CdRefMetier>
+      <LbRefMetier>Inventaire de la flore vasculaire de Haute-Normandie (CBNBL, 2012)</LbRefMetier>
+    </RefTaxons>
+    <GeoReferencement>true</GeoReferencement>
+    <RefGeographiques>
+      <CdRefMetier>1</CdRefMetier>
+      <LbRefMetier>Coordonn&#233;es GPS</LbRefMetier>
+    </RefGeographiques>
+    <RefGeographiques>
+      <CdRefMetier>3</CdRefMetier>
+      <LbRefMetier>BD Ortho</LbRefMetier>
+    </RefGeographiques>
+    <CRS>
+      <CdCRS>2154</CdCRS>
+      <LbCRS>Lambert 93</LbCRS>
+    </CRS>
+    <ConditionsUtilisation>accord avec le CENHN</ConditionsUtilisation>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>Vochelet</NomContact>
+      <FonctionContact>Coordinateur scientifique</FonctionContact>
+      <TelephoneContact>02.35.65.47.14</TelephoneContact>
+      <PrenomContact>Emmanuel</PrenomContact>
+      <MailContact>e.vochelet@cren-haute-normandie.com</MailContact>
+    </Contact>
+    <PrProducteur>Partenariat avec le Groupe Mammalogique Normand et la Ligue de Protection des Oiseaux de Haute-Normandie pour certains sites sp&#233;cifiques.</PrProducteur>
+    <Responsable>
+      <CdResponsable>CSNHN</CdResponsable>
+      <NomResponsable>Charles Bouteiller</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>Conservatoire d'Espaces Naturels de Haute-Normandie</OrganismeResponsable>
+      <ServiceResponsable>Administration de donn&#233;es</ServiceResponsable>
+      <NomInternationalResponsable>Charles Bouteiller</NomInternationalResponsable>
+      <URLWeb>c.bouteiller@cren-haute-normandie.com</URLWeb>
+      <RueResponsable>rue Pierre de Coubertin
+BP 424</RueResponsable>
+      <VilleResponsable>Saint-Etienne-du-Rouvray</VilleResponsable>
+      <CPResponsable>76805</CPResponsable>
+      <RegionResponsable>23</RegionResponsable>
+      <Tel>0235654260</Tel>
+      <Mail>c.bouteiller@cren-haute-normandie.com</Mail>
+    </Responsable>
+    <Responsable>
+      <CdResponsable>kmoreno</CdResponsable>
+      <NomResponsable>Karine Moreno</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>OBHN</OrganismeResponsable>
+      <ServiceResponsable></ServiceResponsable>
+      <NomInternationalResponsable>Karine Moreno</NomInternationalResponsable>
+      <URLWeb>karine.moreno@cr-haute-normandie.fr</URLWeb>
+      <RueResponsable>H&#244;tel de R&#233;gion
+5 rue Robert Schuman</RueResponsable>
+      <VilleResponsable>Rouen</VilleResponsable>
+      <CPResponsable>76174</CPResponsable>
+      <RegionResponsable>23</RegionResponsable>
+      <Tel>02 32 76 86 05</Tel>
+      <Mail>karine.moreno@cr-haute-normandie.fr</Mail>
+    </Responsable>
+    <DataDesc></DataDesc>
+    <DataIdentifier></DataIdentifier>
+    <DataKwInspire></DataKwInspire>
+    <DataNom></DataNom>
+    <Genealogie></Genealogie>
+    <DispositifAssocie>
+      <IdReseauPere></IdReseauPere>
+      <LibelleReseauPere></LibelleReseauPere>
+    </DispositifAssocie>
+    <Utilisateur>
+      <nomPrenom>Bouteiller Charles</nomPrenom>
+      <fonction>Conservatoire d'Espaces Naturels de Haute-Normandie</fonction>
+    </Utilisateur>
+  </DispositifCollecte>
+</SI_DC>

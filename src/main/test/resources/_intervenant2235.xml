@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd">
+  <Intervenant>
+    <Utilisateur>
+      <nomPrenom>Emont Sophie</nomPrenom>
+      <fonction>PNR du Haut -Languedoc</fonction>
+    </Utilisateur>
+    <CdIntervenant schemeAgencyID="SIRET">00-2120</CdIntervenant>
+    <NomIntervenant> Centre Permanent d'Initiative pour l'Environnement du Haut Languedoc</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2014-01-06</DateCreationIntervenant>
+    <DateMajIntervenant>2014-09-02T09:49:35</DateMajIntervenant>
+    <RueIntervenant>Les Bouldou&#239;res </RueIntervenant>
+    <VilleIntervenant>la salvetat sur agout</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>34330</CPIntervenant>
+    <NomInternationalIntervenant>CPIE Haut-Languedoc</NomInternationalIntervenant>
+    <URLWeb>http://www.cpiehl.org/</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2142</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <DepartementInt>
+      <CdDepartement>34</CdDepartement>
+      <LbDepartement>H&#233;rault</LbDepartement>
+    </DepartementInt>
+    <Pays>france</Pays>
+    <Tel>04.67.97.51.16</Tel>
+    <Mail>contact@cpiehl.org</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+    <RddIntervenant>
+      <DispositifCollecte Role="COL">
+        <NomRdd>Documents d&#146;Objectifs des sites Natura 2000  &#171;Causses du Minervois &#150; FR9101444 &#187;  et  &#171; Minervois &#150; FR9112003 &#187;</NomRdd>
+        <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-2636</IdEchangeRdd>
+        <EtatAvancementFicheRdd>A</EtatAvancementFicheRdd>
+      </DispositifCollecte>
+    </RddIntervenant>
+    <RddIntervenant>
+      <DispositifCollecte Role="COL">
+        <NomRdd>Documents d&#146;Objectifs   &#171; CRETES DU MONT MARCOU ET DES MONTS DE MARE &#187; Site Natura 2000 FR 9101419</NomRdd>
+        <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-2637</IdEchangeRdd>
+        <EtatAvancementFicheRdd>A</EtatAvancementFicheRdd>
+      </DispositifCollecte>
+    </RddIntervenant>
+  </Intervenant>
+</SI_DC>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1377</CdIntervenant>
+    <NomIntervenant>F&#233;d&#233;ration D&#233;partementale des Association Agr&#233;es pour la P&#234;che et la Protection du Milieu Aquatique de la Vienne</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2009-03-24</DateCreationIntervenant>
+    <DateMajIntervenant>2012-01-30T12:18:44</DateMajIntervenant>
+    <RueIntervenant>178, Rue Guynemer</RueIntervenant>
+    <VilleIntervenant>POITIERS</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>86000</CPIntervenant>
+    <NomInternationalIntervenant>FDAAPPMA 86</NomInternationalIntervenant>
+    <URLWeb>http://www.federationpeche86.com</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1381</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <DepartementInt>
+      <CdDepartement>86</CdDepartement>
+      <LbDepartement>Vienne</LbDepartement>
+    </DepartementInt>
+    <Pays>FRANCE</Pays>
+    <Tel>0549376660</Tel>
+    <Mail>FEDE.PECHE86@wanadoo.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <OtherInfos>
+    <php_self>http://inventaire.naturefrance.fr/presentation/consultation/popup_choix_format.php</php_self>
+    <url_xlink>http://inventaire.naturefrance.fr/</url_xlink>
+  </OtherInfos>
+  <DispositifCollecte>
+    <ExtentRdd>
+      <xmin>-0.111</xmin>
+      <ymin>46.066</ymin>
+      <xmax>1.194</xmax>
+      <ymax>47.169</ymax>
+    </ExtentRdd>
+    <CodeSandreRdd></CodeSandreRdd>
+    <NomRdd>Alevinages de Truites fario en Vienne</NomRdd>
+    <MnRdd></MnRdd>
+    <TypeRdd>
+      <CdTypeRdd>1</CdTypeRdd>
+      <LbTypeRdd>R&#233;seau de mesure</LbTypeRdd>
+    </TypeRdd>
+    <DureeRdd>
+      <CdDuree>1</CdDuree>
+      <LbDuree>Dispositif p&#233;renne</LbDuree>
+    </DureeRdd>
+    <AnneeMisePlaceRdd>2001</AnneeMisePlaceRdd>
+    <ContactRdd>BEGUIN</ContactRdd>
+    <CommentairesRdd>Emprise du lot de donn&#233;es : D&#233;partement , bassin versant et r&#233;seau hydrographique de la Vienne. 
+
+En parall&#232;le des travaux restaurations de cours d&#146;eau, la f&#233;d&#233;ration travaillent activement &#224; la pr&#233;servation de certaines esp&#232;ces menac&#233;es de disparition, comme le brochet ou la truite fario, tout en maintenant la possibilit&#233; pour les p&#234;cheurs de pratiquer leur loisir. Dans ce contexte, la f&#233;d&#233;ration et les AAPPMA de la vienne g&#232;rent  plusieurs sites &#171; p&#233;pini&#232;re &#187;. Des milliers d&#146;alevins de carnassiers y sont &#233;lev&#233;s jusqu&#146;&#224; l&#146;&#226;ge de huit &#224; neuf mois maximum, avant de rejoindre les cours d&#146;eaux du d&#233;partement. Depuis 1999, plus de 100.000 alevins issus des fray&#232;res am&#233;nag&#233;es, des bassins p&#233;pini&#232;res ou des plans d&#146;eau, ont ainsi &#233;t&#233; r&#233;introduit dans le milieu naturel.</CommentairesRdd>
+    <NbTotalRdd>0</NbTotalRdd>
+    <DescriptionFinaliteRdd>R&#233;sum&#233; : Donn&#233;es d&#96;alevinages de Truites fario de la F&#233;d&#233;ration D&#233;partementale des Associations Agr&#233;es pour la P&#234;che et la Protection du Milieu Aquatique de la Vienne. 
+
+- Objectif : Connaissance de l&#96;alevinage de la Truite fario. Suivi des introductions et des origines des individus. Suivi de l&#96;efficacit&#233; du repeuplement en Truite fario. </DescriptionFinaliteRdd>
+    <TypoMilieuRss>
+      <CdTypoMilieu>101</CdTypoMilieu>
+      <LbTypoMilieu>Pas d'espace particulier concern&#233;</LbTypoMilieu>
+    </TypoMilieuRss>
+    <DepartementRdd>
+      <CdDepartement>86</CdDepartement>
+      <LbDepartement>Vienne</LbDepartement>
+    </DepartementRdd>
+    <ValidationRdd>
+      <CdProcValidation>1</CdProcValidation>
+      <LbProcValidation>Methode de validation existente</LbProcValidation>
+      <DescMethodeValidation>Les donn&#233;es sont valid&#233;es par les salari&#233;s de la F&#233;d&#233;ration D&#233;partementale des Associations Agr&#233;es pour la P&#234;che et la Protection du Milieu Aquatique de la Vienne</DescMethodeValidation>
+    </ValidationRdd>
+    <EtatAvancementFicheRdd>Approuv&#233;</EtatAvancementFicheRdd>
+    <DateMajFicheRdd>2012-01-30T12:18:43</DateMajFicheRdd>
+    <ModeStockageRdd>
+      <CdModeStockage>3</CdModeStockage>
+      <LbModeStockage>Informatique organis&#233;</LbModeStockage>
+      <PrecisionModeStockage></PrecisionModeStockage>
+    </ModeStockageRdd>
+    <AccesDonneesRdd>
+      <CdAcces>2</CdAcces>
+      <LbAcces>Restreinte</LbAcces>
+    </AccesDonneesRdd>
+    <Tarification>
+      <CdTarification>2</CdTarification>
+      <LbTarification>A la donn&#233;e</LbTarification>
+    </Tarification>
+    <ModeDiffusionRdd>
+      <ModeDiffusion>
+        <CdModeTransmission>1</CdModeTransmission>
+        <LbModeTransmission>Papier</LbModeTransmission>
+      </ModeDiffusion>
+    </ModeDiffusionRdd>
+    <EmpriseAdminRdd>
+      <CdEmpriseAdmin>6</CdEmpriseAdmin>
+      <LbEmpriseAdmin>D&#233;partemental ou intercommunal</LbEmpriseAdmin>
+    </EmpriseAdminRdd>
+    <EvenementsRdd>
+      <DateEvenement>2001-01-01</DateEvenement>
+      <LbEvenement>Donn&#233;es collect&#233;es depuis 1990 : centralisation des Proc&#233;s Verbaux de repeuplement et suivis des alvinages.</LbEvenement>
+    </EvenementsRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>1</CdTypeQualite>
+        <LbTypeQualite>D&#233;marche qualit&#233; pour le pr&#233;l&#232;vement ou la collecte</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>2</CdMethodeQualite>
+        <LbMethodeQualite>Observation par point</LbMethodeQualite>
+      </MethodeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>4</CdMethodeQualite>
+        <LbMethodeQualite>Observation "en plein"</LbMethodeQualite>
+      </MethodeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>5</CdMethodeQualite>
+        <LbMethodeQualite>Observation directe</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>2</CdTypeQualite>
+        <LbTypeQualite>Plans d'echantillonage</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>M3</CdMethodeQualite>
+        <LbMethodeQualite>Spatial</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite>Textes de loi et documentation technique : Proc&#233;s Verbaux de repeuplement. 
+Publications des r&#233;sultats : publication interne &#224; la FDAAPPMA 86.</ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>3</CdTypeQualite>
+        <LbTypeQualite>Autres D&#233;marches qualit&#233;s</LbTypeQualite>
+      </TypeQualite>
+    </DemarcheQualiteRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">CHO</CdSupport>
+        <LbSupport>Embranchement des Chordata</LbSupport>
+      </Support>
+      <FrequenceAnalyse>Annuelle</FrequenceAnalyse>
+      <DescriptifParametres>Les donn&#233;es contenues dans le lot portent sur le bassin versant &#233;tudi&#233;, le cours d&#96;eau &#233;tudi&#233;, le nombre de poissons alevin&#233;s, le stade de croissance des individus et l&#96;ann&#233;e concern&#233;es. </DescriptifParametres>
+      <ResolutionParametres>Station</ResolutionParametres>
+      <FrequenceActualisation>Annuelle</FrequenceActualisation>
+      <DescriptifTaxon>Classe des Actinopterygii </DescriptifTaxon>
+    </SupportRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOE">
+        <CdIntervenant schemeAgencyID="SIRET">00-1377</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1381</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="POC">
+        <CdIntervenant schemeAgencyID="SIRET">00-1377</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1381</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="COL">
+        <CdIntervenant schemeAgencyID="SIRET">00-1377</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1381</IdEchangeInt>
+      </Intervenant>
+      <PrecisionServiceIntervenant>Les donn&#233;es ont &#233;t&#233; recueillies par les membres et les salari&#233;s de la F&#233;d&#233;ration D&#233;partementale des Associations Agr&#233;es pour la P&#234;che et la Protection du Milieu Aquatique de la Vienne.</PrecisionServiceIntervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOU">
+        <CdIntervenant schemeAgencyID="SIRET">00-1377</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1381</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-961</IdEchangeRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2012-01-30T14:31:02</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Alevinages de Truites fario en Vienne a &#233;t&#233; rendu visible.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2012-01-30T12:18:44</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Alevinages de Truites fario en Vienne a &#233;t&#233; approuv&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2012-01-27T09:26:21</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Alevinages de Truites fario en Vienne a &#233;t&#233; valid&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte Nature DREAL Poitou-Charentes</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2009-03-25T15:05:46</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Donn&#233;es sur les alevinages de Truites fario en Vienne a &#233;t&#233; rendu provisoire.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Romain DAVID</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <terre_ou_mer>T</terre_ou_mer>
+    <keyword>Terrestre</keyword>
+    <PrecisionNbTotalRdd></PrecisionNbTotalRdd>
+    <precisionTerritoire></precisionTerritoire>
+    <EtatActivite>
+      <CdEtatActivite>1</CdEtatActivite>
+      <LbEtatActivite>Toujours actif</LbEtatActivite>
+    </EtatActivite>
+    <Thematique19115>
+      <CdThematique19115>02</CdThematique19115>
+      <LbThematique19115>Flore et faune</LbThematique19115>
+    </Thematique19115>
+    <LanguesDonnees>
+      <CdLangue>fra</CdLangue>
+      <LbLangue>Fran&#231;ais</LbLangue>
+    </LanguesDonnees>
+    <RefMilieux>
+      <CdRefMetier>0</CdRefMetier>
+      <LbRefMetier>Non renseign&#233;</LbRefMetier>
+    </RefMilieux>
+    <RefTaxons>
+      <CdRefMetier>8</CdRefMetier>
+      <LbRefMetier>FishBase - Global Information System on Fishes  - Valid&#233; MNHN</LbRefMetier>
+    </RefTaxons>
+    <GeoReferencement>false</GeoReferencement>
+    <ConditionsUtilisation>S&#96;adresser au contact.</ConditionsUtilisation>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>BEGUIN</NomContact>
+      <FonctionContact>Agent de d&#233;veloppement</FonctionContact>
+      <TelephoneContact>0549376660</TelephoneContact>
+      <PrenomContact>Etienne</PrenomContact>
+      <MailContact>contact@peche86.fr</MailContact>
+    </Contact>
+    <PrProducteur>Les donn&#233;es ont &#233;t&#233; recueillies par les membres et les salari&#233;s de la F&#233;d&#233;ration D&#233;partementale des Associations Agr&#233;es pour la P&#234;che et la Protection du Milieu Aquatique de la Vienne.</PrProducteur>
+    <Responsable>
+      <CdResponsable>david</CdResponsable>
+      <NomResponsable>Aur&#233;lie Carri&#232;re</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>ORE</OrganismeResponsable>
+      <ServiceResponsable>Patrimoine Naturel</ServiceResponsable>
+      <NomInternationalResponsable>Aur&#233;lie Carri&#232;re</NomInternationalResponsable>
+      <URLWeb>carriere@observatoire-environnement.org</URLWeb>
+      <RueResponsable>T&#233;l&#233;port 4 Antares</RueResponsable>
+      <VilleResponsable>Futuroscope</VilleResponsable>
+      <CPResponsable>86962</CPResponsable>
+      <RegionResponsable>54</RegionResponsable>
+      <Tel>0549496100</Tel>
+      <Mail>carriere@observatoire-environnement.org</Mail>
+    </Responsable>
+    <Responsable>
+      <CdResponsable>rdavidson</CdResponsable>
+      <NomResponsable>Robert Davidson</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>GEOPHEN</OrganismeResponsable>
+      <ServiceResponsable></ServiceResponsable>
+      <NomInternationalResponsable>Robert Davidson</NomInternationalResponsable>
+      <URLWeb>robert.davidson@unicaen.fr</URLWeb>
+      <RueResponsable>UFR de G&#233;ographie
+GEOPHEN
+Esplanade de la paix - Universit&#233; de Caen
+BP5186</RueResponsable>
+      <VilleResponsable>CAEN Cedex 5</VilleResponsable>
+      <CPResponsable>14032</CPResponsable>
+      <RegionResponsable>25</RegionResponsable>
+      <Tel>231566146</Tel>
+      <Mail>robert.davidson@unicaen.fr</Mail>
+    </Responsable>
+    <DataDesc></DataDesc>
+    <DataIdentifier></DataIdentifier>
+    <DataKwInspire></DataKwInspire>
+    <DataNom></DataNom>
+    <Genealogie></Genealogie>
+    <DispositifAssocie>
+      <IdReseauPere></IdReseauPere>
+      <LibelleReseauPere></LibelleReseauPere>
+    </DispositifAssocie>
+    <Utilisateur>
+      <nomPrenom>Carri&#232;re Aur&#233;lie</nomPrenom>
+      <fonction>ORE</fonction>
+    </Utilisateur>
+  </DispositifCollecte>
+</SI_DC>
