@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codelists xmlns:gmd="http://www.isotc211.org/2005/gmd"
+           xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0">
+  <codelist name="gmd:MD_ScopeCode" editorMode="radio">
+    <entry>
+      <code>dispositifDeCollecte</code>
+      <label>Dispositif de collecte</label>
+    </entry>
+    <entry>
+      <code>dataset</code>
+      <label>Jeu de données</label>
+      <description>Informations appliquées aux caractéristiques de jeu de
+        données
+      </description>
+    </entry>
+    <entry>
+      <code>series</code>
+      <label>Ensemble de séries de données</label>
+      <description>Informations appliquées aux caractéristiques de la collection
+        de données
+      </description>
+    </entry>
+  </codelist>
+  <codelist name="sinp:ResponsiblePartyStatusCode">
+    <entry>
+      <code>association</code>
+      <label>Association</label>
+    </entry>
+    <entry>
+      <code>collectivite-territoriale</code>
+      <label>Collectivité territoriale</label>
+    </entry>
+    <entry>
+      <code>entreprise</code>
+      <label>Entreprise</label>
+    </entry>
+    <entry>
+      <code>etablissement-public-de-l-etat</code>
+      <label>Établissement public de l'État</label>
+    </entry>
+    <entry>
+      <code>etablissement-public-regional</code>
+      <label>Établissement public Régional</label>
+    </entry>
+    <entry>
+      <code>etat</code>
+      <label>État</label>
+    </entry>
+    <entry>
+      <code>fondation</code>
+      <label>Fondation</label>
+    </entry>
+    <entry>
+      <code>gip</code>
+      <label>Groupement d'Intérêt Public (GIP)</label>
+    </entry>
+    <entry>
+      <code>gis</code>
+      <label>Groupement d'Intérêt Scientifique (GIS)</label>
+    </entry>
+    <entry>
+      <code>syndicat-mixte</code>
+      <label>Syndicat Mixte</label>
+    </entry>
+    <entry>
+      <code>ue</code>
+      <label>Union Européenne</label>
+    </entry>
+    <entry>
+      <code>univ-ees</code>
+      <label>Université / établissement d’enseignement supérieur</label>
+    </entry>
+  </codelist>
+</codelists>

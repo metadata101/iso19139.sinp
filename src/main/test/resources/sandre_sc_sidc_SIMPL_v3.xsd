@@ -1,0 +1,795 @@
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by DIRECTION DOCUMENTATION ET DONNEES (OFFICE INTERNATIONAL DE L'EAU) -->
+<xs:schema xmlns="http://xml.sandre.eaufrance.fr/scenario/si_dc/3" xmlns:sa_bp="http://xml.sandre.eaufrance.fr/prive" xmlns:sinp="http://xml.sandre.eaufrance.fr/sinp" xmlns:sa_msg="http://xml.sandre.eaufrance.fr/message/1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sa_par="http://xml.sandre.eaufrance.fr/par/1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sa_com="http://xml.sandre.eaufrance.fr/com/1" xmlns:sa_dc="http://xml.sandre.eaufrance.fr/dc/2" xmlns:cct="http://xml.sandre.eaufrance.fr/Composants/1" xmlns:sa_int="http://xml.sandre.eaufrance.fr/int/1" targetNamespace="http://xml.sandre.eaufrance.fr/scenario/si_dc/3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3" finalDefault="" blockDefault="">
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/dc/2" schemaLocation="../../../dc/2/sandre_fmt_rsx.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/int/1" schemaLocation="../../../int/1/sandre_ref_int.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/Composants/1" schemaLocation="../../../composantstypes.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/com/1" schemaLocation="../../../com/1/sandre_ref_com.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/par/1" schemaLocation="../../../par/1/sandre_ref_par.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/message/1" schemaLocation="../../../msg/1/message.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/prive" schemaLocation="../../../balisePrivee.xsd"/>
+    <xs:import namespace="http://xml.sandre.eaufrance.fr/sinp" schemaLocation="sinp_dc_v3.xsd"/>
+    <xs:element name="SI_DC" nillable="false" abstract="false">
+        <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="Scenario" minOccurs="1" maxOccurs="1" nillable="false">
+                    <xs:complexType mixed="false">
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                            <xs:element name="CodeScenario" type="sa_msg:CodeScenario" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="VersionScenario" type="sa_msg:VersionScenario" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NomScenario" type="sa_msg:NomScenario" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateCreationFichier" type="sa_msg:DateCreationFichier" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ReferenceFichierEnvoi" type="sa_msg:ReferenceFichierEnvoi" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:choice minOccurs="0" maxOccurs="1">
+                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                    <xs:element name="DateDebutReference" type="sa_msg:DateDebutReference" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    <xs:element name="DateFinReference" type="sa_msg:DateFinReference" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                </xs:sequence>
+                            </xs:choice>
+                            <xs:element name="Emetteur" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="NomIntervenant" type="sa_int:NomIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="MnIntervenant" type="sa_int:MnIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="BpIntervenant" type="sa_int:BpIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ImmoIntervenant" type="sa_int:ImmoIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="RueIntervenant" type="sa_int:RueIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LieuIntervenant" type="sa_int:LieuIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="VilleIntervenant" type="sa_int:VilleIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DepIntervenant" type="sa_int:DepIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="CommentairesIntervenant" type="sa_int:CommentairesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--<xs:complexContent>-->
+									<!--<xs:restriction base="sa_msg:IntervenantSc">-->
+									<!--</xs:restriction>-->
+									<!--</xs:complexContent>-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Destinataire" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="NomIntervenant" type="sa_int:NomIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="MnIntervenant" type="sa_int:MnIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="BpIntervenant" type="sa_int:BpIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ImmoIntervenant" type="sa_int:ImmoIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="RueIntervenant" type="sa_int:RueIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LieuIntervenant" type="sa_int:LieuIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="VilleIntervenant" type="sa_int:VilleIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DepIntervenant" type="sa_int:DepIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="CommentairesIntervenant" type="sa_int:CommentairesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--<xs:complexContent>-->
+									<!--<xs:restriction base="sa_msg:IntervenantSc">-->
+									<!--</xs:restriction>
+									</xs:complexContent>-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Referentiel" type="sa_msg:Referentiel" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+                        </xs:sequence>
+						<!--xs:complexContent/xs:restriction/sa_msg:Scenario-->
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Intervenant" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                    <xs:complexType mixed="false">
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                            <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NomIntervenant" type="sa_int:NomIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="StIntervenant" type="sa_int:StIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateCreationIntervenant" type="sa_int:DateCreationIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateMajIntervenant" type="sa_int:DateMajIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="AuteurIntervenant" type="sa_int:AuteurIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="MnIntervenant" type="sa_int:MnIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="BpIntervenant" type="sa_int:BpIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ImmoIntervenant" type="sa_int:ImmoIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="RueIntervenant" type="sa_int:RueIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="LieuIntervenant" type="sa_int:LieuIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="VilleIntervenant" type="sa_int:VilleIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DepIntervenant" type="sa_int:DepIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="CommentairesIntervenant" type="sa_int:CommentairesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ActivitesIntervenant" type="sa_int:ActivitesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="CPIntervenant" type="sa_int:CPIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NomInternationalIntervenant" type="sa_int:NomInternationalIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="CdSIRETRattacheIntervenant" type="sa_int:CdSIRETRattacheIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Statut" type="sinp:Statut" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="StructureMere" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_int:Intervenant-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DepartementInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdDepartement" type="sa_com:CdDepartement" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbDepartement" type="sa_com:LbDepartement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Departement-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RegionInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRegion" type="sa_com:CdRegion" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRegion" type="sa_com:LbRegion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Region-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EvenementsInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="DateEvenement" type="sa_dc:DateEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEvenement" type="sa_dc:LbEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EvenementsRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Pays" type="sinp:Pays" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Tel" type="sinp:Tel" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Mail" type="sinp:Mail" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="URLWeb" type="sinp:URLWeb" minOccurs="0" maxOccurs="1" nillable="false"/>
+                        </xs:sequence>
+						<!--<xs:complexContent>
+							<xs:restriction base="sa_int:Intervenant">-->
+						<!--</xs:restriction>
+						</xs:complexContent>-->
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Bdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                    <xs:complexType mixed="false">
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                            <xs:element name="CdBdd" type="sa_dc:CdBdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="LbBdd" type="sa_dc:LbBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="CartoBdd" type="sa_dc:CartoBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateMajBdd" type="sa_dc:DateMajBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="TypeBdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdTypeBanque" type="sa_dc:CdTypeBanque" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbTypeBanque" type="sa_dc:LbTypeBanque" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:TypeBanque-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ModeTransmissionBdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdModeTransmission" type="sa_dc:CdModeTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbModeTransmission" type="sa_dc:LbModeTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:ModeTransmission-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="FormatTransmissionBdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="FormatTransmission" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdFormatTransmission" type="sa_dc:CdFormatTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbFormatTransmission" type="sa_dc:LbFormatTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:FormatTransmission-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PrecisionsFormatIntegration" type="sa_dc:PrecisionsFormatIntegration" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:FormatTransmissionBdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EmpriseAdminBdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdEmpriseAdmin" type="sa_dc:CdEmpriseAdmin" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEmpriseAdmin" type="sa_dc:LbEmpriseAdmin" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EmpriseAdmin-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ExploitantBdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_int:Intervenant-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MOuvrageBdd" minOccurs="1" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="Contacts" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdContact" type="sa_int:CdContact" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="NomContact" type="sa_int:NomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="FonctionContact" type="sa_int:FonctionContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="TelephoneContact" type="sa_int:TelephoneContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="FaxContact" type="sa_int:FaxContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="MailContact" type="sinp:Mail" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="ServiceContact" type="sinp:ServiceContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_int:Contact-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_int:Intervenant-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AdresseURLBdd" type="sa_dc:AdresseURLBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="IdEchangeBdd" type="sa_bp:IdEchangeBdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="AnneeBdd" type="sinp:AnneeBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="LbUsuelBdd" type="sinp:LbUsuelBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Contact" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdContact" type="sa_int:CdContact" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="NomContact" type="sa_int:NomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="FonctionContact" type="sa_int:FonctionContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="TelephoneContact" type="sa_int:TelephoneContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="FaxContact" type="sa_int:FaxContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="PrenomContact" type="sinp:PrenomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="MailContact" type="sinp:MailContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ServiceContact" type="sinp:ServiceContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_int:Contact-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="CommBdd" type="sinp:CommBdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="EtatAvancementBdd" type="sa_dc:EtatAvancementFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DepartementBdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdDepartement" type="sa_com:CdDepartement" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbDepartement" type="sa_com:LbDepartement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Departement-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RegionBdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRegion" type="sa_com:CdRegion" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRegion" type="sa_com:LbRegion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Region-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EvenementsBdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="DateEvenement" type="sa_dc:DateEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEvenement" type="sa_dc:LbEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EvenementsRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+						<!--xs:complexContent/xs:restriction/sa_dc:Bdd-->
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DispositifCollecte" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                    <xs:complexType mixed="false">
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                            <xs:element name="CodeSandreRdd" type="sa_dc:CodeSandreRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NomRdd" type="sa_dc:NomRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="MnRdd" type="sa_dc:MnRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="MetaRdd" type="sa_dc:MetaRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="TypeRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdTypeRdd" type="sa_dc:CdTypeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbTypeRdd" type="sa_dc:LbTypeRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:TypeRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DureeRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdDuree" type="sa_dc:CdDuree" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbDuree" type="sa_dc:LbDuree" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:DureeRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AnneeMisePlaceRdd" type="sa_dc:AnneeMisePlaceRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ContactRdd" type="sa_dc:ContactRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="CommentairesRdd" type="sa_dc:CommentairesRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NbTotalRdd" type="sa_dc:NbTotalRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NbProgrammeRdd" type="sa_dc:NbProgrammeRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="NbAppartenuRdd" type="sa_dc:NbAppartenuRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ProtocoleRdd" type="sa_dc:ProtocoleRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="UrlProtocoleRdd" type="sa_dc:UrlProtocoleRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateProtocole" type="sa_dc:DateProtocole" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="FinaliteRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdFinalite" type="sa_dc:CdFinalite" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbFinalite" type="sa_dc:LbFinalite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:Finalite-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DescriptionFinaliteRdd" type="sa_dc:DescriptionFinaliteRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="PERRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdPER" type="sa_dc:CdPER" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbPER" type="sa_dc:LbPER" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:PER-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="TypoMilieuRss" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdTypoMilieu" type="sa_dc:CdTypoMilieu" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbTypoMilieu" type="sa_dc:LbTypoMilieu" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:TypoMilieu-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DepartementRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdDepartement" type="sa_com:CdDepartement" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbDepartement" type="sa_com:LbDepartement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Departement-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ValidationRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdProcValidation" type="sa_dc:CdProcValidation" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbProcValidation" type="sa_dc:LbProcValidation" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DescMethodeValidation" type="sinp:DescMethodeValidation" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:ProcValidation-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EtatAvancementFicheRdd" type="sa_dc:EtatAvancementFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="DateMajFicheRdd" type="sa_dc:DateMajFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ModeStockageRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdModeStockage" type="sa_dc:CdModeStockage" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbModeStockage" type="sa_dc:LbModeStockage" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:ModeStockage-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AccesDonneesRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdAcces" type="sa_dc:CdAcces" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbAcces" type="sa_dc:LbAcces" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:Acces-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Tarification" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdTarification" type="sa_dc:CdTarification" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbTarification" type="sa_dc:LbTarification" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:Tarification-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DonneesTelechargeables" type="sa_dc:DonneesTelechargeables" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="ModeDiffusionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="ModeDiffusion" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdModeTransmission" type="sa_dc:CdModeTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbModeTransmission" type="sa_dc:LbModeTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:ModeTransmission-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="AdresseInternetDiffusion" type="sa_dc:AdresseInternetDiffusion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="CommModeDiffusionRdd" type="sa_dc:CommModeDiffusionRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:ModeDiffusionRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="FormatDiffusionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="FormatDiffusion" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdFormatTransmission" type="sa_dc:CdFormatTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbFormatTransmission" type="sa_dc:LbFormatTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:FormatTransmission-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PrecisionsFormatDiffusion" type="sa_dc:PrecisionsFormatDiffusion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:FormatDiffusionRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ExceptionsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="ComposantesExceptionsRdd" type="sa_dc:ComposantesExceptionsRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ModeDiffusionExceptionsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdModeTransmission" type="sa_dc:CdModeTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbModeTransmission" type="sa_dc:LbModeTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:ModeTransmission-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ModeTarificationExceptionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdTarification" type="sa_dc:CdTarification" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbTarification" type="sa_dc:LbTarification" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:Tarification-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="AccesExceptionsRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdAcces" type="sa_dc:CdAcces" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbAcces" type="sa_dc:LbAcces" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:Acces-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:ExceptionsRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BddRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="Bdd" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdBdd" type="sa_dc:CdBdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="MOuvrageBdd" minOccurs="1" maxOccurs="1" nillable="false">
+                                                        <xs:complexType mixed="false">
+                                                            <xs:sequence minOccurs="1" maxOccurs="1">
+                                                                <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                                <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                            </xs:sequence>
+															<!--xs:complexContent/xs:restriction/sa_int:Intervenant-->
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="IdEchangeBdd" type="sa_bp:IdEchangeBdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:Bdd-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="FrequenceBancarisationBddRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdFrequence" type="sa_dc:CdFrequence" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbFrequence" type="sa_dc:LbFrequence" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:Frequence-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:BddRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EmpriseAdminRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdEmpriseAdmin" type="sa_dc:CdEmpriseAdmin" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEmpriseAdmin" type="sa_dc:LbEmpriseAdmin" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EmpriseAdmin-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EmpriseMilieuRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdEmpriseMilieu" type="sa_dc:CdEmpriseMilieu" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEmpriseMilieu" type="sa_dc:LbEmpriseMilieu" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EmpriseMilieu-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EvenementsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="DateEvenement" type="sa_dc:DateEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEvenement" type="sa_dc:LbEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:EvenementsRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DemarcheQualiteRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="DateDemarcheQualite" type="sa_dc:DateDemarcheQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ReferenceDocDemarcheQualite" type="sa_dc:ReferenceDocDemarcheQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="TypeQualite" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdTypeQualite" type="sa_dc:CdTypeQualite" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbTypeQualite" type="sa_dc:LbTypeQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:TypeQualite-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="MethodeQualite" type="sinp:MethodeQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:DemarcheQualiteRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SupportRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="Support" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdSupport" type="sa_par:CdSupport" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_par:Support-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="FrequenceAnalyse" type="sa_dc:FrequenceAnalyse" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DescriptifParametres" type="sa_dc:DescriptifParametres" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="GroupeParametreSupport" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdGroupeParametre" type="sa_dc:CdGroupeParametre" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="LbGroupeParametre" type="sa_dc:LbGroupeParametre" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:GroupeParametre-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ResolutionParametres" type="sinp:ResolutionParametres" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="FrequenceActualisation" type="sinp:FrequenceActualisation" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:SupportRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="IntervenantRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="Intervenant" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="Role" type="xs:string" use="optional"/>
+												<!--<xs:complexContent>
+																	<xs:restriction base="sa_int:Intervenant">-->
+												<!--</xs:restriction>
+																</xs:complexContent>-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="DateDebutIntervenant" type="sa_dc:DateDebutIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DateFinIntervenant" type="sa_dc:DateFinIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="PrecisionServiceIntervenant" type="sa_dc:PrecisionServiceIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="Contacts" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CdContact" type="sa_int:CdContact" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="NomContact" type="sa_int:NomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="FonctionContact" type="sa_int:FonctionContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="TelephoneContact" type="sa_int:TelephoneContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="FaxContact" type="sa_int:FaxContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="MailContact" type="sinp:Mail" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_int:Contact-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:IntervenantRdd-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RddFilsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="RddFils" minOccurs="1" maxOccurs="1" nillable="false">
+                                            <xs:complexType mixed="false">
+                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                    <xs:element name="CodeSandreRdd" type="sa_dc:CodeSandreRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                    <xs:element name="IdEchangeRdd" type="sa_bp:IdEchangeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                                </xs:sequence>
+												<!--xs:complexContent/xs:restriction/sa_dc:DispositifCollecte-->
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="NbStationsParticipantMetaRdd" type="sa_dc:NbStationsParticipantMetaRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_dc:RddFils-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="IdEchangeRdd" type="sa_bp:IdEchangeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                            <xs:element name="TypeDonnees" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdTypeDonnees" type="sa_bp:CdTypeDonnees" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbTypeDonnees" type="sa_bp:LbTypeDonnees" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DfTypeDonnees" type="sa_bp:DfTypeDonnees" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--<xs:complexContent>
+										<xs:restriction base="sa_bp:TypeDonnees">-->
+									<!--</xs:restriction>
+									</xs:complexContent>-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="HistoriqueEvtsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="DtHistoriqueEvtsRdd" type="sa_bp:DtHistoriqueEvtsRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="TypeHistoriqueEvtsRdd" type="sa_bp:TypeHistoriqueEvtsRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="DesHistoriqueEvtsRdd" type="sa_bp:DesHistoriqueEvtsRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="AuteurHistoriqueEvtsRdd" type="sa_bp:AuteurHistoriqueEvtsRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--<xs:complexContent>
+										<xs:restriction base="sa_bp:HistoriqueEvtsRdd">-->
+									<!--</xs:restriction>
+									</xs:complexContent>-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Thematiques19115" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdThematique19115" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbThematique19115" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:Thematiques19115-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EtatActivite" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdEtatActivite" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbEtatActivite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:EtatActivite-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RegionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRegion" type="sa_com:CdRegion" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRegion" type="sa_com:LbRegion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_com:Region-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="LanguesDonnees" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdLangue" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbLangue" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:LangueDonnees-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RefMilieux" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:ReferentielMetier-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="RefTaxons" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:ReferentielMetier-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="GeoReferencement" type="sinp:GeoReferencement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="RefGeographiques" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:ReferentielMetier-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="CRS" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdCRS" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="LbCRS" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ConditionsUtilisation" type="sinp:ConditionsUtilisation" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Contact" minOccurs="0" maxOccurs="1" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="CdContact" type="sa_int:CdContact" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="NomContact" type="sa_int:NomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="FonctionContact" type="sa_int:FonctionContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="TelephoneContact" type="sa_int:TelephoneContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="FaxContact" type="sa_int:FaxContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="PrenomContact" type="sinp:PrenomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="MailContact" type="sinp:MailContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="ServiceContact" type="sinp:ServiceContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sa_int:Contact-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PrProducteur" type="sinp:PrProducteur" minOccurs="0" maxOccurs="1" nillable="false"/>
+                            <xs:element name="Publications" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                                <xs:complexType mixed="false">
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="IdDoc" type="xs:long" minOccurs="1" maxOccurs="1" nillable="false"/>
+                                        <xs:element name="AuteurDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TitreDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="AnneeDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="4" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TitreVolDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="VolumeDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="PageDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="20" fixed="false"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+									<!--xs:complexContent/xs:restriction/sinp:Publication-->
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AutreServeur" type="sinp:CdAutreServeur" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+                        </xs:sequence>
+						<!--xs:complexContent/xs:restriction/sa_dc:DispositifCollecte-->
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

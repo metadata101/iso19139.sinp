@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://inventaire.naturefrance.fr/schemas/2.0"
+           elementFormDefault="qualified" version="1.2"
+           xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:gsr="http://www.isotc211.org/2005/gsr"
+           xmlns:gco="http://www.isotc211.org/2005/gco"
+           xmlns:gts="http://www.isotc211.org/2005/gts"
+           xmlns:gss="http://www.isotc211.org/2005/gss"
+           xmlns:gmd="http://www.isotc211.org/2005/gmd"
+           xmlns:gml="http://www.opengis.net/gml"
+           xmlns:srv="http://www.isotc211.org/2005/srv">
+
+  <xs:import namespace="http://www.isotc211.org/2005/gco"
+    schemaLocation="../../iso19139/schema/gco/gco.xsd"/>
+  <xs:import namespace="http://www.isotc211.org/2005/gts"
+    schemaLocation="../../iso19139/schema/gts/gts.xsd"/>
+  <xs:import namespace="http://www.isotc211.org/2005/gmd"
+    schemaLocation="../../iso19139/schema/gmd/gmd.xsd"/>
+  <xs:import namespace="http://www.opengis.net/gml"
+    schemaLocation="../../iso19139/schema/gml/gml.xsd"/>
+  <!--<xs:import namespace="http://www.isotc211.org/2005/gco"
+    schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gco/gco.xsd"/>
+  <xs:import namespace="http://www.isotc211.org/2005/gts"
+    schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gts/gts.xsd"/>
+  <xs:import namespace="http://www.isotc211.org/2005/gmd"
+    schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gmd/gmd.xsd"/>
+  <xs:import namespace="http://www.opengis.net/gml"
+    schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gml/gml.xsd"/>
+  -->
+  <xs:element name="CI_ResponsibleParty"
+              type="sinp:CI_ResponsibleParty_Type"
+              substitutionGroup="gmd:CI_ResponsibleParty"/>
+
+  <xs:complexType name="CI_ResponsibleParty_Type">
+    <xs:complexContent>
+      <xs:extension base="gmd:CI_ResponsibleParty_Type">
+        <xs:sequence>
+          <xs:element name="altIndividualName"
+                      type="gco:CharacterString_PropertyType"
+                      minOccurs="0" maxOccurs="1"/>
+          <xs:element name="responsiblePartyStatus"
+                      type="sinp:ResponsiblePartyStatus_PropertyType"
+                      minOccurs="0" maxOccurs="1"/>
+          <xs:element name="extentDescription"
+                      type="gco:CharacterString_PropertyType"
+                      minOccurs="0" maxOccurs="1"/>
+          <xs:element name="scopeDescription"
+                      type="gco:CharacterString_PropertyType"
+                      minOccurs="1" maxOccurs="1"/>
+          <xs:element name="history"
+                      type="gmd:LI_ProcessStep_PropertyType"
+                      minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="temporalExtent"
+                      type="gmd:EX_TemporalExtent_PropertyType"
+                      minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="description"
+                      type="gco:CharacterString_PropertyType"
+                      minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="relatedResponsibleParty"
+                      type="gco:CharacterString_PropertyType"
+                      minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="gco:isoType" use="required"
+                      fixed="gmd:CI_ResponsibleParty"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="ResponsiblePartyStatusCode"
+              type="gco:CodeListValue_Type"
+              substitutionGroup="gco:CharacterString"/>
+
+  <xs:complexType name="ResponsiblePartyStatus_PropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="sinp:ResponsiblePartyStatusCode"/>
+    </xs:sequence>
+    <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+</xs:schema>

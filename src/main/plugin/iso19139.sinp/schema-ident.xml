@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://geonetwork-opensource.org/schemas/schema-ident"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://geonetwork-opensource.org/schemas/schema-ident http://geonetwork-opensource.org/schemas/schema-ident/schema-ident.xsd">
+  <name>iso19139.sinp</name>
+  <id>934a436d-e9cd-4601-84a3-20ae7bdeafef</id>
+  <version>1.0</version>
+  <depends>iso19139</depends>
+  <schemaLocation>http://www.isotc211.org/2005/gmd
+    http://www.isotc211.org/2005/gmd/gmd.xsd
+    http://www.isotc211.org/2005/srv
+    http://schemas.opengis.net/iso/19139/20060504/srv/srv.xsd
+  </schemaLocation>
+  <autodetect xmlns:gmd="http://www.isotc211.org/2005/gmd"
+              xmlns:gco="http://www.isotc211.org/2005/gco"
+              xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0">
+    <elements>
+      <gmd:metadataStandardName>
+        <gco:CharacterString>ISO 19115:2003/19139 - Profil SINP</gco:CharacterString>
+      </gmd:metadataStandardName>
+    </elements>
+  </autodetect>
+</schema>
