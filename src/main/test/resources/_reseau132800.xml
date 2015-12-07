@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
-D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" 
+xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
   <Intervenant>
     <CdIntervenant schemeAgencyID="SIRET">00-0644</CdIntervenant>
     <NomIntervenant>Agence de l'eau Seine-Normandie</NomIntervenant>

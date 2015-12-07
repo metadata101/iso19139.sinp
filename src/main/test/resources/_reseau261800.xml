@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SI_DC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.sandre.eaufrance.fr/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd
+D:/projets/IFEN/DCNP/dev/www/tmp/Schemas/scenario/si_dc/3/sandre_sc_sidc_SIMPL_v3.xsd" xmlns:rsx="http://xml.sandre.eaufrance.fr/scenario/si_dc/3">
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-2101</CdIntervenant>
+    <NomIntervenant>ONF Guyane - service Sylv&#233;tude</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2013-09-17</DateCreationIntervenant>
+    <DateMajIntervenant>2013-10-10T10:33:15</DateMajIntervenant>
+    <RueIntervenant>R&#233;serve Montabo - BP 7002</RueIntervenant>
+    <VilleIntervenant>Cayenne cedex</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>97307</CPIntervenant>
+    <StructureMere>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">2043</IdEchangeInt>
+      <NomIntervenant>Office National des For&#234;ts (ONF) - Guyane</NomIntervenant>
+    </StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2123</IdEchangeInt>
+    <Statut>4</Statut>
+    <LbStatut>Etablissement public de l'Etat</LbStatut>
+    <StructureMere>
+      <CdIntervenant schemeAgencyID="SIRET">00-1930</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1952</IdEchangeInt>
+    </StructureMere>
+    <RegionInt>
+      <CdRegion>03</CdRegion>
+      <LbRegion>Guyane</LbRegion>
+    </RegionInt>
+    <Pays>France</Pays>
+    <Tel>05 94 25 53 89</Tel>
+    <Mail>nicolas.miramond@onf.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-1930</CdIntervenant>
+    <NomIntervenant>Office National des For&#234;ts (ONF) - Guyane</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2012-06-25</DateCreationIntervenant>
+    <DateMajIntervenant>2012-11-26T11:07:24</DateMajIntervenant>
+    <RueIntervenant>R&#233;serve Montabo BP 7002</RueIntervenant>
+    <VilleIntervenant>Cayenne cedex</VilleIntervenant>
+    <CommentairesIntervenant></CommentairesIntervenant>
+    <CPIntervenant>97307 </CPIntervenant>
+    <NomInternationalIntervenant>ONF Guyane</NomInternationalIntervenant>
+    <StructureMere>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">47</IdEchangeInt>
+      <NomIntervenant>Office National des For&#234;ts</NomIntervenant>
+    </StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-1952</IdEchangeInt>
+    <Statut>4</Statut>
+    <LbStatut>Etablissement public de l'Etat</LbStatut>
+    <StructureMere>
+      <CdIntervenant schemeAgencyID="SIRET">00-0043</CdIntervenant>
+      <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-43</IdEchangeInt>
+    </StructureMere>
+    <RegionInt>
+      <CdRegion>03</CdRegion>
+      <LbRegion>Guyane</LbRegion>
+    </RegionInt>
+    <Pays>France (Guyane)</Pays>
+    <Tel>05 94 25 53 70 </Tel>
+    <Mail>jean-luc.sibille@onf.fr</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <Intervenant>
+    <CdIntervenant schemeAgencyID="SIRET">00-2060</CdIntervenant>
+    <NomIntervenant>Soci&#233;t&#233; entomologique Antilles-Guyane</NomIntervenant>
+    <StIntervenant>A</StIntervenant>
+    <DateCreationIntervenant>2013-04-09</DateCreationIntervenant>
+    <DateMajIntervenant>2013-10-10T10:34:41</DateMajIntervenant>
+    <RueIntervenant></RueIntervenant>
+    <VilleIntervenant>R&#233;mire-Montjoly</VilleIntervenant>
+    <CommentairesIntervenant>Pr&#233;sident actuel : Pierre Henri DALENS
+
+La SEAG a vu le jour en avril 2007.</CommentairesIntervenant>
+    <CPIntervenant>97354</CPIntervenant>
+    <NomInternationalIntervenant>SEAG</NomInternationalIntervenant>
+    <URLWeb>http://insectafgseag.myspecies.info/</URLWeb>
+    <StructureMere></StructureMere>
+    <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2082</IdEchangeInt>
+    <Statut>1</Statut>
+    <LbStatut>Association</LbStatut>
+    <RegionInt>
+      <CdRegion>01</CdRegion>
+      <LbRegion>Guadeloupe</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>02</CdRegion>
+      <LbRegion>Martinique</LbRegion>
+    </RegionInt>
+    <RegionInt>
+      <CdRegion>03</CdRegion>
+      <LbRegion>Guyane</LbRegion>
+    </RegionInt>
+    <Pays>France</Pays>
+    <Tel>non disponible</Tel>
+    <Mail>ph.dalens@laposte.net</Mail>
+    <terreOuMerInt>T</terreOuMerInt>
+  </Intervenant>
+  <OtherInfos>
+    <php_self>http://inventaire.naturefrance.fr/presentation/consultation/popup_choix_format.php</php_self>
+    <url_xlink>http://inventaire.naturefrance.fr/</url_xlink>
+  </OtherInfos>
+  <DispositifCollecte>
+    <ExtentRdd>
+      <xmin>-54.586</xmin>
+      <ymin>2.114</ymin>
+      <xmax>-51.165</xmax>
+      <ymax>6.159</ymax>
+    </ExtentRdd>
+    <CodeSandreRdd></CodeSandreRdd>
+    <NomRdd>1&#232;re mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2010 - GUYANE</NomRdd>
+    <MnRdd></MnRdd>
+    <TypeRdd>
+      <CdTypeRdd>1</CdTypeRdd>
+      <LbTypeRdd>R&#233;seau de mesure</LbTypeRdd>
+    </TypeRdd>
+    <DureeRdd>
+      <CdDuree>2</CdDuree>
+      <LbDuree>Dispositif temporaire</LbDuree>
+    </DureeRdd>
+    <AnneeMisePlaceRdd>2010</AnneeMisePlaceRdd>
+    <ContactRdd>DALENS</ContactRdd>
+    <CommentairesRdd></CommentairesRdd>
+    <NbTotalRdd>50</NbTotalRdd>
+    <DescriptionFinaliteRdd>Une mission entomologique men&#233;e par la SEAG et command&#233;e par l'ONF a eu lieu du 2 au 10 octobre 2010 sur le site de la Roche B&#233;nitier dans la R&#233;serve Naturelle de la Trinit&#233;.
+
+L'&#233;quipe de la SEAG &#233;tait constitu&#233;e de 5 entomologistes aux comp&#233;tences compl&#233;mentaires. Plusieurs types de pi&#232;ges ont &#233;t&#233; install&#233;s (pi&#232;ge &#224; interception vitr&#233;, pi&#232;ge malaise, pi&#232;ge cryld&#233;, pi&#232;ge &#224; app&#226;ts ferment&#233;s, pi&#232;ge collant et pi&#232;ge lumineux) et l'&#233;quipe a &#233;galement effectu&#233; de la chasse active (&#224; vue, de jour comme de nuit, battage et fauchage).
+
+2200 sp&#233;cimens d'insectes et de 450 sp&#233;cimens d'arachnides ont &#233;t&#233; r&#233;colt&#233;s, pour 1145 esp&#232;ces d'insectes et 256 d'arachnides.
+
+Ce dispositif a notamment permis d'exploiter les donn&#233;es dans le cadre d'un projet en &#233;cologie thermique men&#233; par Sylvain PINCEBOURDE.</DescriptionFinaliteRdd>
+    <TypoMilieuRss>
+      <CdTypoMilieu>15</CdTypoMilieu>
+      <LbTypoMilieu>R&#233;serve Naturelle Nationale (RNN)</LbTypoMilieu>
+    </TypoMilieuRss>
+    <EtatAvancementFicheRdd>Approuv&#233;</EtatAvancementFicheRdd>
+    <DateMajFicheRdd>2014-05-19T15:26:12</DateMajFicheRdd>
+    <ModeStockageRdd>
+      <CdModeStockage>3</CdModeStockage>
+      <LbModeStockage>Informatique organis&#233;</LbModeStockage>
+      <PrecisionModeStockage></PrecisionModeStockage>
+    </ModeStockageRdd>
+    <AccesDonneesRdd>
+      <CdAcces>1</CdAcces>
+      <LbAcces>Libre</LbAcces>
+    </AccesDonneesRdd>
+    <EmpriseAdminRdd>
+      <CdEmpriseAdmin>13</CdEmpriseAdmin>
+      <LbEmpriseAdmin>Communal</LbEmpriseAdmin>
+    </EmpriseAdminRdd>
+    <EvenementsRdd>
+      <DateEvenement>2010-10-02</DateEvenement>
+      <LbEvenement>au 10/10/2010 : 1ere mission entomologique sur le site de la roche B&#233;nitier</LbEvenement>
+    </EvenementsRdd>
+    <EvenementsRdd>
+      <DateEvenement>2012-05-26</DateEvenement>
+      <LbEvenement>au 01/06/2012 : 2nde mission entomologique sur le site</LbEvenement>
+    </EvenementsRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite></ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>1</CdTypeQualite>
+        <LbTypeQualite>D&#233;marche qualit&#233; pour le pr&#233;l&#232;vement ou la collecte</LbTypeQualite>
+      </TypeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>2</CdMethodeQualite>
+        <LbMethodeQualite>Observation par point</LbMethodeQualite>
+      </MethodeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>5</CdMethodeQualite>
+        <LbMethodeQualite>Observation directe</LbMethodeQualite>
+      </MethodeQualite>
+      <MethodeQualite>
+        <CdMethodeQualite>7</CdMethodeQualite>
+        <LbMethodeQualite>Pi&#233;geage, capture</LbMethodeQualite>
+      </MethodeQualite>
+    </DemarcheQualiteRdd>
+    <DemarcheQualiteRdd>
+      <ReferenceDocDemarcheQualite>BR&#219;L&#201; S., TOUROULT J. et DALENS P-H (coord) (2011). R&#233;sultats de la mission entomologique du site de Roche B&#233;nitier, r&#233;serve de la Trinit&#233; (Guyane), octobre 2010. Rapport de la SEAG, ONF, 93pp+annexes.
+
+http://insectafgseag.myspecies.info/sites/insectafgseag.myspecies.info/files/RAPPORT%20Mission%20Entomologique%20Trinit%C3%A9%20Roche%20B%C3%A9nitier%20%28Octobre%202010%29%20SEAG.pdf</ReferenceDocDemarcheQualite>
+      <TypeQualite>
+        <CdTypeQualite>3</CdTypeQualite>
+        <LbTypeQualite>Autres D&#233;marches qualit&#233;s</LbTypeQualite>
+      </TypeQualite>
+    </DemarcheQualiteRdd>
+    <SupportRdd>
+      <Support>
+        <CdSupport schemeAgencyID="sandre">INSE</CdSupport>
+        <LbSupport>Classe des Insecta</LbSupport>
+      </Support>
+      <FrequenceAnalyse></FrequenceAnalyse>
+      <DescriptifParametres>richesse sp&#233;cifique, abondance, indices de biodiversit&#233;
+temp&#233;rature thoracique (sphingid&#233;s), type d'exposition de la mine sur la feuille (Gracillariidae) + temp&#233;rature de la feuille</DescriptifParametres>
+      <ResolutionParametres></ResolutionParametres>
+      <FrequenceActualisation></FrequenceActualisation>
+      <DescriptifTaxon>tous + sphingid&#233;s et mineuses Gracillariidae pour l'&#233;cologie thermique</DescriptifTaxon>
+    </SupportRdd>
+    <IntervenantRdd>
+      <Intervenant Role="MOU">
+        <CdIntervenant schemeAgencyID="SIRET">00-2101</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2123</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="COL">
+        <CdIntervenant schemeAgencyID="SIRET">00-2060</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2082</IdEchangeInt>
+      </Intervenant>
+      <PrecisionServiceIntervenant>- BLANCHET Denis
+- FERNANDEZ Serge
+- PINCEBOURDE Sylvain
+- POIRIER Eddy
+- VEDEL Vincent
+Chacun intervenant dans sa sp&#233;cialit&#233;.</PrecisionServiceIntervenant>
+    </IntervenantRdd>
+    <IntervenantRdd>
+      <Intervenant Role="POC">
+        <CdIntervenant schemeAgencyID="SIRET">00-2060</CdIntervenant>
+        <IdEchangeInt schemeID="INT" schemeAgencyID="SI_DC">00-2082</IdEchangeInt>
+      </Intervenant>
+    </IntervenantRdd>
+    <IdEchangeRdd schemeID="RDD" schemeAgencyID="SI_DC">00-2618</IdEchangeRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2014-05-19T15:39:23</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif 1&#232;re mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2010 - GUYANE a &#233;t&#233; rendu visible.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2014-05-19T15:26:12</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif 1&#232;re mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2010 - GUYANE a &#233;t&#233; approuv&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>IDCNP Administrateur national</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2014-05-16T12:44:05</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif 1&#232;re mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2010 - GUYANE a &#233;t&#233; valid&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Compte Nature DEAL Guyane</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2014-05-15T19:13:56</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>3</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif 1&#232;re mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2010 - GUYANE a &#233;t&#233; rendu provisoire.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Marion Poux</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <HistoriqueEvtsRdd>
+      <DtHistoriqueEvtsRdd>2013-09-24T20:10:48</DtHistoriqueEvtsRdd>
+      <TypeHistoriqueEvtsRdd>1</TypeHistoriqueEvtsRdd>
+      <DesHistoriqueEvtsRdd>Le dispositif Mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve des Nouragues) - GUYANE de type R&#233;seau de mesure est cr&#233;&#233;.</DesHistoriqueEvtsRdd>
+      <AuteurHistoriqueEvtsRdd>Marion Poux</AuteurHistoriqueEvtsRdd>
+    </HistoriqueEvtsRdd>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>INVENTAIRE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://rdfdata.eionet.europa.eu/sidetheme#1328</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>INSECTE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://rdfdata.eionet.europa.eu/sidetheme#2309</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>CHASSE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://rdfdata.eionet.europa.eu/sidetheme#345</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>ARACHNIDE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://rdfdata.eionet.europa.eu/sidetheme#2290</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <descriptiveKeywords>
+      <MD_Keywords>
+        <keyword>RESERVE</keyword>
+        <type>environnement</type>
+        <codeMotCle>http://inventaire.naturefrance.fr/environnement#148</codeMotCle>
+      </MD_Keywords>
+    </descriptiveKeywords>
+    <terre_ou_mer>T</terre_ou_mer>
+    <keyword>Terrestre</keyword>
+    <PrecisionNbTotalRdd>4 pi&#232;ges &#224; interception vitr&#233;e, 2 pi&#232;ges malaises, 2kg de pi&#232;ge &#224; filet cryld&#233;, 8 pi&#232;ges lumineux, 10 pi&#232;ges a&#233;riens, 5 pi&#232;ges &#224; Nymphalidae, 20 pi&#232;ges collants,   </PrecisionNbTotalRdd>
+    <precisionTerritoire>RNN des Nouragues, roche B&#233;nitier</precisionTerritoire>
+    <EtatActivite>
+      <CdEtatActivite>2</CdEtatActivite>
+      <LbEtatActivite>Termin&#233;</LbEtatActivite>
+    </EtatActivite>
+    <Thematique19115>
+      <CdThematique19115>02</CdThematique19115>
+      <LbThematique19115>Flore et faune</LbThematique19115>
+    </Thematique19115>
+    <RegionRdd>
+      <CdRegion>03</CdRegion>
+      <LbRegion>Guyane</LbRegion>
+    </RegionRdd>
+    <LanguesDonnees>
+      <CdLangue>fra</CdLangue>
+      <LbLangue>Fran&#231;ais</LbLangue>
+    </LanguesDonnees>
+    <ConditionsUtilisation></ConditionsUtilisation>
+    <Contact>
+      <CdContact schemeAgencyID="sandre">1</CdContact>
+      <NomContact>DALENS</NomContact>
+      <FonctionContact>Pr&#233;sident de la SEAG</FonctionContact>
+      <PrenomContact>Pierre Henri</PrenomContact>
+    </Contact>
+    <PrProducteur>- BLANCHET Denis
+- FERNANDEZ Serge
+- PINCEBOURDE Sylvain
+- POIRIER Eddy
+- VEDEL Vincent
+Chacun intervenant dans sa sp&#233;cialit&#233;.</PrProducteur>
+    <Responsable>
+      <CdResponsable>mpoux</CdResponsable>
+      <NomResponsable>Marion Poux</NomResponsable>
+      <StResponsable>1</StResponsable>
+      <OrganismeResponsable>DEAL Guyane</OrganismeResponsable>
+      <ServiceResponsable>MNBSP</ServiceResponsable>
+      <NomInternationalResponsable>Marion Poux</NomInternationalResponsable>
+      <URLWeb>marion.poux@developpement-durable.gouv.fr</URLWeb>
+      <RueResponsable>Impasse Buzar&#233; - BP 6003</RueResponsable>
+      <VilleResponsable>Cayenne</VilleResponsable>
+      <CPResponsable>97306</CPResponsable>
+      <RegionResponsable>03</RegionResponsable>
+      <Tel>05 94 29 51 48</Tel>
+      <Mail>marion.poux@developpement-durable.gouv.fr</Mail>
+    </Responsable>
+    <DataDesc></DataDesc>
+    <DataIdentifier></DataIdentifier>
+    <DataKwInspire></DataKwInspire>
+    <DataNom></DataNom>
+    <Genealogie></Genealogie>
+    <DispositifAssocie>
+      <IdReseauPere></IdReseauPere>
+      <LibelleReseauPere></LibelleReseauPere>
+    </DispositifAssocie>
+    <DispositifFils>
+      <Code>2619</Code>
+      <Libelle>Seconde mission entomologique sur le site de la Roche B&#233;nitier (r&#233;serve de la Trinit&#233;) en 2012 - GUYANE</Libelle>
+    </DispositifFils>
+    <Utilisateur>
+      <nomPrenom>Poux Marion</nomPrenom>
+      <fonction>DEAL Guyane</fonction>
+    </Utilisateur>
+  </DispositifCollecte>
+</SI_DC>

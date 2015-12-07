@@ -47,7 +47,7 @@
                       type="gco:CharacterString_PropertyType"
                       minOccurs="0" maxOccurs="1"/>
           <xs:element name="scopeDescription"
-                      type="gco:CharacterString_PropertyType"
+                      type="sinp:ResponsiblePartyScopeCode_PropertyType"
                       minOccurs="1" maxOccurs="1"/>
           <xs:element name="history"
                       type="gmd:LI_ProcessStep_PropertyType"
@@ -75,6 +75,17 @@
   <xs:complexType name="ResponsiblePartyStatus_PropertyType">
     <xs:sequence minOccurs="0">
       <xs:element ref="sinp:ResponsiblePartyStatusCode"/>
+    </xs:sequence>
+    <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+
+  <xs:element name="ResponsiblePartyScopeCode"
+              type="gco:CodeListValue_Type"
+              substitutionGroup="gco:CharacterString"/>
+
+  <xs:complexType name="ResponsiblePartyScopeCode_PropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="sinp:ResponsiblePartyScopeCode"/>
     </xs:sequence>
     <xs:attribute ref="gco:nilReason"/>
   </xs:complexType>

@@ -6,5 +6,5 @@
         xmlns:srv="http://www.isotc211.org/2005/srv"
         xmlns:gmx="http://www.isotc211.org/2005/gmx"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../../../../../labels.xsd" >
+        xsi:noNamespaceSchemaLocation="../../../../../../../labels.xsd">
 </labels>

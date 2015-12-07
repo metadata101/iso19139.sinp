@@ -21,6 +21,20 @@
       </description>
     </entry>
   </codelist>
+  <codelist name="sinp:ResponsiblePartyScopeCode">
+    <entry>
+      <code>Terre</code>
+      <label>Terre</label>
+    </entry>
+    <entry>
+      <code>Mer</code>
+      <label>Mer</label>
+    </entry>
+    <entry>
+      <code>Paysage</code>
+      <label>Paysage</label>
+    </entry>
+  </codelist>
   <codelist name="sinp:ResponsiblePartyStatusCode">
     <entry>
       <code>association</code>
@@ -70,5 +84,61 @@
       <code>univ-ees</code>
       <label>Université / établissement d’enseignement supérieur</label>
     </entry>
+  </codelist>
+  <codelist name="gmd:CI_RoleCode">
+    <!--<entry>
+      <code>resourceProvider</code>
+      <label>Fournisseur</label>
+      <description>Organisme qui fournit la ressource. Acteur qui délivre
+        physiquement la ressource, soit de manière directe au destinataire, soit
+        par l’intermédiaire d’un diffuseur
+      </description>
+    </entry>-->
+
+    <entry>
+      <code>owner</code>
+      <label>Financeur</label>
+      <description>« Personne (physique ou morale) qui prend l’initiative ou le risque des moyens (financiers, matériels ou humains) pour la collecte de la donnée [pour assurer l’investissement et le fonctionnement du dispositif]. Tout financeur, pour totalité ou partie, qu’il finance sous forme d’investissement, de temps passé ou sous forme de subvention, a un droit de propriété sur les données produites. Le financeur sera par défaut le maître d’ouvrage si un autre organisme n’est pas indiqué. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14-15).
+      </description>
+    </entry>
+<!--
+    <entry>
+      <code>distributor</code>
+      <label>Distributeur</label>
+      <description>Organisme qui distribue la ressource. Diffuseur de second
+        niveau de la ressource
+      </description>
+    </entry>
+-->
+
+    <entry>
+      <code>originator</code>
+      <label>Maîtrise d’ouvrage</label>
+      <description>« Entité juridique qui a la responsabilité juridique du [dispositif] ou de la collecte des données (…). C’est celui qui ordonne, [établit] ou fait établir le cahier des charges, rédige les contrats et conventions, et les signe. Il peut financer (ou cofinancer) l’acquisition de la donnée, organise la production et la validation des données. En règle générale, le maître d’ouvrage est un des financeurs mais plusieurs financeurs peuvent intervenir pour un même dispositif. Cette fonction est à différencier des rôles de producteur de données, de financeur de la donnée, de validation, même si le même organisme peut assurer plusieurs rôles. »
+        (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
+      </description>
+    </entry>
+
+    <entry>
+      <code>pointOfContact</code>
+      <label>Contact principal</label>
+      <description>"Il s’agit […] du nom de l’organisme […] susceptible de fournir le plus d’informations sur le dispositif de collecte, avec l’accord du maître d’ouvrage. »
+        (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 15).
+      </description>
+    </entry>
+
+    <entry>
+      <code>principalInvestigator</code>
+      <label>Maîtrise d’œuvre</label>
+      <description>« Organisme qui assure, pour le compte du maître d’ouvrage, la conception et le suivi du dispositif. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
+      </description>
+    </entry>
+    <!--<entry>
+      <code>author</code>
+      <label>Auteur</label>
+      <description>Organisme ou personne qui est auteur. Acteur qui dispose des
+        droits moraux relatifs à la ressource
+      </description>
+    </entry>-->
   </codelist>
 </codelists>
