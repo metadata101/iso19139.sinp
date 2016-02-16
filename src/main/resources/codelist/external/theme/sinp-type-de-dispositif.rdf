@@ -5,7 +5,7 @@
          xmlns:skos="http://www.w3.org/2004/02/skos/core#">
   <skos:ConceptScheme
           rdf:about="http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-dispositif">
-    <dc:title>Type de dispositif SINP</dc:title>
+    <dc:title>Type de dispositif</dc:title>
     <dc:description/>
     <dcterms:issued>2015-11-27</dcterms:issued>
     <dcterms:modified>2015-11-27</dcterms:modified>
@@ -54,6 +54,12 @@
     <skos:definition xml:lang='fr'>Les données de collection correspondent aux
       données bancarisées dans des collections, comme les herbiers, ou encore
       des collections photographiques dans le cas du paysage.
+    </skos:definition>
+  </skos:Concept>
+  <skos:Concept
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-dispositif#experimentation'>
+    <skos:prefLabel xml:lang='fr'>Expérimentation</skos:prefLabel>
+    <skos:definition xml:lang='fr'>
     </skos:definition>
   </skos:Concept>
 </rdf:RDF>

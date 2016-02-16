@@ -17,7 +17,7 @@
       Exemple : Inventaire exhaustif de la flore vasculaire de Mayotte
 
       Nom caractéristique et souvent unique sous lequel la donnée est connue.
-      Exemple : Abondance des mammifères marins.
+      Exemple : Abondance des mammifères marins
     </help>
   </element>
   <element name="gmd:alternateTitle" id="361.0">
@@ -30,8 +30,7 @@
       Exemple : Atlas de la flore vasculaire de Mayotte
     </help>
   </element>
-  <element name="gmd:abstract" id="25.0"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification/gmd:abstract">
+  <element name="gmd:abstract" id="25.0">
     <label>Résumé</label>
     <description>Brève description du dispositif de collecte et/ou du programme associé, et de ses objectifs. Bref résumé narratif du contenu du jeu de données.</description>
     <help>
@@ -68,7 +67,10 @@
      </ul>
      ]]></help>
   </element>
-
+  <element name="gmd:description" context="gmd:EX_Extent">
+    <label>Précision sur la cible géographique</label>
+    <description>Emprise réelle et effective du territoire couvert par les données actuellement issues du dispositif de collecte décrit par cette fiche. Le domaine de valeur est du texte libre.</description>
+  </element>
   <element name="gmd:processStep" id="84.0">
     <label>Historique</label>
     <description>Liste des événements qui sont à l’origine de la ressource, la création et les événements majeurs pots-création.</description>
@@ -83,6 +85,18 @@
     </help>
   </element>
 
+  <element name="gmd:maintenanceAndUpdateFrequency" id="143.0">
+    <label>Fréquence d'actualisation</label>
+    <description>Fréquence du « Monitoring », c’est-à-dire la fréquence (périodicité) des phases opérationnelles du dispositif, autrement dit la fréquence des cycles de production / collecte des données.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Tous les deux ans.
+    </description>
+  </element>
+  <element name="gmd:keyword">
+    <label>Mot-clé</label>
+    <description>Termes décrivant le dispositif de collecte, liés aux thématiques, territoires, programmes, etc. Ces termes peuvent provenir d’un ou plusieurs thésaurus. Le domaine de valeur est du texte libre.
+      Exemple : flore vasculaire</description>
+  </element>
   <element name="gmd:lineage">
     <label>Généalogie</label>
     <description>La généalogie fait état de l’historique du traitement et/ou de la qualité générale de la série de données.</description>

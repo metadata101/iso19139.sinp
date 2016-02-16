@@ -11,30 +11,19 @@
     <dcterms:modified>2015-11-27</dcterms:modified>
   </skos:ConceptScheme>
   <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#prive'>
-    <skos:prefLabel xml:lang='fr'>Privé</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Mode de financement privé</skos:definition>
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#privee'>
+    <skos:prefLabel xml:lang='fr'>Privée</skos:prefLabel>
+    <skos:definition xml:lang='fr'>Type de financement privé</skos:definition>
   </skos:Concept>
   <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#public'>
-    <skos:prefLabel xml:lang='fr'>Public</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Mode de financement public</skos:definition>
+          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#publique'>
+    <skos:prefLabel xml:lang='fr'>Publique</skos:prefLabel>
+    <skos:definition xml:lang='fr'>Type de financement public</skos:definition>
   </skos:Concept>
   <skos:Concept
           rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#mixte'>
     <skos:prefLabel xml:lang='fr'>Mixte</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Mode de financement privé et public
-    </skos:definition>
-  </skos:Concept>
-  <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#inconnu'>
-    <skos:prefLabel xml:lang='fr'>Inconnu</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Mode de financement inconnu</skos:definition>
-  </skos:Concept>
-  <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/type-de-financement#non-renseigne'>
-    <skos:prefLabel xml:lang='fr'>Non renseigné</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Mode de financement non renseigné
+    <skos:definition xml:lang='fr'>Type de financement mixte (public et privé)
     </skos:definition>
   </skos:Concept>
 </rdf:RDF>

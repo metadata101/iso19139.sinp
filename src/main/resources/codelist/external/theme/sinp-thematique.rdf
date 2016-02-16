@@ -23,28 +23,8 @@
     <skos:definition xml:lang='fr'></skos:definition>
   </skos:Concept>
   <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/thematique#znieff'>
-    <skos:prefLabel xml:lang='fr'>ZNIEFF</skos:prefLabel>
-    <skos:definition xml:lang='fr'></skos:definition>
-  </skos:Concept>
-  <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/thematique#natura-2000'>
-    <skos:prefLabel xml:lang='fr'>Natura 2000</skos:prefLabel>
-    <skos:definition xml:lang='fr'></skos:definition>
-  </skos:Concept>
-  <skos:Concept
           rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/thematique#geologie'>
     <skos:prefLabel xml:lang='fr'>Géologie</skos:prefLabel>
-    <skos:definition xml:lang='fr'></skos:definition>
-  </skos:Concept>
-  <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/thematique#habitats'>
-    <skos:prefLabel xml:lang='fr'>Habitats</skos:prefLabel>
-    <skos:definition xml:lang='fr'></skos:definition>
-  </skos:Concept>
-  <skos:Concept
-          rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/thematique#vegetation'>
-    <skos:prefLabel xml:lang='fr'>Végétation</skos:prefLabel>
     <skos:definition xml:lang='fr'></skos:definition>
   </skos:Concept>
 </rdf:RDF>

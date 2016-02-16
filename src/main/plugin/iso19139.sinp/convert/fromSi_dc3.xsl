@@ -421,26 +421,6 @@
                 </gmd:MD_Identifier>
               </gmd:identifier>
               
-              <xsl:variable name="roleMapping">
-                <value key="MOU">originator</value>
-                <value key="MOE">principalInvestigator</value>
-                <value key="FIN">owner</value>
-                <value key="POC">pointOfContact</value>
-                <!-- Ce cas n'est pas dans le nouveau profil ? Il y a des cas dans l'ancien export
-            avec une valeur incorrecte PrRecueilocessor au lieu de processor-->
-                <value key="COL">processor</value>
-              </xsl:variable>
-              <xsl:for-each select="IntervenantRdd/Intervenant">
-                <xsl:variable name="code" select="CdIntervenant"/>
-                <xsl:variable name="role" select="@Role"/>
-                <gmd:citedResponsibleParty>
-                  <xsl:apply-templates mode="sinp-contact"
-                    select="/SI_DC/Intervenant[CdIntervenant = $code]">
-                    <xsl:with-param name="role" select="$roleMapping/value[@key = $role]/text()"/>
-                  </xsl:apply-templates>
-                </gmd:citedResponsibleParty>
-              </xsl:for-each>
-              
               <!--
               Dans l'ancien export le champ presentationForm est utilisé
               -->
@@ -500,7 +480,27 @@
 							</xsl:choose>
 						</gmd:status>
           -->
-
+          
+          
+          <xsl:variable name="roleMapping">
+            <value key="MOU">originator</value>
+            <value key="MOE">principalInvestigator</value>
+            <value key="FIN">owner</value>
+            <value key="POC">pointOfContact</value>
+            <!-- Ce cas n'est pas dans le nouveau profil ? Il y a des cas dans l'ancien export
+            avec une valeur incorrecte PrRecueilocessor au lieu de processor-->
+            <value key="COL">processor</value>
+          </xsl:variable>
+          <xsl:for-each select="IntervenantRdd/Intervenant">
+            <xsl:variable name="code" select="CdIntervenant"/>
+            <xsl:variable name="role" select="@Role"/>
+            <gmd:pointOfContact>
+              <xsl:apply-templates mode="sinp-contact"
+                                   select="/SI_DC/Intervenant[CdIntervenant = $code]">
+                <xsl:with-param name="role" select="$roleMapping/value[@key = $role]/text()"/>
+              </xsl:apply-templates>
+            </gmd:pointOfContact>
+          </xsl:for-each>
           <!-- OLD
           Bizarre already in citedResponsibleParty
 						<xsl:for-each select="DispositifCollecte/IntervenantRdd/Intervenant[@Role='POC']">
@@ -654,7 +654,7 @@
               <gmd:thesaurusName>
                 <gmd:CI_Citation>
                   <gmd:title>
-                    <gco:CharacterString>Type de dispositif SINP</gco:CharacterString>
+                    <gco:CharacterString>Type de dispositif</gco:CharacterString>
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
@@ -752,6 +752,19 @@
             </MD_Keywords>
           </descriptiveKeywords>
           -->
+          
+          <!-- TODO 
+            Type de données observées remplacer par Cible taxonomique
+            TAXREF 
+            - Migration mapping avec ancien tableau qui était un sous ensemble
+            SupportRdd/Support/LbSupport
+            -->
+          
+          <!-- TODO 
+          Groupe taxonomique, espèces/ habitats suivi(e)s
+          SupportRdd/DescriptifTaxon
+          -->
+          
           <xsl:if test="count(descriptiveKeywords) > 0">
             <gmd:descriptiveKeywords>
               <!-- OLD 

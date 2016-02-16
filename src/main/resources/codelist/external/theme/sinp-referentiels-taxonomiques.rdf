@@ -477,9 +477,7 @@
   <skos:Concept
           rdf:about='http://inventaire.naturefrance.fr/thesaurus/sinp/referentiels-taxonomiques#rt59'>
     <skos:prefLabel xml:lang='fr'>Autre</skos:prefLabel>
-    <skos:definition xml:lang='fr'>Préciser dans [commentaires] le nom et les
-      références du référentiel, la version utilisée (date) et le lien internet
-      officiel l’explicitant (type http://...).
+    <skos:definition xml:lang='fr'>
     </skos:definition>
   </skos:Concept>
 </rdf:RDF>

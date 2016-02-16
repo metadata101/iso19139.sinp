@@ -5,13 +5,13 @@
     <entry>
       <code>dispositifDeCollecte</code>
       <label>Dispositif de collecte</label>
+      <description>Tout dispositif (tout moyen) qui permet par mesure [observation] ou non d’acquérir des données (des connaissances) [nature et paysage]. Les données ainsi collectées doivent être fiables, pérennes et actualisées. (…) Le dispositif de collecte doit être organisé afin de collecter de manière régulière ou suffisamment pérenne les informations. Ces données produites par les dispositifs de collecte ne sont pas obligatoirement informatisées. Si le dispositif décrit est la déclinaison locale (méthodes et paramètres communs) d’un dispositif plus vaste, il est alors utile de créer une fiche Dispositif de collecte pour ce dispositif général, si elle n’existe pas déjà. Ce dispositif général devient alors de facto un méta-dispositif, si au moins deux dispositifs recensés y sont associés. Exemple : Le suivi stationnel intertidal des invertébrés benthiques en Artois-Picardie, en application de la Directive Cadre sur l’Eau, est un dispositif local (méthodes et paramètres définis par un cahier des charges minimal commun) du Réseau Benthique Manche Mer du Nord (méta-dispositif sectoriel), lui-même étant un dispositif local du Réseau Benthique national (méta-dispositif national).</description>
     </entry>
     <entry>
       <code>dataset</code>
       <label>Jeu de données</label>
-      <description>Informations appliquées aux caractéristiques de jeu de
-        données
-      </description>
+      <description> Les jeux de données « nature » : il s’agit de tous les jeux de données relatifs à la nature / biodiversité française (outre-mer compris). Cela concerne les jeux de données naturalistes (observations, relevés et cartographies d'habitats, etc.), terrestres comme marins (habitats, flore, faune, champignons, etc.), les jeux de données relatifs aux espaces naturels (protégés / gérés ou non), aux sites géologiques, aux écosystèmes et à leur fonctionnement.
+        Les jeux de données « paysage » : il s’agit de tous les jeux de données relatifs aux paysages, c’est-à-dire aux formes du territoire, aux perceptions sociales et aux dynamiques du territoire. Ils intègrent également des inventaires particuliers. Ils concernent les espaces naturels, ruraux, urbains et péri-urbains. Ils incluent les espaces terrestres, les eaux intérieures et maritimes. Ils concernent tant les paysages pouvant être considérés comme remarquables que les paysages du quotidien et les paysages dégradés.</description>
     </entry>
     <entry>
       <code>series</code>
