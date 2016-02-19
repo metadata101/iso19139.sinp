@@ -174,4 +174,13 @@
   <element name="sinp:relatedResponsibleParty">
     <label>Acteurs associés</label>
   </element>
+
+  <element name="sinp:database">
+    <label>Base de données</label>
+    <description></description>
+  </element>
+  <element name="sinp:name" context="sinp:Database">
+    <label></label>
+    <description></description>
+  </element>
 </labels>

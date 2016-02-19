@@ -10,7 +10,8 @@
            xmlns:gss="http://www.isotc211.org/2005/gss"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gml="http://www.opengis.net/gml"
-           xmlns:srv="http://www.isotc211.org/2005/srv">
+           xmlns:srv="http://www.isotc211.org/2005/srv"
+           xmlns:xsl="http://www.w3.org/2001/XMLSchema">
 
   <xs:import namespace="http://www.isotc211.org/2005/gco"
     schemaLocation="../../iso19139/schema/gco/gco.xsd"/>
@@ -29,6 +30,33 @@
   <xs:import namespace="http://www.opengis.net/gml"
     schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gml/gml.xsd"/>
   -->
+  <xs:element name="MD_DigitalTransferOptions"
+              type="sinp:MD_DigitalTransferOptions_Type"
+              substitutionGroup="gmd:MD_DigitalTransferOptions"/>
+
+
+  <xs:complexType name="MD_DigitalTransferOptions_PropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="sinp:MD_DigitalTransferOptions"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gco:ObjectReference"/>
+    <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+
+  <xs:complexType name="MD_DigitalTransferOptions_Type">
+    <xs:complexContent>
+      <xs:extension base="gmd:MD_DigitalTransferOptions_Type">
+        <xs:sequence>
+          <xs:element name="database"
+                      type="sinp:Database_PropertyType"
+                      minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="gco:isoType" use="required"
+                      fixed="gmd:MD_DigitalTransferOptions"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <xs:element name="CI_ResponsibleParty"
               type="sinp:CI_ResponsibleParty_Type"
               substitutionGroup="gmd:CI_ResponsibleParty"/>
@@ -88,5 +116,26 @@
       <xs:element ref="sinp:ResponsiblePartyScopeCode"/>
     </xs:sequence>
     <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="Database_PropertyType">
+    <xs:sequence>
+      <xs:element name="name"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="1" maxOccurs="1"/>
+      <xs:element name="url"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="startYear"
+                  type="gco:Date_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="history"
+                  type="gmd:LI_ProcessStep_PropertyType"
+                  minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="contact"
+                  type="gmd:CI_ResponsibleParty_PropertyType"
+                  minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
 </xs:schema>

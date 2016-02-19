@@ -7,6 +7,7 @@
         xmlns:gmx="http://www.isotc211.org/2005/gmx"
         xmlns:srv="http://www.isotc211.org/2005/srv"
         xmlns:gml="http://www.opengis.net/gml"
+        xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0"
         xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <!-- Form field type configuration. Default is text. -->
@@ -151,6 +152,7 @@
     <name>gml:verticalCS</name>
     <name>gml:verticalDatum</name>
     <name>gmd:identifier</name>
+    <name>sinp:database</name>
   </fieldsWithFieldset>
 
   <multilingualFields>

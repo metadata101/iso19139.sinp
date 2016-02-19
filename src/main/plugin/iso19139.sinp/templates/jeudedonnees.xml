@@ -757,21 +757,8 @@
                      <gmd:plannedAvailableDateTime>
                         <gco:Date>2012</gco:Date>
                      </gmd:plannedAvailableDateTime>
-                     <gmd:orderingInstructions>
-                        <gco:CharacterString>Mode de diffusion</gco:CharacterString>
-                     </gmd:orderingInstructions>
                   </gmd:MD_StandardOrderProcess>
                </gmd:distributionOrderProcess>
-               <gmd:distributorFormat>
-                  <gmd:MD_Format>
-                     <gmd:name>
-                        <gco:CharacterString>Mode de stockage</gco:CharacterString>
-                     </gmd:name>
-                     <gmd:version gco:nilReason="missing">
-                        <gco:CharacterString/>
-                     </gmd:version>
-                  </gmd:MD_Format>
-               </gmd:distributorFormat>
                <gmd:distributorTransferOptions>
                   <gmd:MD_DigitalTransferOptions>
                      <gmd:onLine>
