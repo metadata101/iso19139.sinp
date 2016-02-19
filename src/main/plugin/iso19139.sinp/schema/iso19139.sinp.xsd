@@ -30,6 +30,48 @@
   <xs:import namespace="http://www.opengis.net/gml"
     schemaLocation="file:/data/dev/gn/3.0.x/schemas/iso19139/src/main/plugin/iso19139/schema/gml/gml.xsd"/>
   -->
+  <xs:complexType name="DataIdentification_Type">
+    <xs:complexContent>
+      <xs:extension base="gmd:MD_DataIdentification_Type">
+        <xs:sequence>
+          <xs:element name="observationDetails" type="sinp:ObservationDetails_PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="gco:isoType" use="required" fixed="gmd:MD_DataIdentification"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:element name="observationDetails" type="sinp:ObservationDetails_Type"/>
+
+  <xs:complexType name="ObservationDetails_PropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="sinp:observationDetails"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gco:ObjectReference"/>
+    <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+
+  <xs:complexType name="ObservationDetails_Type">
+    <xs:sequence>
+      <xs:element name="descriptiveKeywords"
+                  type="gmd:MD_Keywords_PropertyType"
+                  minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="ecologicalTarget"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="parameters"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="resolution"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="updateFrequency"
+                  type="gco:CharacterString_PropertyType"
+                  minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:element name="MD_DigitalTransferOptions"
               type="sinp:MD_DigitalTransferOptions_Type"
               substitutionGroup="gmd:MD_DigitalTransferOptions"/>
@@ -118,8 +160,17 @@
     <xs:attribute ref="gco:nilReason"/>
   </xs:complexType>
 
+  <xs:element name="Database" type="sinp:DatabaseType"/>
 
   <xs:complexType name="Database_PropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="sinp:Database"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gco:ObjectReference"/>
+    <xs:attribute ref="gco:nilReason"/>
+  </xs:complexType>
+
+  <xs:complexType name="DatabaseType">
     <xs:sequence>
       <xs:element name="name"
                   type="gco:CharacterString_PropertyType"

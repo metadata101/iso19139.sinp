@@ -180,7 +180,36 @@
     <description></description>
   </element>
   <element name="sinp:name" context="sinp:Database">
-    <label></label>
-    <description></description>
+    <label>Nom de la base de données</label>
+    <description>Intitulé exact de la base (nom officiel), qui permet de l’identifier explicitement.
+      Exemple : Sextant
+    </description>
+  </element>
+  <element name="sinp:url" context="sinp:Database">
+    <label>Adresse de la base de données</label>
+    <description>Adresse Internet d’accès à la base de données.
+      Exemple : http://www.ifremer.fr/sextant/
+    </description>
+  </element>
+  <element name="sinp:startYear" context="sinp:Database">
+    <label>Année de mise en place de la base de données</label>
+    <description>Première année de bancarisation des données, c’est-à-dire la date, à l’année près, à laquelle les premières données ont été intégrées dans la base de données, postérieurement à sa création.
+      Exemple : 1990</description>
+  </element>
+  <element name="sinp:history" context="sinp:Database">
+    <label>Historique de la base de données</label>
+    <description>Liste des événements qui sont à l’origine directe ou indirecte de la mise en place de la base et les événements majeurs depuis.
+      L’historique est défini par une date et un événement sous forme d’une chaîne de caractères.
+      Exemple :
+      Date : 01-01-2005
+      Evénements : Ouverture de la base de données aux partenaires extérieurs</description>
+  </element>
+  <element name="sinp:contact" context="sinp:Database">
+    <label>Contact sur la base de données</label>
+    <description>Nom de l’acteur intervenant sur la base de données.
+    </description>
+  </element>
+  <element name="sinp:MD_DigitalTransferOptions">
+    <label>Ressources en ligne, hors ligne et bases de données</label>
   </element>
 </labels>
