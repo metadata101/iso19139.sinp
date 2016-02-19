@@ -76,7 +76,7 @@
                       minOccurs="0" maxOccurs="1"/>
           <xs:element name="scopeDescription"
                       type="sinp:ResponsiblePartyScopeCode_PropertyType"
-                      minOccurs="1" maxOccurs="1"/>
+                      minOccurs="0" maxOccurs="1"/>
           <xs:element name="history"
                       type="gmd:LI_ProcessStep_PropertyType"
                       minOccurs="0" maxOccurs="unbounded"/>

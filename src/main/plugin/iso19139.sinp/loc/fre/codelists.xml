@@ -133,12 +133,44 @@
       <description>« Organisme qui assure, pour le compte du maître d’ouvrage, la conception et le suivi du dispositif. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
       </description>
     </entry>
-    <!--<entry>
+    <entry>
       <code>author</code>
       <label>Auteur</label>
       <description>Organisme ou personne qui est auteur. Acteur qui dispose des
         droits moraux relatifs à la ressource
       </description>
-    </entry>-->
+    </entry>
+  </codelist>
+  <codelist name="gmd:DS_AssociationTypeCode" alias="associationType">
+    <entry>
+      <code>publication</code>
+      <label>Publication</label>
+      <description>Référence vers une publication</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>crossReference</code>
+      <label>Référence croisée</label>
+      <description>Référence d’un jeu de données à un autre</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>largerWorkCitation</code>
+      <label>Référence mère</label>
+      <description>Référence à un jeu de données maître</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>partOfSeamlessDatabase</code>
+      <label>Partie d'une même base de données</label>
+      <description>Référence à un jeu de données stocké dans une même base de données</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>source</code>
+      <label>Source</label>
+      <description>Références vers la source des données qui a permis de produire les cartes,…</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>stereoMate</code>
+      <label>Stéréo restitution</label>
+      <description>Partie d’un ensemble d’images qui, utilisé ensemble, fournit une vision 3D de l’image.</description>
+    </entry>
   </codelist>
 </codelists>

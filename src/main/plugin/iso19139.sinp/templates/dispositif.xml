@@ -523,6 +523,69 @@
                </gmd:thesaurusName>
             </gmd:MD_Keywords>
          </gmd:descriptiveKeywords>
+        <gmd:aggregationInfo>
+          <gmd:MD_AggregateInformation>
+            <gmd:aggregateDataSetName>
+              <gmd:CI_Citation>
+                <gmd:title>
+                  <gco:CharacterString>Titre de l’ouvrage ou de l’article.</gco:CharacterString>
+                </gmd:title>
+                <gmd:date>
+                  <gmd:CI_Date>
+                    <gmd:dateType>
+                      <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                           codeListValue=""/>
+                    </gmd:dateType>
+                  </gmd:CI_Date>
+                </gmd:date>
+                <gmd:edition>
+                  <gco:CharacterString>Volume et numéro éventuel de la revue / périodique.</gco:CharacterString>
+                </gmd:edition>
+                <gmd:editionDate>
+                  <gco:Date>2016</gco:Date>
+                </gmd:editionDate>
+                <gmd:citedResponsibleParty>
+                  <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
+                    <gmd:individualName>
+                      <gco:CharacterString>Nom de l’auteur ou noms des co-auteurs</gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:contactInfo>
+                      <gmd:CI_Contact>
+                        <gmd:address>
+                          <gmd:CI_Address/>
+                        </gmd:address>
+                      </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                      <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                                       codeListValue="author"/>
+                    </gmd:role>
+                    <sinp:scopeDescription>
+                      <sinp:ResponsiblePartyScopeCode codeList="" codeListValue=""/>
+                    </sinp:scopeDescription>
+                  </sinp:CI_ResponsibleParty>
+                </gmd:citedResponsibleParty>
+                <gmd:series>
+                  <gmd:CI_Series>
+                    <gmd:name>
+                      <gco:CharacterString>Uniquement s’il s’agit d’un article.</gco:CharacterString>
+                    </gmd:name>
+                    <gmd:issueIdentification>
+                      <gco:CharacterString>A renseigner si la publication est récurrente (annuelle, mensuelle, hebdomadaire, etc.)</gco:CharacterString>
+                    </gmd:issueIdentification>
+                    <gmd:page>
+                      <gco:CharacterString>Nombre de pages de l’ouvrage ou pages de la publication dans la revue / périodique.</gco:CharacterString>
+                    </gmd:page>
+                  </gmd:CI_Series>
+                </gmd:series>
+              </gmd:CI_Citation>
+            </gmd:aggregateDataSetName>
+            <gmd:associationType>
+              <gmd:DS_AssociationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DS_AssociationTypeCode"
+                                          codeListValue="publication"/>
+            </gmd:associationType>
+          </gmd:MD_AggregateInformation>
+        </gmd:aggregationInfo>
          <gmd:language>
             <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="fre"/>
          </gmd:language>
