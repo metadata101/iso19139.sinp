@@ -110,6 +110,11 @@
       <directiveAttributes data-include="external.theme.inspire-theme,external.place.regions"/>
       -->
     </for>
+    <for name="sinp:descriptiveKeywords"
+         addDirective="data-gn-thesaurus-selector">
+      <directiveAttributes data-include="external.theme.sinp-habref,external.theme.sinp-taxref"
+                           data-transformation="to-iso19139-keyword-sinp"/>
+    </for>
   </fields>
 
 
@@ -153,6 +158,7 @@
     <name>gml:verticalDatum</name>
     <name>gmd:identifier</name>
     <name>sinp:database</name>
+    <name>sinp:observationDetails</name>
   </fieldsWithFieldset>
 
   <multilingualFields>

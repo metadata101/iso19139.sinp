@@ -7,8 +7,8 @@
 
   <!-- offer just the service and data identification -->
   <field name="gmd:AbstractMD_Identification">
-    <substitute name="srv:SV_ServiceIdentification"/>
     <substitute name="gmd:MD_DataIdentification"/>
+    <substitute name="sinp:DispositifIdentification"/>
   </field>
 
   <!-- just VerticalCS (exclude ML_VerticalCS) -->

@@ -7,4 +7,254 @@
         xmlns:gmx="http://www.isotc211.org/2005/gmx"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../../../../labels.xsd">
+  <element name="gmd:title" id="360.0"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+    <label>Nom complet</label>
+    <description>Intitulé exact de la ressource qui permet de l’identifier
+      explicitement.
+    </description>
+    <help>Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Inventaire exhaustif de la flore vasculaire de Mayotte
+
+      Nom caractéristique et souvent unique sous lequel la donnée est connue.
+      Exemple : Abondance des mammifères marins
+    </help>
+  </element>
+  <element name="gmd:alternateTitle" id="361.0">
+    <label>Nom usuel</label>
+    <description>Intitulé utilisé pour dénommer couramment la ressource.
+    </description>
+    <help>Correspond à un sigle, une abréviation, un acronyme ou un diminutif du
+      nom complet.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Atlas de la flore vasculaire de Mayotte
+    </help>
+  </element>
+  <element name="gmd:abstract" id="25.0">
+    <label>Résumé</label>
+    <description>Brève description du dispositif de collecte et/ou du programme associé, et de ses objectifs. Bref résumé narratif du contenu du jeu de données.</description>
+    <help>
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Inventaire exhaustif de la flore vasculaire de Mayotte par unité de maille de 1x1 km
+
+      Exemple : Etude d'abondance et de distribution des mammifères marins par méthode de transects de ligne et acoustiques. Objectifs: Indices d'abondance, répartition spatiale, description du peuplement, structure des stocks. Suivi des populations.
+    </help>
+  </element>
+  <element name="gmd:purpose" id="26.0">
+    <label>Objectifs scientifiques</label>
+    <description>Cet élément fournit des informations générales sur les objectifs scientifiques, les buts, etc. des travaux réalisés dans le cadre du dispositif de collecte.</description>
+    <help><![CDATA[
+      Exemple : les objectifs du réseau SEBIOPAG sont :
+      <ul>
+      <li>Comprendre les facteurs et mécanismes de contrôle des populations animales ou végétales d'intérêt,</li>
+      <li>Comprendre les facteurs et processus impliqués dans la production effective des services écosystémiques,</li>
+      </ul>
+      ]]></help>
+  </element>
+
+  <element name="gmd:code" id="207.0" context="gmd:MD_Identifier">
+    <label>Identifiant</label>
+    <description>Valeur identifiant le dispositif de collecte de manière unique. Le domaine de valeur est du texte libre.</description>
+    <help><![CDATA[De façon à être homogène avec la méthode d’attribution d’un identifiant unique à une donnée (Cf. Standard de données Occurrence taxon), l’identifiant unique doit  se présenter sous la forme suivante : http://paca.sinp.fr/DC/KJHKHKE45LK45UY7bU
+    <br/>
+    Il conviendra de se reporter à <a href="http://www.naturefrance.fr/sites/default/files/fichiers/ressources/pdf/sinp_identifiantpermanent.pdf">la note sur les identifiants permanents du SINP</a>.
+    <br/>
+    L’attribution d’un identifiant unique peut se faire par concaténation de :
+    <ul>
+     <li>l’identifiant de l’autorité (entité qui est habilitée à attribuer l’identifiant unique), par exemple http://paca.sinp.fr</li>
+     <li>du type d’objet identifié : DC (pour dispositif de collecte) ;</li>
+     <li>d’une chaîne de caractère unique au sein de l’autorité, par exemple KJHKHKE45LK45UY7bU. Afin d’assurer l’unicité de cet élément le format UUID (Universal Unique Identifier) doit être utilisé.</li>
+     </ul>
+     ]]></help>
+  </element>
+  <element name="gmd:description" context="gmd:EX_Extent">
+    <label>Précision sur la cible géographique</label>
+    <description>Emprise réelle et effective du territoire couvert par les données actuellement issues du dispositif de collecte décrit par cette fiche. Le domaine de valeur est du texte libre.</description>
+  </element>
+  <element name="gmd:processStep" id="84.0">
+    <label>Historique</label>
+    <description>Liste des événements qui sont à l’origine de la ressource, la création et les événements majeurs pots-création.</description>
+    <help><![CDATA[
+      Cet élément de métadonnées est composé de deux champs « date » et « événement » qui forment autant de couples qu’il y a d’événements.
+      Exemple :
+      <ul>
+      <li>Date : 01-01-2008</li>
+      <li>Evènement : Phase de test de l'Atlas sur Mayotte</li>
+      </ul>
+      ]]>
+    </help>
+  </element>
+
+  <element name="gmd:maintenanceAndUpdateFrequency" id="143.0">
+    <label>Fréquence d'actualisation</label>
+    <description>Fréquence du « Monitoring », c’est-à-dire la fréquence (périodicité) des phases opérationnelles du dispositif, autrement dit la fréquence des cycles de production / collecte des données.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Tous les deux ans.
+    </description>
+  </element>
+  <element name="gmd:keyword">
+    <label>Mot-clé</label>
+    <description>Termes décrivant le dispositif de collecte, liés aux thématiques, territoires, programmes, etc. Ces termes peuvent provenir d’un ou plusieurs thésaurus. Le domaine de valeur est du texte libre.
+      Exemple : flore vasculaire</description>
+  </element>
+  <element name="gmd:lineage">
+    <label>Généalogie</label>
+    <description>La généalogie fait état de l’historique du traitement et/ou de la qualité générale de la série de données.</description>
+    <help>Le cas échéant, elle peut inclure une information indiquant si la série de données a été validée ou soumise à un contrôle de qualité, s’il s’agit de la version officielle (dans le cas où il existe plusieurs versions) et si elle a une valeur légale.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : La production des données est assurée par les DREAL. Celles-ci sont ensuite validées et consolidées par le MNHN.</help>
+  </element>
+  <element name="gmd:supplementalInformation" id="46.0">
+    <label>Système de référence temporelle</label>
+    <description>Description du système de référence temporelle utilisé.</description>
+    <help>Cet élément de métadonnées est défini par un code et un espace de noms sous forme de chaînes de caractères.
+      Exemple : Calendrier grégorien</help>
+    <helper>
+      <option value="Calendrier grégorien">Calendrier grégorien</option>
+    </helper>
+    <condition/>
+  </element>
+
+  <element name="sinp:CI_ResponsibleParty">
+    <label>Acteur</label>
+  </element>
+
+  <element name="gmd:individualName">
+    <label>Nom complet de l'acteur</label>
+    <description>Dénomination exacte de l’acteur (nom officiel), qui permet de l’identifier explicitement. </description>
+    <help>Correspond au nom entièrement développé. Aucun sigle, acronyme, diminutif, abréviation. Le domaine de valeur est du texte libre.
+      Exemple : Muséum National d’Histoire Naturelle</help>
+  </element>
+  <element name="gmd:organisationName">
+    <label>Structure mère</label>
+    <description>Organisme mère dans le cas d’un acteur hiérarchisé. Le domaine de valeur est du texte libre.</description>
+    <help>Exemple : si l’acteur est la Direction de l’Eau et de la Biodiversité, la structure mère est le MEDDE.</help>
+  </element>
+
+  <element name="sinp:altIndividualName">
+    <label>Nom usuel de l’acteur</label>
+    <description>Dénomination utilisée pour désigner couramment l’acteur.</description>
+    <help>Correspond à un sigle, une abréviation, un acronyme ou un diminutif du nom complet. Le domaine de valeur est du texte libre.
+      Exemple : MNHN</help>
+  </element>
+
+  <element name="sinp:responsiblePartyStatus">
+    <label>Statut de l’acteur</label>
+    <description>Statut de l’acteur. Le domaine de valeur de cet élément de métadonnées est défini en annexe.</description>
+    <help>Exemple : Etablissement public de l'Etat</help>
+  </element>
+
+  <element name="sinp:extentDescription">
+    <label>Territoire d’action</label>
+    <description>Nom du territoire sur lequel intervient potentiellement l’acteur. </description>
+    <help>Les différents items possibles pour la réponse à ce champ sont organisés hiérarchiquement, chaque niveau pouvant être sélectionné. Pour le domaine terrestre, la hiérarchie suit la logique administrative. Pour le domaine marin les territoires sont définis en annexe.
+      Exemple : Métropole</help>
+  </element>
+
+  <element name="sinp:scopeDescription">
+    <label>Domaine</label>
+    <description>Précision du domaine d’action de l’acteur. Les valeurs possibles pour cet élément de métadonnées sont Terre, Mer et Paysage.</description>
+  </element>
+
+  <element name="sinp:history">
+    <label>Historique</label>
+    <description>Liste des événements majeurs concernant l’acteur. Ce champ est décomposé en deux sous-champs (date et événement) qui forment autant de couples qu’il y a d’événements.</description>
+  </element>
+
+  <element name="sinp:temporalExtent">
+    <label>Période d’intervention</label>
+    <description>Période de temps durant laquelle un acteur intervient. Cette période est exprimée sous la forme d’un intervalle de dates exprimé par la date de début et la date de fin.</description>
+  </element>
+
+  <element name="sinp:description">
+    <label>Commentaires</label>
+    <description>Informations complémentaires permettant d’ajouter les informations manquantes sur l’acteur. Le domaine de valeur est du texte libre.</description>
+  </element>
+
+  <element name="sinp:relatedResponsibleParty">
+    <label>Acteurs associés</label>
+  </element>
+
+  <element name="sinp:database">
+    <label>Base de données</label>
+    <description></description>
+  </element>
+  <element name="sinp:name" context="sinp:Database">
+    <label>Nom de la base de données</label>
+    <description>Intitulé exact de la base (nom officiel), qui permet de l’identifier explicitement.
+      Exemple : Sextant
+    </description>
+  </element>
+  <element name="sinp:url" context="sinp:Database">
+    <label>Adresse de la base de données</label>
+    <description>Adresse Internet d’accès à la base de données.
+      Exemple : http://www.ifremer.fr/sextant/
+    </description>
+  </element>
+  <element name="sinp:startYear" context="sinp:Database">
+    <label>Année de mise en place de la base de données</label>
+    <description>Première année de bancarisation des données, c’est-à-dire la date, à l’année près, à laquelle les premières données ont été intégrées dans la base de données, postérieurement à sa création.
+      Exemple : 1990</description>
+  </element>
+  <element name="sinp:history" context="sinp:Database">
+    <label>Historique de la base de données</label>
+    <description>Liste des événements qui sont à l’origine directe ou indirecte de la mise en place de la base et les événements majeurs depuis.
+      L’historique est défini par une date et un événement sous forme d’une chaîne de caractères.
+      Exemple :
+      Date : 01-01-2005
+      Evénements : Ouverture de la base de données aux partenaires extérieurs</description>
+  </element>
+  <element name="sinp:contact" context="sinp:Database">
+    <label>Contact sur la base de données</label>
+    <description>Nom de l’acteur intervenant sur la base de données.
+    </description>
+  </element>
+  <element name="sinp:MD_DigitalTransferOptions">
+    <label>Ressources en ligne, hors ligne et bases de données</label>
+  </element>
+
+  <element name="sinp:DispositifIdentification">
+    <label>Dispositif de collecte</label>
+    <description></description>
+  </element>
+  <element name="sinp:observationDetails">
+    <label>Description des données observées</label>
+    <description></description>
+  </element>
+  <element name="sinp:ObservationDetails">
+    <label>Description des données observées</label>
+    <description></description>
+  </element>
+  <element name="sinp:descriptiveKeywords" context="sinp:ObservationDetails">
+    <label>Groupe écologique</label>
+    <description>Thème précis auquel se rapporte le jeu de données collecté par le dispositif.
+      Cet élément de métadonnées est exprimé par une chaîne de caractères sous la forme d’un mot-clé. Les valeurs doivent être issues des référentiels TaxRef (https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref) ou HabRef (https://inpn.mnhn.fr/telechargement/referentiels/habitats) selon qu’il s’agit de taxons ou d’habitats. Pour les paysages, il s’agit d’un texte libre.
+      Dans le cas de taxons, la valeur saisie doit être la plus englobante possible.
+      Exemple : Pteridophyta</description>
+  </element>
+  <element name="sinp:ecologicalTarget" context="sinp:ObservationDetails">
+    <label>Cible écologique</label>
+    <description>Précisions sur le(s) thème(s) sélectionné(s) pour le champ Cible taxonomique.	 Précision sur le type de données : nom des espèces suivies par exemple.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Flore vasculaire (Trachéophytes) de Mayotte</description>
+  </element>
+  <element name="sinp:parameter" context="sinp:ObservationDetails">
+    <label>Paramètre observé ou mesuré</label>
+    <description>Énumération et/ou description des différents paramètres, variables… qui sont étudiés / suivis / observés / mesurés.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : taxons, localisation, abondance-dominance, effectif, menaces, phénologie...</description>
+  </element>
+  <element name="sinp:resolution" context="sinp:ObservationDetails">
+    <label>Résolution du (ou des) paramètre(s)</label>
+    <description>Niveau de précision auquel sont collectées les données sous forme de texte libre
+      Exemples : à l’hectare, au km², au km de cours d’eau, à la commune, au canton, au département…
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Inventaire général : maille de 1x1 km. Inventaire des taxons patrimoniaux : localisation ponctuelle.</description>
+  </element>
+  <element name="sinp:updateFrequency" context="sinp:ObservationDetails">
+    <label>Fréquence d’actualisation</label>
+    <description>Fréquence du « Monitoring », c’est-à-dire la fréquence (périodicité) des phases opérationnelles du dispositif, autrement dit la fréquence des cycles de production / collecte des données.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Tous les deux ans.</description>
+  </element>
 </labels>

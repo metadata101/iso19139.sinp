@@ -63,5 +63,14 @@
     </gmd:CI_ResponsibleParty>
   </xsl:template>
 
+  <xsl:template match="sinp:DispositifIdentification" priority="2">
+    <gmd:MD_DataIdentification>
+      <xsl:apply-templates select="*"/>
+      <!-- TODO ? should we move sinp:observationDetails ? -->
+    </gmd:MD_DataIdentification>
+  </xsl:template>
+
+  <!-- TODO ? should we move sinp:database ? -->
+
   <xsl:template match="sinp:*"/>
 </xsl:stylesheet>

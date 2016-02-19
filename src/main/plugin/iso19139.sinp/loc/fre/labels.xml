@@ -212,4 +212,49 @@
   <element name="sinp:MD_DigitalTransferOptions">
     <label>Ressources en ligne, hors ligne et bases de données</label>
   </element>
+
+  <element name="sinp:DispositifIdentification">
+    <label>Dispositif de collecte</label>
+    <description></description>
+  </element>
+  <element name="sinp:observationDetails">
+    <label>Description des données observées</label>
+    <description></description>
+  </element>
+  <element name="sinp:ObservationDetails">
+    <label>Description des données observées</label>
+    <description></description>
+  </element>
+  <element name="sinp:descriptiveKeywords" context="sinp:ObservationDetails">
+    <label>Groupe écologique</label>
+    <description>Thème précis auquel se rapporte le jeu de données collecté par le dispositif.
+      Cet élément de métadonnées est exprimé par une chaîne de caractères sous la forme d’un mot-clé. Les valeurs doivent être issues des référentiels TaxRef (https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref) ou HabRef (https://inpn.mnhn.fr/telechargement/referentiels/habitats) selon qu’il s’agit de taxons ou d’habitats. Pour les paysages, il s’agit d’un texte libre.
+      Dans le cas de taxons, la valeur saisie doit être la plus englobante possible.
+      Exemple : Pteridophyta</description>
+  </element>
+  <element name="sinp:ecologicalTarget" context="sinp:ObservationDetails">
+    <label>Cible écologique</label>
+    <description>Précisions sur le(s) thème(s) sélectionné(s) pour le champ Cible taxonomique.	 Précision sur le type de données : nom des espèces suivies par exemple.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Flore vasculaire (Trachéophytes) de Mayotte</description>
+  </element>
+  <element name="sinp:parameter" context="sinp:ObservationDetails">
+    <label>Paramètre observé ou mesuré</label>
+    <description>Énumération et/ou description des différents paramètres, variables… qui sont étudiés / suivis / observés / mesurés.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : taxons, localisation, abondance-dominance, effectif, menaces, phénologie...</description>
+  </element>
+  <element name="sinp:resolution" context="sinp:ObservationDetails">
+    <label>Résolution du (ou des) paramètre(s)</label>
+    <description>Niveau de précision auquel sont collectées les données sous forme de texte libre
+      Exemples : à l’hectare, au km², au km de cours d’eau, à la commune, au canton, au département…
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Inventaire général : maille de 1x1 km. Inventaire des taxons patrimoniaux : localisation ponctuelle.</description>
+  </element>
+  <element name="sinp:updateFrequency" context="sinp:ObservationDetails">
+    <label>Fréquence d’actualisation</label>
+    <description>Fréquence du « Monitoring », c’est-à-dire la fréquence (périodicité) des phases opérationnelles du dispositif, autrement dit la fréquence des cycles de production / collecte des données.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Tous les deux ans.</description>
+  </element>
 </labels>

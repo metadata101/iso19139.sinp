@@ -8,6 +8,7 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0"
                 xmlns:gml="http://www.opengis.net/gml"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gn="http://www.fao.org/geonetwork"
                 xmlns:gn-fn-core="http://geonetwork-opensource.org/xsl/functions/core"
@@ -80,6 +81,100 @@
       <xsl:with-param name="listOfValues" select="$listOfValues"/>
       <xsl:with-param name="isFirst" select="count(preceding-sibling::*[name() = $elementName]) = 0"/>
     </xsl:call-template>
+
+  </xsl:template>
+
+
+
+
+  <!-- Override default template to set transformation mode
+  to to-iso19139-keyword-sinp. -->
+  <xsl:template mode="mode-iso19139"
+                match="sinp:descriptiveKeywords/gmd:MD_Keywords"
+                priority="4000">
+
+    <xsl:variable name="thesaurusIdentifier"
+                  select="gmd:thesaurusName/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code"/>
+
+    <xsl:variable name="thesaurusTitle"
+                  select="gmd:thesaurusName/gmd:CI_Citation/gmd:title/(gco:CharacterString|gmd:PT_FreeText/gmd:textGroup/gmd:LocalisedCharacterString)"/>
+
+
+    <xsl:variable name="thesaurusConfig"
+                  as="element()?"
+                  select="if ($thesaurusList/thesaurus[@key=substring-after($thesaurusIdentifier/*/text(), 'geonetwork.thesaurus.')])
+                          then $thesaurusList/thesaurus[@key=substring-after($thesaurusIdentifier/*/text(), 'geonetwork.thesaurus.')]
+                          else $listOfThesaurus/thesaurus[title=$thesaurusTitle]"/>
+
+    <xsl:choose>
+      <xsl:when test="$thesaurusConfig">
+
+        <!-- The thesaurus key may be contained in the MD_Identifier field or
+          get it from the list of thesaurus based on its title.
+          -->
+        <xsl:variable name="thesaurusInternalKey"
+                      select="if ($thesaurusIdentifier)
+                              then $thesaurusIdentifier
+                              else $thesaurusConfig/key"/>
+        <xsl:variable name="thesaurusKey"
+                      select="if (starts-with($thesaurusInternalKey, 'geonetwork.thesaurus.'))
+                              then substring-after($thesaurusInternalKey, 'geonetwork.thesaurus.')
+                              else $thesaurusInternalKey"/>
+
+        <!-- if gui lang eng > #EN -->
+        <xsl:variable name="guiLangId"
+                      select="
+                      if (count($metadata/gmd:locale/gmd:PT_Locale[gmd:languageCode/gmd:LanguageCode/@codeListValue = $lang]) = 1)
+                        then $metadata/gmd:locale/gmd:PT_Locale[gmd:languageCode/gmd:LanguageCode/@codeListValue = $lang]/@id
+                        else $metadata/gmd:locale/gmd:PT_Locale[gmd:languageCode/gmd:LanguageCode/@codeListValue = $metadataLanguage]/@id"/>
+
+        <xsl:variable name="keywords" select="string-join(
+                  if ($guiLangId and gmd:keyword//*[@locale = concat('#', $guiLangId)])
+                  then
+                    gmd:keyword//*[@locale = concat('#', $guiLangId)]/replace(text(), ',', ',,')
+                  else gmd:keyword/*[1]/replace(text(), ',', ',,'), ',')"/>
+
+        <!-- Define the list of transformation mode available. -->
+        <xsl:variable name="transformations"
+                      as="xs:string"
+                      select="'to-iso19139-keyword-sinp'"/>
+
+        <!-- Get current transformation mode based on XML fragment analysis -->
+        <xsl:variable name="transformation"
+                      select="'to-iso19139-keyword-sinp'"/>
+
+
+        <xsl:variable name="widgetMode" select="'tagsinput'"/>
+        <xsl:variable name="maxTags"
+                      as="xs:string"
+                      select="if ($thesaurusConfig/@maxtags)
+                              then $thesaurusConfig/@maxtags
+                              else ''"/>
+        <xsl:variable name="allLanguages" select="concat($metadataLanguage, ',', $metadataOtherLanguages)"></xsl:variable>
+        <div data-gn-keyword-selector="{$widgetMode}"
+             data-metadata-id="{$metadataId}"
+             data-element-ref="{concat('_X', ../gn:element/@ref, '_replace')}"
+             data-thesaurus-title="{$thesaurusTitle}"
+             data-thesaurus-key="{$thesaurusKey}"
+             data-keywords="{$keywords}" data-transformations="{$transformations}"
+             data-current-transformation="{$transformation}"
+             data-max-tags="{$maxTags}"
+             data-lang="{$metadataOtherLanguagesAsJson}"
+             data-textgroup-only="false">
+        </div>
+
+        <xsl:variable name="isTypePlace" select="count(gmd:type/gmd:MD_KeywordTypeCode[@codeListValue='place']) > 0"/>
+        <xsl:if test="$isTypePlace">
+          <xsl:call-template name="render-batch-process-button">
+            <xsl:with-param name="process-name" select="'add-extent-from-geokeywords'"/>
+            <xsl:with-param name="process-params">{"replace": true}</xsl:with-param>
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="mode-iso19139" select="*"/>
+      </xsl:otherwise>
+    </xsl:choose>
 
   </xsl:template>
 </xsl:stylesheet>

@@ -5,13 +5,13 @@
     <entry>
       <code>dispositifDeCollecte</code>
       <label>Dispositif de collecte</label>
+      <description>Tout dispositif (tout moyen) qui permet par mesure [observation] ou non d’acquérir des données (des connaissances) [nature et paysage]. Les données ainsi collectées doivent être fiables, pérennes et actualisées. (…) Le dispositif de collecte doit être organisé afin de collecter de manière régulière ou suffisamment pérenne les informations. Ces données produites par les dispositifs de collecte ne sont pas obligatoirement informatisées. Si le dispositif décrit est la déclinaison locale (méthodes et paramètres communs) d’un dispositif plus vaste, il est alors utile de créer une fiche Dispositif de collecte pour ce dispositif général, si elle n’existe pas déjà. Ce dispositif général devient alors de facto un méta-dispositif, si au moins deux dispositifs recensés y sont associés. Exemple : Le suivi stationnel intertidal des invertébrés benthiques en Artois-Picardie, en application de la Directive Cadre sur l’Eau, est un dispositif local (méthodes et paramètres définis par un cahier des charges minimal commun) du Réseau Benthique Manche Mer du Nord (méta-dispositif sectoriel), lui-même étant un dispositif local du Réseau Benthique national (méta-dispositif national).</description>
     </entry>
     <entry>
       <code>dataset</code>
       <label>Jeu de données</label>
-      <description>Informations appliquées aux caractéristiques de jeu de
-        données
-      </description>
+      <description> Les jeux de données « nature » : il s’agit de tous les jeux de données relatifs à la nature / biodiversité française (outre-mer compris). Cela concerne les jeux de données naturalistes (observations, relevés et cartographies d'habitats, etc.), terrestres comme marins (habitats, flore, faune, champignons, etc.), les jeux de données relatifs aux espaces naturels (protégés / gérés ou non), aux sites géologiques, aux écosystèmes et à leur fonctionnement.
+        Les jeux de données « paysage » : il s’agit de tous les jeux de données relatifs aux paysages, c’est-à-dire aux formes du territoire, aux perceptions sociales et aux dynamiques du territoire. Ils intègrent également des inventaires particuliers. Ils concernent les espaces naturels, ruraux, urbains et péri-urbains. Ils incluent les espaces terrestres, les eaux intérieures et maritimes. Ils concernent tant les paysages pouvant être considérés comme remarquables que les paysages du quotidien et les paysages dégradés.</description>
     </entry>
     <entry>
       <code>series</code>
@@ -19,6 +19,20 @@
       <description>Informations appliquées aux caractéristiques de la collection
         de données
       </description>
+    </entry>
+  </codelist>
+  <codelist name="sinp:ResponsiblePartyScopeCode">
+    <entry>
+      <code>Terre</code>
+      <label>Terre</label>
+    </entry>
+    <entry>
+      <code>Mer</code>
+      <label>Mer</label>
+    </entry>
+    <entry>
+      <code>Paysage</code>
+      <label>Paysage</label>
     </entry>
   </codelist>
   <codelist name="sinp:ResponsiblePartyStatusCode">
@@ -69,6 +83,94 @@
     <entry>
       <code>univ-ees</code>
       <label>Université / établissement d’enseignement supérieur</label>
+    </entry>
+  </codelist>
+  <codelist name="gmd:CI_RoleCode">
+    <!--<entry>
+      <code>resourceProvider</code>
+      <label>Fournisseur</label>
+      <description>Organisme qui fournit la ressource. Acteur qui délivre
+        physiquement la ressource, soit de manière directe au destinataire, soit
+        par l’intermédiaire d’un diffuseur
+      </description>
+    </entry>-->
+
+    <entry>
+      <code>owner</code>
+      <label>Financeur</label>
+      <description>« Personne (physique ou morale) qui prend l’initiative ou le risque des moyens (financiers, matériels ou humains) pour la collecte de la donnée [pour assurer l’investissement et le fonctionnement du dispositif]. Tout financeur, pour totalité ou partie, qu’il finance sous forme d’investissement, de temps passé ou sous forme de subvention, a un droit de propriété sur les données produites. Le financeur sera par défaut le maître d’ouvrage si un autre organisme n’est pas indiqué. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14-15).
+      </description>
+    </entry>
+<!--
+    <entry>
+      <code>distributor</code>
+      <label>Distributeur</label>
+      <description>Organisme qui distribue la ressource. Diffuseur de second
+        niveau de la ressource
+      </description>
+    </entry>
+-->
+
+    <entry>
+      <code>originator</code>
+      <label>Maîtrise d’ouvrage</label>
+      <description>« Entité juridique qui a la responsabilité juridique du [dispositif] ou de la collecte des données (…). C’est celui qui ordonne, [établit] ou fait établir le cahier des charges, rédige les contrats et conventions, et les signe. Il peut financer (ou cofinancer) l’acquisition de la donnée, organise la production et la validation des données. En règle générale, le maître d’ouvrage est un des financeurs mais plusieurs financeurs peuvent intervenir pour un même dispositif. Cette fonction est à différencier des rôles de producteur de données, de financeur de la donnée, de validation, même si le même organisme peut assurer plusieurs rôles. »
+        (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
+      </description>
+    </entry>
+
+    <entry>
+      <code>pointOfContact</code>
+      <label>Contact principal</label>
+      <description>"Il s’agit […] du nom de l’organisme […] susceptible de fournir le plus d’informations sur le dispositif de collecte, avec l’accord du maître d’ouvrage. »
+        (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 15).
+      </description>
+    </entry>
+
+    <entry>
+      <code>principalInvestigator</code>
+      <label>Maîtrise d’œuvre</label>
+      <description>« Organisme qui assure, pour le compte du maître d’ouvrage, la conception et le suivi du dispositif. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
+      </description>
+    </entry>
+    <entry>
+      <code>author</code>
+      <label>Auteur</label>
+      <description>Organisme ou personne qui est auteur. Acteur qui dispose des
+        droits moraux relatifs à la ressource
+      </description>
+    </entry>
+  </codelist>
+  <codelist name="gmd:DS_AssociationTypeCode" alias="associationType">
+    <entry>
+      <code>publication</code>
+      <label>Publication</label>
+      <description>Référence vers une publication</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>crossReference</code>
+      <label>Référence croisée</label>
+      <description>Référence d’un jeu de données à un autre</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>largerWorkCitation</code>
+      <label>Référence mère</label>
+      <description>Référence à un jeu de données maître</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>partOfSeamlessDatabase</code>
+      <label>Partie d'une même base de données</label>
+      <description>Référence à un jeu de données stocké dans une même base de données</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>source</code>
+      <label>Source</label>
+      <description>Références vers la source des données qui a permis de produire les cartes,…</description>
+    </entry>
+    <entry hideInEditMode="true">
+      <code>stereoMate</code>
+      <label>Stéréo restitution</label>
+      <description>Partie d’un ensemble d’images qui, utilisé ensemble, fournit une vision 3D de l’image.</description>
     </entry>
   </codelist>
 </codelists>

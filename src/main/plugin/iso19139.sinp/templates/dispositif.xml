@@ -83,7 +83,7 @@
       <gco:CharacterString>1.0</gco:CharacterString>
    </gmd:metadataStandardVersion>
    <gmd:identificationInfo>
-      <gmd:MD_DataIdentification>
+      <sinp:DispositifIdentification gco:isoType="gmd:MD_DataIdentification">
          <gmd:citation>
             <gmd:CI_Citation>
                <gmd:title>
@@ -612,7 +612,7 @@
          <gmd:supplementalInformation gco:nilReason="missing">
             <gco:CharacterString/>
          </gmd:supplementalInformation>
-      </gmd:MD_DataIdentification>
+      </sinp:DispositifIdentification>
    </gmd:identificationInfo>
    <gmd:dataQualityInfo>
       <gmd:DQ_DataQuality>
