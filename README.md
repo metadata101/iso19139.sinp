@@ -9,7 +9,17 @@ Profil de métadonnées des ressources du Système d’Information sur la Nature
 * Copier le fichier JAR dans WEB-INF/lib
 * Copier le répertoire iso19139.sinp dans WEB-INF/data/config/schema_plugins
 * Relancer l'application
+* Dans l'admin.console, pour le champ "Configuration par standard" ajouter 
 
+```
+"iso19139.sinp":{
+  "defaultTab":"identificationInfo", 
+  "displayToolTip":true,
+  "related":{"display":true,"categories":[]},
+  "suggestion":{"display":true},
+  "validation":{"display":true}
+  },
+```
 
 ## Documents de références
 
