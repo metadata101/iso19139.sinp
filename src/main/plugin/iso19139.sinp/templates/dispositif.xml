@@ -421,171 +421,6 @@
                </gmd:thesaurusName>
             </gmd:MD_Keywords>
          </gmd:descriptiveKeywords>
-         <gmd:descriptiveKeywords>
-            <gmd:MD_Keywords>
-               <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode"
-                                          codeListValue="theme"/>
-               </gmd:type>
-               <gmd:thesaurusName>
-                  <gmd:CI_Citation>
-                     <gmd:title>
-                        <gco:CharacterString>Référentiels Milieux</gco:CharacterString>
-                     </gmd:title>
-                     <gmd:date>
-                        <gmd:CI_Date>
-                           <gmd:date>
-                              <gco:Date>2015-11-27</gco:Date>
-                           </gmd:date>
-                           <gmd:dateType>
-                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                                   codeListValue="publication"/>
-                           </gmd:dateType>
-                        </gmd:CI_Date>
-                     </gmd:date>
-                     <gmd:identifier>
-                        <gmd:MD_Identifier>
-                           <gmd:code>
-                              <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-milieux">geonetwork.thesaurus.external.theme.sinp-referentiels-milieux</gmx:Anchor>
-                           </gmd:code>
-                        </gmd:MD_Identifier>
-                     </gmd:identifier>
-                  </gmd:CI_Citation>
-               </gmd:thesaurusName>
-            </gmd:MD_Keywords>
-         </gmd:descriptiveKeywords>
-         <gmd:descriptiveKeywords>
-            <gmd:MD_Keywords>
-               <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode"
-                                          codeListValue="theme"/>
-               </gmd:type>
-               <gmd:thesaurusName>
-                  <gmd:CI_Citation>
-                     <gmd:title>
-                        <gco:CharacterString>Référentiels taxonomiques</gco:CharacterString>
-                     </gmd:title>
-                     <gmd:date>
-                        <gmd:CI_Date>
-                           <gmd:date>
-                              <gco:Date>2015-11-27</gco:Date>
-                           </gmd:date>
-                           <gmd:dateType>
-                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                                   codeListValue="publication"/>
-                           </gmd:dateType>
-                        </gmd:CI_Date>
-                     </gmd:date>
-                     <gmd:identifier>
-                        <gmd:MD_Identifier>
-                           <gmd:code>
-                              <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-taxonomiques">geonetwork.thesaurus.external.theme.sinp-referentiels-taxonomiques</gmx:Anchor>
-                           </gmd:code>
-                        </gmd:MD_Identifier>
-                     </gmd:identifier>
-                  </gmd:CI_Citation>
-               </gmd:thesaurusName>
-            </gmd:MD_Keywords>
-         </gmd:descriptiveKeywords>
-         <gmd:descriptiveKeywords>
-            <gmd:MD_Keywords>
-               <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode"
-                                          codeListValue="theme"/>
-               </gmd:type>
-               <gmd:thesaurusName>
-                  <gmd:CI_Citation>
-                     <gmd:title>
-                        <gco:CharacterString>Référentiels Cartographiques</gco:CharacterString>
-                     </gmd:title>
-                     <gmd:date>
-                        <gmd:CI_Date>
-                           <gmd:date>
-                              <gco:Date>2015-11-27</gco:Date>
-                           </gmd:date>
-                           <gmd:dateType>
-                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                                   codeListValue="publication"/>
-                           </gmd:dateType>
-                        </gmd:CI_Date>
-                     </gmd:date>
-                     <gmd:identifier>
-                        <gmd:MD_Identifier>
-                           <gmd:code>
-                              <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-cartographiques">geonetwork.thesaurus.external.theme.sinp-referentiels-cartographiques</gmx:Anchor>
-                           </gmd:code>
-                        </gmd:MD_Identifier>
-                     </gmd:identifier>
-                  </gmd:CI_Citation>
-               </gmd:thesaurusName>
-            </gmd:MD_Keywords>
-         </gmd:descriptiveKeywords>
-        <gmd:aggregationInfo>
-          <gmd:MD_AggregateInformation>
-            <gmd:aggregateDataSetName>
-              <gmd:CI_Citation>
-                <gmd:title>
-                  <gco:CharacterString>Titre de l’ouvrage ou de l’article.</gco:CharacterString>
-                </gmd:title>
-                <gmd:date>
-                  <gmd:CI_Date>
-                    <gmd:dateType>
-                      <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                           codeListValue=""/>
-                    </gmd:dateType>
-                  </gmd:CI_Date>
-                </gmd:date>
-                <gmd:edition>
-                  <gco:CharacterString>Volume et numéro éventuel de la revue / périodique.</gco:CharacterString>
-                </gmd:edition>
-                <gmd:editionDate>
-                  <gco:Date>2016</gco:Date>
-                </gmd:editionDate>
-                <gmd:citedResponsibleParty>
-                  <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
-                    <gmd:individualName>
-                      <gco:CharacterString>Nom de l’auteur ou noms des co-auteurs</gco:CharacterString>
-                    </gmd:individualName>
-                    <gmd:contactInfo>
-                      <gmd:CI_Contact>
-                        <gmd:address>
-                          <gmd:CI_Address/>
-                        </gmd:address>
-                      </gmd:CI_Contact>
-                    </gmd:contactInfo>
-                    <gmd:role>
-                      <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
-                                       codeListValue="author"/>
-                    </gmd:role>
-                    <sinp:scopeDescription>
-                      <sinp:ResponsiblePartyScopeCode codeList="" codeListValue=""/>
-                    </sinp:scopeDescription>
-                  </sinp:CI_ResponsibleParty>
-                </gmd:citedResponsibleParty>
-                <gmd:series>
-                  <gmd:CI_Series>
-                    <gmd:name>
-                      <gco:CharacterString>Uniquement s’il s’agit d’un article.</gco:CharacterString>
-                    </gmd:name>
-                    <gmd:issueIdentification>
-                      <gco:CharacterString>A renseigner si la publication est récurrente (annuelle, mensuelle, hebdomadaire, etc.)</gco:CharacterString>
-                    </gmd:issueIdentification>
-                    <gmd:page>
-                      <gco:CharacterString>Nombre de pages de l’ouvrage ou pages de la publication dans la revue / périodique.</gco:CharacterString>
-                    </gmd:page>
-                  </gmd:CI_Series>
-                </gmd:series>
-              </gmd:CI_Citation>
-            </gmd:aggregateDataSetName>
-            <gmd:associationType>
-              <gmd:DS_AssociationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DS_AssociationTypeCode"
-                                          codeListValue="publication"/>
-            </gmd:associationType>
-          </gmd:MD_AggregateInformation>
-        </gmd:aggregationInfo>
          <gmd:language>
             <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="fre"/>
          </gmd:language>
@@ -614,6 +449,27 @@
          </gmd:supplementalInformation>
       </sinp:DispositifIdentification>
    </gmd:identificationInfo>
+    <gmd:distributionInfo>
+        <gmd:MD_Distribution>
+            <gmd:transferOptions>
+                <sinp:MD_DigitalTransferOptions gco:isoType="gmd:MD_DigitalTransferOptions">
+                    <gmd:onLine>
+                        <gmd:CI_OnlineResource>
+                            <gmd:linkage>
+                                <gmd:URL>URL de la publication</gmd:URL>
+                            </gmd:linkage>
+                            <gmd:protocol>
+                                <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                            </gmd:protocol>
+                            <gmd:name>
+                                <gco:CharacterString>Référence compléte de la publication</gco:CharacterString>
+                            </gmd:name>
+                        </gmd:CI_OnlineResource>
+                    </gmd:onLine>
+                </sinp:MD_DigitalTransferOptions>
+            </gmd:transferOptions>
+        </gmd:MD_Distribution>
+    </gmd:distributionInfo>
    <gmd:dataQualityInfo>
       <gmd:DQ_DataQuality>
          <gmd:scope>
@@ -624,6 +480,83 @@
                </gmd:level>
             </gmd:DQ_Scope>
          </gmd:scope>
+          <gmd:report>
+              <gmd:DQ_DomainConsistency>
+                  <gmd:result>
+                      <gmd:DQ_ConformanceResult>
+                          <gmd:specification>
+                              <gmd:CI_Citation>
+                                  <gmd:title>
+                                      <gco:CharacterString>Conformité des métadonnées du dispositif de collecte</gco:CharacterString>
+                                  </gmd:title>
+                                  <gmd:date>
+                                      <gmd:CI_Date>
+                                          <gmd:dateType>
+                                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                                                   codeListValue=""/>
+                                          </gmd:dateType>
+                                      </gmd:CI_Date>
+                                  </gmd:date>
+                              </gmd:CI_Citation>
+                          </gmd:specification>
+                          <gmd:explanation gco:nilReason="missing">
+                              <gco:CharacterString/>
+                          </gmd:explanation>
+                          <gmd:pass>
+                              <gco:Boolean>false</gco:Boolean>
+                          </gmd:pass>
+                      </gmd:DQ_ConformanceResult>
+                  </gmd:result>
+              </gmd:DQ_DomainConsistency>
+          </gmd:report>
+          <gmd:report>
+              <gmd:DQ_DomainConsistency>
+                  <gmd:evaluationMethodType>
+                      <gmd:DQ_EvaluationMethodTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DQ_EvaluationMethodTypeCode"
+                                                       codeListValue=""/>
+                  </gmd:evaluationMethodType>
+                  <gmd:result>
+                      <gmd:DQ_ConformanceResult>
+                          <gmd:specification>
+                              <gmd:CI_Citation>
+                                  <gmd:title>
+                                      <gco:CharacterString>Cohérence des métadonnées du dispositif de collecte</gco:CharacterString>
+                                  </gmd:title>
+                                  <gmd:date>
+                                      <gmd:CI_Date>
+                                          <gmd:dateType>
+                                              <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                                                   codeListValue=""/>
+                                          </gmd:dateType>
+                                      </gmd:CI_Date>
+                                  </gmd:date>
+                                  <gmd:editionDate>
+                                      <gco:Date/>
+                                  </gmd:editionDate>
+                                  <gmd:citedResponsibleParty>
+                                      <sinp:CI_ResponsibleParty uuid="70f090ea-7e88-4904-8d61-72b3c570c5b2"
+                                                                gco:isoType="gmd:CI_ResponsibleParty">
+                                          <gmd:organisationName gco:nilReason="missing">
+                                              <gco:CharacterString/>
+                                          </gmd:organisationName>
+                                          <gmd:role>
+                                              <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                                                               codeListValue="pointOfContact"/>
+                                          </gmd:role>
+                                      </sinp:CI_ResponsibleParty>
+                                  </gmd:citedResponsibleParty>
+                              </gmd:CI_Citation>
+                          </gmd:specification>
+                          <gmd:explanation gco:nilReason="missing">
+                              <gco:CharacterString/>
+                          </gmd:explanation>
+                          <gmd:pass>
+                              <gco:Boolean/>
+                          </gmd:pass>
+                      </gmd:DQ_ConformanceResult>
+                  </gmd:result>
+              </gmd:DQ_DomainConsistency>
+          </gmd:report>
          <gmd:lineage>
             <gmd:LI_Lineage>
                <gmd:statement gco:nilReason="missing">

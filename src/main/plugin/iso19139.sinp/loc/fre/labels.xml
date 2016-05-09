@@ -226,15 +226,15 @@
     <description></description>
   </element>
   <element name="sinp:descriptiveKeywords" context="sinp:ObservationDetails">
-    <label>Groupe écologique</label>
+    <label>Groupe écologique et géologique</label>
     <description>Thème précis auquel se rapporte le jeu de données collecté par le dispositif.
-      Cet élément de métadonnées est exprimé par une chaîne de caractères sous la forme d’un mot-clé. Les valeurs doivent être issues des référentiels TaxRef (https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref) ou HabRef (https://inpn.mnhn.fr/telechargement/referentiels/habitats) selon qu’il s’agit de taxons ou d’habitats. Pour les paysages, il s’agit d’un texte libre.
+      Cet élément de métadonnées est exprimé par une chaîne de caractères sous la forme d’un mot-clé. Les valeurs doivent être issues des référentiels TaxRef (https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref) ou HabRef (https://inpn.mnhn.fr/telechargement/referentiels/habitats) selon qu’il s’agit de taxons ou d’habitats. Pour les paysages ou les géotopes, il s’agit d’un texte libre.
       Dans le cas de taxons, la valeur saisie doit être la plus englobante possible.
       Exemple : Pteridophyta</description>
   </element>
   <element name="sinp:ecologicalTarget" context="sinp:ObservationDetails">
-    <label>Cible écologique</label>
-    <description>Précisions sur le(s) thème(s) sélectionné(s) pour le champ Cible taxonomique.	 Précision sur le type de données : nom des espèces suivies par exemple.
+    <label>Cible écologique et géologique</label>
+    <description>Précision sur le type de données : nom des espèces, habitats, géotopes, milieux suivis par exemple.
       Le domaine de valeur de cet élément de métadonnées est du texte libre.
       Exemple : Flore vasculaire (Trachéophytes) de Mayotte</description>
   </element>
