@@ -4,7 +4,7 @@ Profil de métadonnées des ressources du Système d’Information sur la Nature
 
 ## Installation
 
-* Télécharger le fichier iso19139.sinp.zip
+* Télécharger le fichier iso19139.sinp.zip (http://files.titellus.net/geonetwork/standards/iso19139.sinp.zip)
 * Copier les thésaurus du répertoire codelist du ZIP dans WEB-INF/data/config/codelist (ou dans le datadir à l'extérieur de la webapp si c'est le cas)
 * Copier le fichier JAR dans WEB-INF/lib
 * Copier le répertoire iso19139.sinp dans WEB-INF/data/config/schema_plugins
