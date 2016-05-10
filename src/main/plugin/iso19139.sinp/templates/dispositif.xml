@@ -577,19 +577,4 @@
          </gmd:lineage>
       </gmd:DQ_DataQuality>
    </gmd:dataQualityInfo>
-    <gmd:metadataMaintenance>
-        <gmd:MD_MaintenanceInformation>
-            <gmd:maintenanceAndUpdateFrequency>
-                <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
-                                                 codeListValue="irregular"/>
-            </gmd:maintenanceAndUpdateFrequency>
-            <gmd:dateOfNextUpdate>
-                <gco:Date/>
-            </gmd:dateOfNextUpdate>
-            <gmd:updateScopeDescription/>
-            <gmd:maintenanceNote>
-                <gco:CharacterString>Date de création de la métadonnée</gco:CharacterString>
-            </gmd:maintenanceNote>
-        </gmd:MD_MaintenanceInformation>
-    </gmd:metadataMaintenance>
 </gmd:MD_Metadata>
