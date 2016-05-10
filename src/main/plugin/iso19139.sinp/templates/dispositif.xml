@@ -277,39 +277,40 @@
                </gmd:thesaurusName>
             </gmd:MD_Keywords>
          </gmd:descriptiveKeywords>
-         <gmd:descriptiveKeywords>
-            <gmd:MD_Keywords>
-               <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="" codeListValue="place"/>
-               </gmd:type>
-              <gmd:thesaurusName>
-                <gmd:CI_Citation>
-                  <gmd:title>
-                    <gco:CharacterString>Cible géographique</gco:CharacterString>
-                  </gmd:title>
-                  <gmd:date>
-                    <gmd:CI_Date>
-                      <gmd:date>
-                        <gco:Date>2015-11-27</gco:Date>
-                      </gmd:date>
-                      <gmd:dateType>
-                        <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                                             codeListValue="publication"/>
-                      </gmd:dateType>
-                    </gmd:CI_Date>
-                  </gmd:date>
-                  <gmd:identifier>
-                    <gmd:MD_Identifier>
-                      <gmd:code>
-                        <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                    xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.place.sinp-cible-geographique">geonetwork.thesaurus.external.place.sinp-cible-geographique</gmx:Anchor>
-                      </gmd:code>
-                    </gmd:MD_Identifier>
-                  </gmd:identifier>
-                </gmd:CI_Citation>
-              </gmd:thesaurusName>
-            </gmd:MD_Keywords>
-         </gmd:descriptiveKeywords>
+          <gmd:descriptiveKeywords>
+              <gmd:MD_Keywords>
+                  <gmd:type>
+                      <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode"
+                                              codeListValue="place"/>
+                  </gmd:type>
+                  <gmd:thesaurusName>
+                      <gmd:CI_Citation>
+                          <gmd:title>
+                              <gco:CharacterString>Cible géographique</gco:CharacterString>
+                          </gmd:title>
+                          <gmd:date>
+                              <gmd:CI_Date>
+                                  <gmd:date>
+                                      <gco:Date>2015-11-27</gco:Date>
+                                  </gmd:date>
+                                  <gmd:dateType>
+                                      <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                                           codeListValue="publication"/>
+                                  </gmd:dateType>
+                              </gmd:CI_Date>
+                          </gmd:date>
+                          <gmd:identifier>
+                              <gmd:MD_Identifier>
+                                  <gmd:code>
+                                      <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                                                  xlink:href="http://localhost:8080/geonetwork/srv/fre/thesaurus.download?ref=external.place.sinp-cible-geographique">geonetwork.thesaurus.external.place.sinp-cible-geographique</gmx:Anchor>
+                                  </gmd:code>
+                              </gmd:MD_Identifier>
+                          </gmd:identifier>
+                      </gmd:CI_Citation>
+                  </gmd:thesaurusName>
+              </gmd:MD_Keywords>
+          </gmd:descriptiveKeywords>
          <gmd:descriptiveKeywords>
             <gmd:MD_Keywords>
                <gmd:type>
@@ -576,4 +577,19 @@
          </gmd:lineage>
       </gmd:DQ_DataQuality>
    </gmd:dataQualityInfo>
+    <gmd:metadataMaintenance>
+        <gmd:MD_MaintenanceInformation>
+            <gmd:maintenanceAndUpdateFrequency>
+                <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
+                                                 codeListValue="irregular"/>
+            </gmd:maintenanceAndUpdateFrequency>
+            <gmd:dateOfNextUpdate>
+                <gco:Date/>
+            </gmd:dateOfNextUpdate>
+            <gmd:updateScopeDescription/>
+            <gmd:maintenanceNote>
+                <gco:CharacterString>Date de création de la métadonnée</gco:CharacterString>
+            </gmd:maintenanceNote>
+        </gmd:MD_MaintenanceInformation>
+    </gmd:metadataMaintenance>
 </gmd:MD_Metadata>

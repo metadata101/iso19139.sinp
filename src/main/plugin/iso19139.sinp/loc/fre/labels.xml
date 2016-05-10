@@ -257,4 +257,7 @@
       Le domaine de valeur de cet élément de métadonnées est du texte libre.
       Exemple : Tous les deux ans.</description>
   </element>
+    <element name="gmd:dateOfNextUpdate">
+        <label>Date de création de la fiche</label>
+    </element>
 </labels>

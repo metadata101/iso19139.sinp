@@ -6,7 +6,8 @@
   <skos:ConceptScheme
           rdf:about="http://inventaire.naturefrance.fr/thesaurus/sinp/methode-de-recueil">
     <dc:title>Méthode de recueil</dc:title>
-    <dc:description/>
+    <dc:description>Ensemble de techniques, savoir-faire et outils mobilisés de manière logique (règles, étapes, principes) pour collecter des données associées à une cible (taxons, …). Le domaine de valeur de cet élément de métadonnées est défini en annexe I.9.
+      Exemple : Observation par point, Observation par transect, Observation directe</dc:description>
     <dcterms:issued>2015-11-27</dcterms:issued>
     <dcterms:modified>2015-11-27</dcterms:modified>
   </skos:ConceptScheme>
