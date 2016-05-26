@@ -3,7 +3,7 @@
            xmlns:sinp="http://inventaire.naturefrance.fr/schemas/2.0">
   <codelist name="gmd:MD_ScopeCode" editorMode="radio">
     <entry>
-      <code>dispositifDeCollecte</code>
+      <code>collectionSystem</code>
       <label>Dispositif de collecte</label>
       <description>Tout dispositif (tout moyen) qui permet par mesure [observation] ou non d’acquérir des données (des connaissances) [nature et paysage]. Les données ainsi collectées doivent être fiables, pérennes et actualisées. (…) Le dispositif de collecte doit être organisé afin de collecter de manière régulière ou suffisamment pérenne les informations. Ces données produites par les dispositifs de collecte ne sont pas obligatoirement informatisées. Si le dispositif décrit est la déclinaison locale (méthodes et paramètres communs) d’un dispositif plus vaste, il est alors utile de créer une fiche Dispositif de collecte pour ce dispositif général, si elle n’existe pas déjà. Ce dispositif général devient alors de facto un méta-dispositif, si au moins deux dispositifs recensés y sont associés. Exemple : Le suivi stationnel intertidal des invertébrés benthiques en Artois-Picardie, en application de la Directive Cadre sur l’Eau, est un dispositif local (méthodes et paramètres définis par un cahier des charges minimal commun) du Réseau Benthique Manche Mer du Nord (méta-dispositif sectoriel), lui-même étant un dispositif local du Réseau Benthique national (méta-dispositif national).</description>
     </entry>
@@ -131,13 +131,6 @@
       <code>principalInvestigator</code>
       <label>Maîtrise d’œuvre</label>
       <description>« Organisme qui assure, pour le compte du maître d’ouvrage, la conception et le suivi du dispositif. » (Source : Sandre, Dispositif de collecte, présentation des données, version 2003 – 2, 25.11.2004, p. 14).
-      </description>
-    </entry>
-    <entry>
-      <code>author</code>
-      <label>Auteur</label>
-      <description>Organisme ou personne qui est auteur. Acteur qui dispose des
-        droits moraux relatifs à la ressource
       </description>
     </entry>
   </codelist>

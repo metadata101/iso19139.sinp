@@ -104,7 +104,7 @@
          <gmd:citation>
             <gmd:CI_Citation>
                 <gmd:title>
-                  <gco:CharacterString>Modèle de saisir pour un jeu de données</gco:CharacterString>
+                  <gco:CharacterString>Modèle de saisie pour un jeu de données</gco:CharacterString>
                 </gmd:title>
                 <gmd:alternateTitle>
                     <gco:CharacterString>Nom usuel</gco:CharacterString>

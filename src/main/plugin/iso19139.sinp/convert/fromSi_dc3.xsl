@@ -276,11 +276,11 @@
                                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode"/>
       </gmd:characterSet>
 
-      <!-- Hierarchy level is always dispositifDeCollecte
+      <!-- Hierarchy level is always collectionSystem
       Dans l'ancien export, series est utilisé. -->
       <gmd:hierarchyLevel>
         <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
-                          codeListValue="dispositifDeCollecte"/>
+                          codeListValue="collectionSystem"/>
       </gmd:hierarchyLevel>
       
       <!-- 

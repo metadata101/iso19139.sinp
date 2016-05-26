@@ -18,7 +18,7 @@
    </gmd:characterSet>
    <gmd:hierarchyLevel>
       <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
-                        codeListValue="dispositifDeCollecte"/>
+                        codeListValue="collectionSystem"/>
    </gmd:hierarchyLevel>
    <gmd:contact>
       <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
@@ -87,7 +87,7 @@
          <gmd:citation>
             <gmd:CI_Citation>
                <gmd:title>
-                  <gco:CharacterString>Modèle de saisir pour un dispositif de collecte</gco:CharacterString>
+                  <gco:CharacterString>Modèle de saisie pour un dispositif de collecte</gco:CharacterString>
                </gmd:title>
                <gmd:alternateTitle>
                   <gco:CharacterString>Nom usuel</gco:CharacterString>
