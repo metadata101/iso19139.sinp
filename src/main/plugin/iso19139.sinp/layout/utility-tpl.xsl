@@ -9,6 +9,10 @@
 
   <xsl:include href="utility-tpl-multilingual.xsl"/>
 
+  <xsl:template name="get-iso19139.sinp-title">
+    <xsl:value-of select="$metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:title/gco:CharacterString"/>
+  </xsl:template>
+
   <xsl:template name="get-iso19139.sinp-extents-as-json">[
     <xsl:for-each select="//gmd:geographicElement/gmd:EX_GeographicBoundingBox">
       <xsl:variable name="format" select="'##.0000'"></xsl:variable>
