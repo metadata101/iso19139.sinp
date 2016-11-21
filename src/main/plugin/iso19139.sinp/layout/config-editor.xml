@@ -239,9 +239,823 @@
     </exclude>
   </multilingualFields>
 
-
   <!-- View configuration -->
   <views>
+
+    <view name="DcSinp" displayIfRecord="contains(gmd:MD_Metadata/
+                                  gmd:hierarchyLevel/gmd:MD_ScopeCode/@codeListValue,
+                                'collectionSystem')">
+      <tab id="dcInformation" default="true" mode="flat">
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:title"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:alternateTitle"/>
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/
+            gmd:descriptiveKeywords
+            [contains(gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString, 'Volet SINP')]"/>
+        <action type="add"
+                name="voletSinp"
+                or="descriptiveKeywords"
+                in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+          <template>
+            <snippet>
+              <gmd:descriptiveKeywords>
+                <gmd:MD_Keywords>
+                  <gmd:keyword>
+                    <gco:CharacterString></gco:CharacterString>
+                  </gmd:keyword>
+                  <gmd:type>
+                    <gmd:MD_KeywordTypeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                      codeListValue="theme"/>
+                  </gmd:type>
+                  <gmd:thesaurusName>
+                    <gmd:CI_Citation>
+                      <gmd:title>
+                        <gco:CharacterString>Volet SINP</gco:CharacterString>
+                      </gmd:title>
+                      <gmd:date>
+                        <gmd:CI_Date>
+                          <gmd:date>
+                            <gco:Date>2008-06-01</gco:Date>
+                          </gmd:date>
+                          <gmd:dateType>
+                            <gmd:CI_DateTypeCode
+                              codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                              codeListValue="publication"/>
+                          </gmd:dateType>
+                        </gmd:CI_Date>
+                      </gmd:date>
+                      <gmd:identifier>
+                        <gmd:MD_Identifier>
+                          <gmd:code>
+                            <gmx:Anchor
+                              xlink:href="http://localhost:8080/geosource/srv/fre/thesaurus.download?ref=external.theme.sinp-volet">
+                              geonetwork.thesaurus.external.theme.sinp-volet
+                            </gmx:Anchor>
+                          </gmd:code>
+                        </gmd:MD_Identifier>
+                      </gmd:identifier>
+                    </gmd:CI_Citation>
+                  </gmd:thesaurusName>
+                </gmd:MD_Keywords>
+              </gmd:descriptiveKeywords>
+            </snippet>
+          </template>
+        </action>
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString='Type de dispositif']"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:abstract"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:purpose"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:date/*/gmd:date"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/*/gmd:temporalElement"/>
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:identifier/*/gmd:code"/>
+        <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:lineage/*/gmd:processStep/*/gmd:description"/>
+
+        <action type="add" name="historique" or="processStep"
+                in="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:lineage/*">
+          <template>
+            <snippet>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString></gco:CharacterString>
+                  </gmd:description>
+                  <gmd:dateTime>
+                    <gco:Date/>
+                  </gmd:dateTime>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+            </snippet>
+          </template>
+        </action>
+
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString='Niveau territorial']"/>
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString='Cible géographique']"/>
+
+        <action type="add"
+                name="cibleGeographique"
+                or="descriptiveKeywords"
+                in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+          <template>
+            <snippet>
+              <gmd:descriptiveKeywords>
+                <gmd:MD_Keywords>
+                  <gmd:keyword>
+                    <gco:CharacterString></gco:CharacterString>
+                  </gmd:keyword>
+                  <gmd:type>
+                    <gmd:MD_KeywordTypeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                      codeListValue="theme"/>
+                  </gmd:type>
+                  <gmd:thesaurusName>
+                    <gmd:CI_Citation>
+                      <gmd:title>
+                        <gco:CharacterString>Cible géographique</gco:CharacterString>
+                      </gmd:title>
+                      <gmd:date>
+                        <gmd:CI_Date>
+                          <gmd:date>
+                            <gco:Date>2015-11-27</gco:Date>
+                          </gmd:date>
+                          <gmd:dateType>
+                            <gmd:CI_DateTypeCode
+                              codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                              codeListValue="publication"/>
+                          </gmd:dateType>
+                        </gmd:CI_Date>
+                      </gmd:date>
+                      <gmd:identifier>
+                        <gmd:MD_Identifier>
+                          <gmd:code>
+                            <gmx:Anchor
+                              xlink:href="http://localhost:8080/geosource/srv/fre/thesaurus.download?ref=external.place.sinp-cible-geographique">
+                              geonetwork.thesaurus.external.place.sinp-cible-geographique
+                            </gmx:Anchor>
+                          </gmd:code>
+                        </gmd:MD_Identifier>
+                      </gmd:identifier>
+                    </gmd:CI_Citation>
+                  </gmd:thesaurusName>
+                </gmd:MD_Keywords>
+              </gmd:descriptiveKeywords>
+            </snippet>
+          </template>
+        </action>
+
+        <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/*/gmd:description"/>
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString='Type d''espace concerné']"/>
+
+        <action type="add"
+                name="cibleGeographique"
+                or="descriptiveKeywords"
+                in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+          <template>
+            <snippet>
+              <gmd:descriptiveKeywords>
+                <gmd:MD_Keywords>
+                  <gmd:keyword>
+                    <gco:CharacterString></gco:CharacterString>
+                  </gmd:keyword>
+                  <gmd:type>
+                    <gmd:MD_KeywordTypeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                      codeListValue="theme"/>
+                  </gmd:type>
+                  <gmd:thesaurusName>
+                    <gmd:CI_Citation>
+                      <gmd:title>
+                        <gco:CharacterString>Type d'espace concerné</gco:CharacterString>
+                      </gmd:title>
+                      <gmd:date>
+                        <gmd:CI_Date>
+                          <gmd:date>
+                            <gco:Date>2015-11-27</gco:Date>
+                          </gmd:date>
+                          <gmd:dateType>
+                            <gmd:CI_DateTypeCode
+                              codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                              codeListValue="publication"/>
+                          </gmd:dateType>
+                        </gmd:CI_Date>
+                      </gmd:date>
+                      <gmd:identifier>
+                        <gmd:MD_Identifier>
+                          <gmd:code>
+                            <gmx:Anchor
+                              xlink:href="http://localhost:8080/geosource/srv/fre/thesaurus.download?ref=external.theme.sinp-type-espace">
+                              geonetwork.thesaurus.external.theme.sinp-type-espace
+                            </gmx:Anchor>
+                          </gmd:code>
+                        </gmd:MD_Identifier>
+                      </gmd:identifier>
+                    </gmd:CI_Citation>
+                  </gmd:thesaurusName>
+                </gmd:MD_Keywords>
+              </gmd:descriptiveKeywords>
+            </snippet>
+          </template>
+        </action>
+
+        <field
+          xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords/*/gmd:keyword[not(../../gmd:MD_Keywords/gmd:thesaurusName)]"/>
+
+        <action type="add"
+                name="keyword"
+                or="descriptiveKeywords"
+                in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+          <template>
+            <snippet>
+              <gmd:descriptiveKeywords>
+                <gmd:MD_Keywords>
+                  <gmd:keyword>
+                    <gco:CharacterString></gco:CharacterString>
+                  </gmd:keyword>
+                  <gmd:type>
+                    <gmd:MD_KeywordTypeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                      codeListValue="theme"/>
+                  </gmd:type>
+                </gmd:MD_Keywords>
+              </gmd:descriptiveKeywords>
+            </snippet>
+          </template>
+        </action>
+
+        <section name="dcContact">
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/gmd:individualName"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/sinp:altIndividualName"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/gmd:role"/>
+
+          <action type="add"
+                  name="dcContact"
+                  or="pointOfContact"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+            <template>
+              <snippet>
+                <gmd:pointOfContact>
+                  <sinp:CI_ResponsibleParty uuid="f2509c47-ec5e-4ef7-a1a2-7bcffa7dc15f"
+                                            gco:isoType="gmd:CI_ResponsibleParty">
+                    <gmd:individualName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:role>
+                      <gmd:CI_RoleCode codeListValue=""
+                                       codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                    </gmd:role>
+                    <sinp:altIndividualName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </sinp:altIndividualName>
+                  </sinp:CI_ResponsibleParty>
+                </gmd:pointOfContact>
+              </snippet>
+            </template>
+          </action>
+
+        </section>
+      </tab>
+      <tab id="dcDataInformation" mode="flat">
+        <section>
+          <field name="cible"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/sinp:observationDetails/*/sinp:ecologicalTarget"/>
+          <action type="add" name="cibleEcologique" or="observationDetails"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+            <template>
+              <snippet>
+                <sinp:observationDetails>
+                  <sinp:ObservationDetails>
+                    <sinp:ecologicalTarget>
+                      <gco:CharacterString/>
+                    </sinp:ecologicalTarget>
+                  </sinp:ObservationDetails>
+                </sinp:observationDetails>
+              </snippet>
+            </template>
+          </action>
+
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/sinp:observationDetails/*/sinp:parameter"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/sinp:observationDetails/*/sinp:resolution"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/sinp:observationDetails/*/sinp:updateFrequency"/>
+        </section>
+      </tab>
+      <tab id="publication" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*/gmd:linkage"/>
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*/gmd:name"/>
+        </section>
+      </tab>
+      <tab id="mdInformation" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:fileIdentifier"/>
+          <section name="mdContact">
+            <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/gmd:individualName"/>
+            <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/sinp:altIndividualName"/>
+            <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/gmd:role"/>
+          </section>
+          <field xpath="/gmd:MD_Metadata/gmd:language" or="language"
+                 in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dateStamp"/>
+        </section>
+        <section name="mdConformity">
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:title"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:date"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:explanation"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:citedResponsibleParty/*/gmd:individualName"/>
+        </section>
+      </tab>
+    </view>
+
+    <view name="JddSinp" displayIfRecord="contains(gmd:MD_Metadata/
+                                  gmd:hierarchyLevel/gmd:MD_ScopeCode/@codeListValue,
+                                'dataset')">
+      <tab id="jddInformation" default="true" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:title"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:alternateTitle"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:abstract"/>
+        </section>
+        <section name="jdDate">
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:date/*/gmd:date"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/*/gmd:temporalElement"/>
+        </section>
+        <section>
+          <!-- TODO : Ne pas afficher ?-->
+          <field xpath="/gmd:MD_Metadata/gmd:hierarchyLevel"/>
+          <!-- TODO : Type de données -->
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:identifier/*/gmd:code"/>
+          <!-- TODO : groupe écologique -->
+          <!-- TODO : type de plan d'échantillonnage -->
+          <!-- TODO : Types d'unités d'échantillonnage -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords/*[not(gmd:thesaurusName)]/gmd:keyword"
+            or="keyword"
+            in="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords/*[not(gmd:thesaurusName)]"/>
+        </section>
+
+        <section name="jddContact">
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact"/>
+          <!--<field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/sinp:altIndividualName"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact/*/gmd:role"/>
+-->
+          <action type="add"
+                  name="jddContact"
+                  or="pointOfContact"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+            <template>
+              <snippet>
+                <gmd:pointOfContact>
+                  <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
+                    <gmd:individualName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:individualName>
+                    <gmd:role>
+                      <gmd:CI_RoleCode codeListValue=""
+                                       codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"/>
+                    </gmd:role>
+                    <sinp:altIndividualName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </sinp:altIndividualName>
+                  </sinp:CI_ResponsibleParty>
+                </gmd:pointOfContact>
+              </snippet>
+            </template>
+          </action>
+
+        </section>
+      </tab>
+      <tab id="jddThematic" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                          */gmd:thesaurusName/*/gmd:title/gco:CharacterString = 'Thématique SINP']"/>
+
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:topicCategory/gmd:MD_TopicCategoryCode"/>
+
+          <!-- INSPIRE Themes -->
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                          contains(
+                            gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString,
+                            'INSPIRE themes')]"/>
+          <action type="add"
+                  name="inspireTheme"
+                  or="descriptiveKeywords"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/*/
+                        gmd:descriptiveKeywords[
+                          contains(gmd:MD_Keywords/gmd:thesaurusName/
+                                      gmd:CI_Citation/gmd:title/gco:CharacterString,
+                                   'INSPIRE themes')]) = 0">
+            <template>
+              <snippet>
+                <gmd:descriptiveKeywords>
+                  <gmd:MD_Keywords>
+                    <gmd:keyword>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:keyword>
+                    <gmd:type>
+                      <gmd:MD_KeywordTypeCode
+                        codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                        codeListValue="theme"/>
+                    </gmd:type>
+                    <gmd:thesaurusName>
+                      <gmd:CI_Citation>
+                        <gmd:title>
+                          <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+                        </gmd:title>
+                        <gmd:date>
+                          <gmd:CI_Date>
+                            <gmd:date>
+                              <gco:Date>2008-06-01</gco:Date>
+                            </gmd:date>
+                            <gmd:dateType>
+                              <gmd:CI_DateTypeCode
+                                codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                codeListValue="publication"/>
+                            </gmd:dateType>
+                          </gmd:CI_Date>
+                        </gmd:date>
+                        <gmd:identifier>
+                          <gmd:MD_Identifier>
+                            <gmd:code>
+                              <gmx:Anchor
+                                xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.inspire-theme">
+                                geonetwork.thesaurus.external.theme.inspire-theme
+                              </gmx:Anchor>
+                            </gmd:code>
+                          </gmd:MD_Identifier>
+                        </gmd:identifier>
+                      </gmd:CI_Citation>
+                    </gmd:thesaurusName>
+                  </gmd:MD_Keywords>
+                </gmd:descriptiveKeywords>
+              </snippet>
+            </template>
+          </action>
+        </section>
+      </tab>
+      <tab id="jddFormat" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:language"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:characterSet"/>
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:distributionFormat/*/gmd:name"/>
+        </section>
+      </tab>
+      <tab id="referentiels" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                          */gmd:thesaurusName/*/gmd:title/gco:CharacterString = 'Référentiels taxonomiques']"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                          */gmd:thesaurusName/*/gmd:title/gco:CharacterString = 'Référentiels Cartographiques']"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                          */gmd:thesaurusName/*/gmd:title/gco:CharacterString = 'Référentiels Milieux']"/>
+          <field xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo"
+                 or="referenceSystemInfo"
+                 in="/gmd:MD_Metadata"/>
+          <!-- TODO : système de référence temporelle -->
+        </section>
+      </tab>
+      <tab id="geographicalInformations" mode="flat">
+        <section name="bboxesSection">
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/
+                          gmd:extent/*/gmd:geographicElement/gmd:EX_GeographicBoundingBox"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:spatialResolution/
+                          */gmd:equivalentScale/*/gmd:denominator"/>
+          <action type="add" name="extent" or="extent"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification">
+            <template>
+              <snippet>
+                <gmd:extent>
+                  <gmd:EX_Extent>
+                    <gmd:geographicElement>
+                      <gmd:EX_GeographicBoundingBox>
+                        <gmd:westBoundLongitude>
+                          <gco:Decimal/>
+                        </gmd:westBoundLongitude>
+                        <gmd:eastBoundLongitude>
+                          <gco:Decimal/>
+                        </gmd:eastBoundLongitude>
+                        <gmd:southBoundLatitude>
+                          <gco:Decimal/>
+                        </gmd:southBoundLatitude>
+                        <gmd:northBoundLatitude>
+                          <gco:Decimal/>
+                        </gmd:northBoundLatitude>
+                      </gmd:EX_GeographicBoundingBox>
+                    </gmd:geographicElement>
+                  </gmd:EX_Extent>
+                </gmd:extent>
+              </snippet>
+            </template>
+          </action>
+
+
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:spatialResolution[
+                          gmd:MD_Resolution/gmd:equivalentScale]"/>
+          <action type="add"
+                  btnLabel="spatialResolution"
+                  or="spatialResolution"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification">
+            <template>
+              <snippet>
+                <gmd:spatialResolution>
+                  <gmd:MD_Resolution>
+                    <gmd:equivalentScale>
+                      <gmd:MD_RepresentativeFraction>
+                        <gmd:denominator>
+                          <gco:Integer/>
+                        </gmd:denominator>
+                      </gmd:MD_RepresentativeFraction>
+                    </gmd:equivalentScale>
+                  </gmd:MD_Resolution>
+                </gmd:spatialResolution>
+              </snippet>
+            </template>
+          </action>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:spatialResolution[*/gmd:distance]"/>
+          <action type="add"
+                  btnLabel="spatialDistance"
+                  or="spatialResolution" in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification">
+            <template>
+              <snippet>
+                <gmd:spatialResolution>
+                  <gmd:MD_Resolution>
+                    <gmd:distance>
+                      <gco:Distance uom="m"/>
+                    </gmd:distance>
+                  </gmd:MD_Resolution>
+                </gmd:spatialResolution>
+              </snippet>
+            </template>
+          </action>
+        </section>
+      </tab>
+
+
+      <tab id="constraints" mode="flat">
+        <section>
+          <field
+            name="useLimitation"
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/
+                gmd:resourceConstraints/gmd:MD_Constraints/gmd:useLimitation"
+            if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
+          <action type="add" name="useLimitation" or="resourceConstraints"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification"
+                  if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0">
+            <template>
+              <snippet>
+                <gmd:resourceConstraints>
+                  <gmd:MD_Constraints>
+                    <gmd:useLimitation>
+                      <gco:CharacterString/>
+                    </gmd:useLimitation>
+                  </gmd:MD_Constraints>
+                </gmd:resourceConstraints>
+              </snippet>
+            </template>
+          </action>
+          <!-- TODO : Conditions applicables à l’accès et à l’utilisation -->
+          <!-- TODO : Restrictions concernant l’accès public -->
+        </section>
+      </tab>
+
+
+      <tab id="accessibility" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*/gmd:linkage"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:presentationForm"/>
+          <!-- Mode de diffusion -->
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*/gmd:function"/>
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:offLine/*/gmd:name"/>
+        </section>
+        <section name="database">
+          <field
+            xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:distributor/*/gmd:distributorTransferOptions/*/gmd:onLine/*/gmd:linkage"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:distributor/*/gmd:distributorTransferOptions/*/gmd:onLine/*/gmd:name"/>
+          <!-- TODO : Année de mise en place -->
+          <!-- TODO : Historique de la base -->
+          <!-- TODO : Contact de la base -->
+        </section>
+      </tab>
+      <tab id="quality" mode="flat">
+        <section name="inspireConformity">
+          <field name="conformity" templateModeOnly="true"
+                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/
+                    gmd:report/gmd:DQ_DomainConsistency/gmd:result"
+                 del="../..">
+            <template>
+              <values>
+                <key label="conformity_title"
+                     xpath="gmd:DQ_ConformanceResult/
+                          gmd:specification/gmd:CI_Citation/gmd:title/gco:CharacterString"
+                     tooltip="gmd:pass">
+                  <helper name="gmd:title"
+                          context="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/gmd:DQ_DomainConsistency/gmd:result/gmd:DQ_ConformanceResult/gmd:specification/gmd:CI_Citation/gmd:title"/>
+                </key>
+                <key label="conformity_date"
+                     xpath="gmd:DQ_ConformanceResult/
+                          gmd:specification/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date"
+                     use="date"/>
+                <key label="pass"
+                     xpath="gmd:DQ_ConformanceResult/gmd:pass/gco:Boolean"
+                     use="gn-checkbox-with-nilreason">
+                  <directiveAttributes
+                    data-tag-name="gmd:pass"
+                    data-nilreason="eval#gmd:DQ_ConformanceResult/gmd:pass/@gco:nilReason"
+                    data-labels='{"true": "conformant", "false": "notConformant", "unknown": "notEvaluated"}'/>
+                </key>
+              </values>
+              <snippet>
+                <gmd:result>
+                  <gmd:DQ_ConformanceResult>
+                    <gmd:specification>
+                      <gmd:CI_Citation>
+                        <gmd:title>
+                          <gco:CharacterString>{{conformity_title}}</gco:CharacterString>
+                          <gn:copy select="gmd:PT_FreeText"/>
+                        </gmd:title>
+                        <gn:copy select="gmd:alternateTitle"/>
+                        <gmd:date>
+                          <gmd:CI_Date>
+                            <gmd:date>
+                              <gco:Date>{{conformity_date}}</gco:Date>
+                            </gmd:date>
+                            <gmd:dateType>
+                              <gmd:CI_DateTypeCode
+                                codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                codeListValue="publication"/>
+                            </gmd:dateType>
+                          </gmd:CI_Date>
+                        </gmd:date>
+                        <gn:copy select="gmd:edition"/>
+                        <gn:copy select="gmd:editionDate"/>
+                        <gn:copy select="gmd:identifier"/>
+                        <gn:copy select="gmd:citedResponsibleParty"/>
+                        <gn:copy select="gmd:presentationForm"/>
+                        <gn:copy select="gmd:series"/>
+                        <gn:copy select="gmd:otherCitationDetails"/>
+                        <gn:copy select="gmd:collectiveTitle"/>
+                        <gn:copy select="gmd:ISBN"/>
+                        <gn:copy select="gmd:ISSN"/>
+                      </gmd:CI_Citation>
+                    </gmd:specification>
+                    <gmd:explanation>
+                      <gco:CharacterString>cf. Titre de la spécification</gco:CharacterString>
+                      <gn:copy select="gmd:PT_FreeText"/>
+                    </gmd:explanation>
+                    {{pass}}
+                  </gmd:DQ_ConformanceResult>
+                </gmd:result>
+              </snippet>
+            </template>
+          </field>
+          <action type="add" name="conformity" or="report"
+                  forceLabel="true"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
+            <template>
+              <snippet>
+                <gmd:report>
+                  <gmd:DQ_DomainConsistency>
+                    <gmd:result>
+                      <gmd:DQ_ConformanceResult>
+                        <gmd:specification>
+                          <gmd:CI_Citation>
+                            <gmd:title>
+                              <gco:CharacterString/>
+                            </gmd:title>
+                            <gmd:date>
+                              <gmd:CI_Date>
+                                <gmd:date>
+                                  <gco:Date/>
+                                </gmd:date>
+                                <gmd:dateType>
+                                  <gmd:CI_DateTypeCode
+                                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                    codeListValue="publication"/>
+                                </gmd:dateType>
+                              </gmd:CI_Date>
+                            </gmd:date>
+                          </gmd:CI_Citation>
+                        </gmd:specification>
+                        <gmd:explanation>
+                          <gco:CharacterString/>
+                        </gmd:explanation>
+                        <gmd:pass gco:nilReason="unknown">
+                          <gco:Boolean/>
+                        </gmd:pass>
+                      </gmd:DQ_ConformanceResult>
+                    </gmd:result>
+                  </gmd:DQ_DomainConsistency>
+                </gmd:report>
+              </snippet>
+            </template>
+          </action>
+        </section>
+        <section>
+          <field name="lineage"
+                 xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:statement"/>
+
+          <action type="add" name="lineage" or="statement"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage">
+            <template>
+              <snippet>
+                <gmd:statement>
+                  <gco:CharacterString></gco:CharacterString>
+                </gmd:statement>
+              </snippet>
+            </template>
+          </action>
+          <action type="add" name="lineage" or="lineage"
+                  in="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality">
+            <template>
+              <snippet>
+                <gmd:lineage>
+                  <gmd:LI_Lineage>
+                    <gmd:statement>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:statement>
+                  </gmd:LI_Lineage>
+                </gmd:lineage>
+              </snippet>
+            </template>
+          </action>
+          <!-- TODO : données source -->
+          <!-- TODO : cohérence topologique -->
+          <field
+            xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/
+            gmd:descriptiveKeywords
+            [contains(gmd:MD_Keywords/gmd:thesaurusName/gmd:CI_Citation/gmd:title/gco:CharacterString, 'Méthode de recueil')]"/>
+          <action type="add"
+                  name="voletSinp"
+                  or="descriptiveKeywords"
+                  in="/gmd:MD_Metadata/gmd:identificationInfo/*">
+            <template>
+              <snippet>
+                <gmd:descriptiveKeywords>
+                  <gmd:MD_Keywords>
+                    <gmd:keyword>
+                      <gco:CharacterString></gco:CharacterString>
+                    </gmd:keyword>
+                    <gmd:type>
+                      <gmd:MD_KeywordTypeCode
+                        codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                        codeListValue="theme"/>
+                    </gmd:type>
+                    <gmd:thesaurusName>
+                      <gmd:CI_Citation>
+                        <gmd:title>
+                          <gco:CharacterString>Méthode de recueil</gco:CharacterString>
+                        </gmd:title>
+                        <gmd:date>
+                          <gmd:CI_Date>
+                            <gmd:date>
+                              <gco:Date>2008-06-01</gco:Date>
+                            </gmd:date>
+                            <gmd:dateType>
+                              <gmd:CI_DateTypeCode
+                                codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                codeListValue="publication"/>
+                            </gmd:dateType>
+                          </gmd:CI_Date>
+                        </gmd:date>
+                        <gmd:identifier>
+                          <gmd:MD_Identifier>
+                            <gmd:code>
+                              <gmx:Anchor
+                                xlink:href="http://localhost:8080/geosource/srv/fre/thesaurus.download?ref=external.theme.sinp-volet">
+                                geonetwork.thesaurus.external.theme.sinp-methode-de-recueil
+                              </gmx:Anchor>
+                            </gmd:code>
+                          </gmd:MD_Identifier>
+                        </gmd:identifier>
+                      </gmd:CI_Citation>
+                    </gmd:thesaurusName>
+                  </gmd:MD_Keywords>
+                </gmd:descriptiveKeywords>
+              </snippet>
+            </template>
+          </action>
+          <!-- Protocole de collecte -->
+          <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*/gmd:linkage"/>
+        </section>
+        <section name="jddConformity">
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:title"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:date"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:explanation"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:citedResponsibleParty/*/gmd:individualName"/>
+        </section>
+      </tab>
+      <tab id="mdInformation" mode="flat">
+        <section>
+          <field xpath="/gmd:MD_Metadata/gmd:fileIdentifier"/>
+          <section name="mdContact">
+            <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact"/>
+          </section>
+          <field xpath="/gmd:MD_Metadata/gmd:language" or="language"
+                 in="/gmd:MD_Metadata"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dateStamp"/>
+        </section>
+        <section name="mdConformity">
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:title"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:date"/>
+          <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:explanation"/>
+          <field
+            xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/*/gmd:specification/*/gmd:citedResponsibleParty/*/gmd:individualName"/>
+        </section>
+      </tab>
+    </view>
+
     <view name="default">
       <tab id="default" default="true" mode="flat">
         <section xpath="/gmd:MD_Metadata/gmd:identificationInfo"/>

@@ -8,7 +8,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../../../../labels.xsd">
   <element name="gmd:title" id="360.0"
-           context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+           context="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
     <label>Nom complet</label>
     <description>Intitulé exact de la ressource qui permet de l’identifier
       explicitement.
@@ -20,8 +20,8 @@
       Exemple : Abondance des mammifères marins
     </help>
   </element>
-  <element name="gmd:alternateTitle" id="361.0">
-    <label>Nom usuel</label>
+  <element name="gmd:alternateTitle" id="361.0" context="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/gmd:citation/gmd:CI_Citation/gmd:alternateTitle">
+    <label>Nom usuel du dispositif</label>
     <description>Intitulé utilisé pour dénommer couramment la ressource.
     </description>
     <help>Correspond à un sigle, une abréviation, un acronyme ou un diminutif du

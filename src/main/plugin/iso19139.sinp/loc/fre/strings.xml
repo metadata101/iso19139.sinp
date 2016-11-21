@@ -5,7 +5,37 @@
   <simple>Simple</simple>
   <xml>XML</xml>
   <metadata>Métadonnées</metadata>
+  <jddInformation>Informations générales</jddInformation>
+  <jddFormat>Format</jddFormat>
+  <jdDate>Référence temporelle</jdDate>
+  <referentiels>Référentiels</referentiels>
+  <geographicalInformations>Caractéristiques géographiques</geographicalInformations>
+  <constraints>Contraintes d'accès et d'utilisation	</constraints>
+  <accessibility>Accessibilité et diffusion</accessibility>
+  <quality>Qualité</quality>
+  <test>test</test>
+  <url>URL de la publication</url>
+  <database>Base de données</database>
+  <conformity_title>Titre de la spécification</conformity_title>
+  <conformity_date>Date de publication de la spécification</conformity_date>
+  <pass>Degré de conformité</pass>
+  <jddConformity>Conformité et cohérence des métadonnées du jeu de données</jddConformity>
+  <inspireConformity>Conformité INSPIRE</inspireConformity>
+  <voletSinp>Volet SINP</voletSinp>
+  <historique>Historique</historique>
+  <cibleGeographique>Cible géographique</cibleGeographique>
+  <keyword>Mots-clés</keyword>
+  <cibleEcologique>Cible écologique</cibleEcologique>
   <identificationInfo>Identification</identificationInfo>
+  <dcInformation>Informations sur le dispositif</dcInformation>
+  <dcDataInformation>Données ciblées par le dispositif</dcDataInformation>
+  <mdInformation>Métadonnées</mdInformation>
+  <dcContact>Contact sur le dispositif</dcContact>
+  <jddContact>Contact sur le jeu de données</jddContact>
+  <mdContact>Point de contact sur les métadonnées</mdContact>
+  <mdConformity>Conformité et cohérence des métadonnées du dispositif de collecte</mdConformity>
+  <publication>Publications</publication>
+  <jddThematic>Thématique</jddThematic>
   <distributionInfo>Distribution</distributionInfo>
   <dataQualityInfo>Qualité</dataQualityInfo>
   <spatialRepresentationInfo>Information spatiale</spatialRepresentationInfo>
@@ -15,7 +45,10 @@
   <metadataConstraints>Md. contraintes</metadataConstraints>
   <metadataMaintenance>Md. maintenance</metadataMaintenance>
   <applicationSchemaInfo>Extension</applicationSchemaInfo>
-
+  <DcSinp>Vue dispositif</DcSinp>
+  <JddSinp>Vue jeu de données</JddSinp>
+  <spatialResolution>Résolution (échelle)</spatialResolution>
+  <spatialDistance>Résolution (distance)</spatialDistance>
 
   <!-- XSD error translation -->
   <invalidElement>Élément invalide. Contenu invalide pour l'élément : </invalidElement>
