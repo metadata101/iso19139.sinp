@@ -8,14 +8,62 @@
 
   <xsl:output indent="yes" method="xml"/>
 
+
+  <xsl:variable name="topicCategoryMapping">
+    <value key="Flore et faune">biota</value>
+    <!-- TODO other values -->
+  </xsl:variable>
+
+
+  <xsl:variable name="roleMapping">
+    <value key="MOU">originator</value>
+    <value key="MOE">principalInvestigator</value>
+    <value key="FIN">owner</value>
+    <value key="POC">pointOfContact</value>
+    <!-- Ce cas n'est pas dans le nouveau profil ? Il y a des cas dans l'ancien export
+    avec une valeur incorrecte PrRecueilocessor au lieu de processor-->
+    <value key="COL">processor</value>
+  </xsl:variable>
+
+
+
   <xsl:template match="/">
     <xsl:apply-templates select="SI_DC/*" mode="sinp"/>
   </xsl:template>
 
+
+
+  <!--
+  TODOXSD
+<xs:element name="Intervenant" minOccurs="0" maxOccurs="unbounded" nillable="false">
+  <xs:complexType mixed="false">
+      <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="DateCreationIntervenant" type="sa_int:DateCreationIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="DateMajIntervenant" type="sa_int:DateMajIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="AuteurIntervenant" type="sa_int:AuteurIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="ImmoIntervenant" type="sa_int:ImmoIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="ActivitesIntervenant" type="sa_int:ActivitesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="NomInternationalIntervenant" type="sa_int:NomInternationalIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="CdSIRETRattacheIntervenant" type="sa_int:CdSIRETRattacheIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+          <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+          sinp:relatedResponsibleParty ?
+          <xs:element name="StructureMere" minOccurs="0" maxOccurs="1" nillable="false">
+              <xs:complexType mixed="false">
+                  <xs:sequence minOLbTypeRddccurs="1" maxOccurs="1">
+                      <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+                      <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+   -->
   <xsl:template match="*" mode="sinp-contact">
     <xsl:param name="role" select="''" as="xs:string?"/>
 
     <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
+      <!--
+      <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1" nillable="false"/>
+      -->
       <xsl:if test="CdResponsable|CdIntervenant">
         <xsl:attribute name="uuid" select="CdResponsable|CdIntervenant"/>
       </xsl:if>
@@ -26,6 +74,9 @@
           </gco:CharacterString>
         </gmd:individualName>
       </xsl:if>
+      <!--
+      <xs:element name="NomIntervenant" type="sa_int:NomIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
       <gmd:organisationName>
         <gco:CharacterString>
           <xsl:value-of select="OrganismeResponsable|NomIntervenant"/>
@@ -36,6 +87,9 @@
       </gmd:positionName>-->
       <gmd:contactInfo>
         <gmd:CI_Contact>
+          <!--
+          <xs:element name="Tel" type="sinp:Tel" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
           <gmd:phone>
             <gmd:CI_Telephone>
               <gmd:voice>
@@ -50,11 +104,17 @@
           </gmd:phone>
           <gmd:address>
             <gmd:CI_Address>
+              <!--
+              <xs:element name="RueIntervenant" type="sa_int:RueIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <gmd:deliveryPoint>
                 <gco:CharacterString>
                   <xsl:value-of select="RueResponsable|RueIntervenant"/>
                 </gco:CharacterString>
               </gmd:deliveryPoint>
+              <!--
+              <xs:element name="LieuIntervenant" type="sa_int:LieuIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <xsl:if test="LieuIntervenant">
                 <gmd:deliveryPoint>
                   <gco:CharacterString>
@@ -62,11 +122,17 @@
                   </gco:CharacterString>
                 </gmd:deliveryPoint>
               </xsl:if>
+              <!--
+              <xs:element name="VilleIntervenant" type="sa_int:VilleIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <gmd:city>
                 <gco:CharacterString>
                   <xsl:value-of select="VilleResponsable|VilleIntervenant"/>
                 </gco:CharacterString>
               </gmd:city>
+              <!--
+              <xs:element name="DepIntervenant" type="sa_int:DepIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <xsl:if test="DepIntervenant">
                 <gmd:administrativeArea>
                   <gco:CharacterString>
@@ -74,11 +140,18 @@
                   </gco:CharacterString>
                 </gmd:administrativeArea>
               </xsl:if>
+              <!--
+              <xs:element name="BpIntervenant" type="sa_int:BpIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              <xs:element name="CPIntervenant" type="sa_int:CPIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <gmd:postalCode>
                 <gco:CharacterString>
                   <xsl:value-of select="CPResponsable|BPIntervenant|CPIntervenant"/>
                 </gco:CharacterString>
               </gmd:postalCode>
+              <!--
+              <xs:element name="Pays" type="sinp:Pays" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <xsl:if test="Pays">
                 <gmd:country>
                   <gco:CharacterString>
@@ -86,6 +159,9 @@
                   </gco:CharacterString>
                 </gmd:country>
               </xsl:if>
+              <!--
+              <xs:element name="Mail" type="sinp:Mail" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <gmd:electronicMailAddress>
                 <gco:CharacterString>
                   <xsl:value-of select="Mail"/>
@@ -93,6 +169,10 @@
               </gmd:electronicMailAddress>
             </gmd:CI_Address>
           </gmd:address>
+
+          <!--
+          <xs:element name="URLWeb" type="sinp:URLWeb" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
           <xsl:if test="URLWeb">
             <gmd:onlineResource>
               <gmd:CI_OnlineResource>
@@ -112,12 +192,16 @@
         />
       </gmd:role>
 
-      <!-- TODO -->
-      <sinp:altIndividualName>
-        <gco:CharacterString/>
-      </sinp:altIndividualName>
+      <!--
+     <xs:element name="MnIntervenant" type="sa_int:MnIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
+      <xsl:for-each select="MnIntervenant">
+        <sinp:altIndividualName>
+          <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+        </sinp:altIndividualName>
+      </xsl:for-each>
 
-      <!-- TODO Dans l'export SINP StIntervenant = A ? 
+      <!-- TODO Dans l'export SINP StIntervenant = A ?
       LbStatut ? -->
       <xsl:variable name="statusMapping">
         <entry>
@@ -173,17 +257,42 @@
         On corrige -->
       </xsl:variable>
 
+      <!--
+      <xs:element name="Statut" type="sinp:Statut" minOccurs="0" maxOccurs="1" nillable="false"/>
+
+      Eg.
+      <Statut>4</Statut>
+      <LbStatut>Etablissement public de l'Etat</LbStatut>
+      -->
       <xsl:for-each select="LbStatut">
         <xsl:variable name="current" select="."/>
         <xsl:variable name="code" select="$statusMapping/entry/label[text() = $current]/code"/>
-        
+
        <sinp:responsiblePartyStatus>
-         <sinp:ResponsiblePartyStatusCode codeList="" 
+         <sinp:ResponsiblePartyStatusCode codeList=""
            codeListValue="{if ($code != '') then $code else .}"/>
        </sinp:responsiblePartyStatus>
       </xsl:for-each>
 
 
+      <!--
+      <xs:element name="DepartementInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="CdDepartement" type="sa_com:CdDepartement" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LbDepartement" type="sa_com:LbDepartement" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="RegionInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="CdRegion" type="sa_com:CdRegion" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LbRegion" type="sa_com:LbRegion" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      -->
       <xsl:for-each select="DepartementInt|RegionInt">
         <!-- TODO: Suffisant ? -->
         <sinp:extentDescription>
@@ -193,11 +302,22 @@
         </sinp:extentDescription>
       </xsl:for-each>
 
+
       <!-- TODO Dans l'export SINP terreOuMerInt ? -->
       <sinp:scopeDescription>
         <sinp:ResponsiblePartyScopeCode codeList="" codeListValue="Mer"/>
       </sinp:scopeDescription>
 
+      <!--
+      <xs:element name="EvenementsInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="DateEvenement" type="sa_dc:DateEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="LbEvenement" type="sa_dc:LbEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      -->
       <xsl:for-each select="EvenementsInt">
         <sinp:history>
           <gmd:LI_ProcessStep>
@@ -214,19 +334,12 @@
           </gmd:LI_ProcessStep>
         </sinp:history>
       </xsl:for-each>
+
+
+      <!--
+      <xs:element name="CommentairesIntervenant" type="sa_int:CommentairesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
       <xsl:if test="CommentairesIntervenant">
-        
-        <!-- 
-        OLD
-        
-								<xsl:if test="$nd/CommentairesIntervenant">
-								<gmd:contactInstructions>
-									<gco:CharacterString>
-										<xsl:value-of select="$nd/CommentairesIntervenant"/>										
-									</gco:CharacterString>
-								</gmd:contactInstructions>
-								</xsl:if>
-        -->
         <sinp:description>
           <gco:CharacterString>
             <xsl:value-of select="CommentairesIntervenant"/>
@@ -243,19 +356,28 @@
   </xsl:template>
 
 
-  <xsl:template match="Bdd" 
-                mode="sinp"> </xsl:template>
+  <xsl:template match="Bdd"
+                mode="sinp"/>
 
-  <xsl:template match="DispositifCollecte" 
+
+  <xsl:template match="DispositifCollecte"
                 mode="sinp">
+    <!--
+
+
+    -->
     <gmd:MD_Metadata>
+      <!--
+      <xs:element name="IdEchangeRdd" type="sa_bp:IdEchangeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+      -->
       <gmd:fileIdentifier>
         <gco:CharacterString>
-          <xsl:value-of select="IdEchangeRdd"/>
+          urn:idcnp:<xsl:value-of select="IdEchangeRdd"/>
         </gco:CharacterString>
       </gmd:fileIdentifier>
 
 
+      <!-- TODOXSD : Pas dans le schéma ? -->
       <xsl:for-each select="DispositifAssocie/UuidReseauPere">
        <gmd:parentIdentifier>
          <gco:CharacterString>
@@ -266,7 +388,7 @@
 
       <!-- Metadata language is french -->
       <gmd:language>
-        <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" 
+        <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/"
                           codeListValue="fre"/>
       </gmd:language>
 
@@ -282,41 +404,43 @@
         <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
                           codeListValue="collectionSystem"/>
       </gmd:hierarchyLevel>
-      
-      <!-- 
-        OLD
-      <gmd:hierarchyLevel>
-				<xsl:choose>
-					<xsl:when test="DispositifCollecte/GeoReferencement = 'true'">
-						<gmd:MD_ScopeCode>
-							<xsl:attribute name="codeList">MD_ScopeCode</xsl:attribute>
-							<xsl:attribute name="codeListValue">series</xsl:attribute>
-						</gmd:MD_ScopeCode>
-					</xsl:when>
-					<xsl:otherwise>
-						<gmd:MD_ScopeCode>
-							<xsl:attribute name="codeList">MD_ScopeCode</xsl:attribute>
-							<xsl:attribute name="codeListValue">nonGeographicDataset</xsl:attribute>
-						</gmd:MD_ScopeCode>
-					</xsl:otherwise>
-				</xsl:choose>
-			</gmd:hierarchyLevel>
-			
-	    <gmd:hierarchyLevelName>
-	    	<gco:CharacterString>series</gco:CharacterString>
-	    </gmd:hierarchyLevelName>
+
+      <!--
+      <xs:element name="TypeRdd" minOccurs="0" maxOccurs="1" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="CdTypeRdd" type="sa_dc:CdTypeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LbTypeRdd" type="sa_dc:LbTypeRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+        Valeurs possibles :
+        ‘1’ : Réseau de mesure
+        ‘2’ : Autres dispositifs
+        ‘3’ : Autosurveillance
+      </xs:element>
       -->
+      <xsl:for-each select="TypeRdd/LbTypeRdd">
+        <gmd:hierarchyLevelName>
+          <gco:CharacterString>
+            <xsl:value-of select="."/>
+          </gco:CharacterString>
+        </gmd:hierarchyLevelName>
+      </xsl:for-each>
 
       <xsl:for-each select="Responsable">
         <gmd:contact>
-          <xsl:apply-templates select="." 
+          <xsl:apply-templates select="."
                                mode="sinp-contact"/>
         </gmd:contact>
       </xsl:for-each>
 
+      <!--
+      <xs:element name="DateMajFicheRdd" type="sa_dc:DateMajFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
       <gmd:dateStamp>
         <gco:DateTime><xsl:value-of select="DateMajFicheRdd"/></gco:DateTime>
       </gmd:dateStamp>
+
 
       <gmd:metadataStandardName>
         <gco:CharacterString>ISO 19115:2003/19139 - Profil SINP</gco:CharacterString>
@@ -324,14 +448,46 @@
       <gmd:metadataStandardVersion>
         <gco:CharacterString>1.0</gco:CharacterString>
       </gmd:metadataStandardVersion>
-      
+
+
+      <!--
+      <xs:element name="NbTotalRdd" type="sa_dc:NbTotalRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
+      <xsl:for-each select="NbTotalRdd">
+        <gmd:spatialRepresentationInfo>
+          <gmd:MD_VectorSpatialRepresentation>
+            <gmd:geometricObjects>
+              <gmd:MD_GeometricObjects>
+                <gmd:geometricObjectType>
+                  <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_GeometricObjectTypeCode"
+                                                  codeListValue="point"/>
+                </gmd:geometricObjectType>
+                <gmd:geometricObjectCount>
+                  <gco:Integer><xsl:value-of select="NbTotalRdd"/></gco:Integer>
+                </gmd:geometricObjectCount>
+              </gmd:MD_GeometricObjects>
+            </gmd:geometricObjects>
+          </gmd:MD_VectorSpatialRepresentation>
+        </gmd:spatialRepresentationInfo>
+      </xsl:for-each>
+
+
+      <!--
+      <xs:element name="CRS" minOccurs="0" maxOccurs="unbounded" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="CdCRS" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+            <xs:element name="LbCRS" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      -->
       <xsl:for-each select="CRS">
        <gmd:referenceSystemInfo>
          <gmd:MD_ReferenceSystem>
            <gmd:referenceSystemIdentifier>
              <gmd:RS_Identifier>
                <gmd:code>
-                 <!-- TODO: Plus que le simple code ?-->
                  <gco:CharacterString><xsl:value-of select="CdCRS"/></gco:CharacterString>
                </gmd:code>
                <gmd:codeSpace>
@@ -344,8 +500,8 @@
          </gmd:MD_ReferenceSystem>
        </gmd:referenceSystemInfo>
       </xsl:for-each>
-      
-      <!-- 
+
+      <!--
       OLD
 				<xsl:for-each select="DispositifCollecte/RefGeographiques/LbRefMetier">
 					<xsl:call-template name="referenceSystemInfo">
@@ -376,11 +532,15 @@
 				</xsl:for-each>
 
       -->
-      
+
       <gmd:identificationInfo>
         <gmd:MD_DataIdentification>
           <gmd:citation>
             <gmd:CI_Citation>
+              <!--
+              <xs:element name="NomRdd" type="sa_dc:NomRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+              <xs:element name="MnRdd" type="sa_dc:MnRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+              -->
               <gmd:title>
                 <gco:CharacterString>
                   <xsl:value-of select="NomRdd"/>
@@ -388,14 +548,15 @@
               </gmd:title>
               <gmd:alternateTitle>
                 <gco:CharacterString>
-                  <xsl:value-of select="DispositifCollecte/MnRdd"/>
+                  <xsl:value-of select="MnRdd"/>
                 </gco:CharacterString>
               </gmd:alternateTitle>
-              <!-- Date. Pour info, dans reseau261800, dans l'export XML ISO19115 
-                une date de création 2010-01-01 est ajouté 
-                alors qu'elle n'est pas dans l'export XML SINP. 
-              
+              <!-- Date. Pour info, dans reseau261800, dans l'export XML ISO19115
+                une date de création 2010-01-01 est ajouté
+                alors qu'elle n'est pas dans l'export XML SINP.
+
               A priori correspond à AnneeMisePlaceRdd
+              <xs:element name="AnneeMisePlaceRdd" type="sa_dc:AnneeMisePlaceRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
               -->
               <xsl:if test="AnneeMisePlaceRdd">
                 <gmd:date>
@@ -420,18 +581,18 @@
                   </gmd:code>
                 </gmd:MD_Identifier>
               </gmd:identifier>
-              
+
               <!--
               Dans l'ancien export le champ presentationForm est utilisé
               -->
-              
+
               <!-- OLD
     					<gmd:othercitationdetails>
     						<gco:CharacterString>
     							<xsl:value-of select="ModeStockageRdd/PrecisionModeStockage"/>
     						</gco:CharacterString>
     					</gmd:othercitationdetails>
-    					
+
     					<gmd:presentationForm>
     						<gmd:CI_PresentationFormCode>
     									<xsl:attribute name="codeList">http://www.isotc211.org/2005/resources/codeList.xml#CI_PresentationFormCode</xsl:attribute>
@@ -441,56 +602,82 @@
     										<xsl:when test="ModeStockageRdd/CdModeStockage = 3"><xsl:attribute name="codeListValue">tableDigital</xsl:attribute></xsl:when>
     										<xsl:otherwise><xsl:attribute name="codeListValue"></xsl:attribute></xsl:otherwise>
     									</xsl:choose>
-    										
+
     						</gmd:CI_PresentationFormCode>
     					</gmd:presentationForm>
           -->
             </gmd:CI_Citation>
           </gmd:citation>
+
+
+          <!--
+          <xs:element name="DescriptionFinaliteRdd" type="sa_dc:DescriptionFinaliteRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
           <gmd:abstract>
             <gco:CharacterString>
               <xsl:value-of select="DescriptionFinaliteRdd"/>
             </gco:CharacterString>
           </gmd:abstract>
-          <!-- TODO: Objectifs scientifiques -->
+
+
+          <!-- TODO: Objectifs scientifiques
           <gmd:purpose>
             <gco:CharacterString/>
-          </gmd:purpose>
-          <!-- TODO: Non utilisé ? 
-            Dans l'ancien export completed semble utilisé
-            
-            EtatActivite ?
-            
-						<gmd:status>
-							<xsl:choose>
-								<xsl:when test="EtatActivite/CdEtatActivite = 2">
-									<gmd:MD_ProgressCode
-  									codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ProgressCode">
-										<xsl:attribute name="codeList">MD_ProgressCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">obsolete</xsl:attribute>
-									</gmd:MD_ProgressCode>
-								</xsl:when>
-								<xsl:otherwise>
-									<gmd:MD_ProgressCode
-									   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ProgressCode">
-										<xsl:attribute name="codeList">MD_ProgressCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">onGoing</xsl:attribute>
-									</gmd:MD_ProgressCode>
-								</xsl:otherwise>
-							</xsl:choose>
-						</gmd:status>
+          </gmd:purpose> -->
+
+
+          <!--
+              <xs:element name="EtatActivite" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdEtatActivite" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbEtatActivite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
           -->
-          
-          
-          <xsl:variable name="roleMapping">
-            <value key="MOU">originator</value>
-            <value key="MOE">principalInvestigator</value>
-            <value key="FIN">owner</value>
-            <value key="POC">pointOfContact</value>
-            <!-- Ce cas n'est pas dans le nouveau profil ? Il y a des cas dans l'ancien export
-            avec une valeur incorrecte PrRecueilocessor au lieu de processor-->
-            <value key="COL">processor</value>
-          </xsl:variable>
+          <xsl:for-each select="EtatActivite/CdEtatActivite">
+            <gmd:status>
+              <gmd:MD_ProgressCode codeListValue="{if (. = '2') then 'obsolete' else 'onGoing'}"
+                                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ProgressCode"/>
+            </gmd:status>
+          </xsl:for-each>
+
+
+          <!--
+          <xs:element name="IntervenantRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="Intervenant" minOccurs="1" maxOccurs="1" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                      <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                    <xs:attribute name="Role" type="xs:string" use="optional"/>
+                  </xs:complexType>
+                </xs:element>
+
+                *** Non utilisé TODO XSD ? ***
+                <xs:element name="DateDebutIntervenant" type="sa_dc:DateDebutIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="DateFinIntervenant" type="sa_dc:DateFinIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="PrecisionServiceIntervenant" type="sa_dc:PrecisionServiceIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="Contacts" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdContact" type="sa_int:CdContact" minOccurs="1" maxOccurs="1" nillable="false"/>
+                      <xs:element name="NomContact" type="sa_int:NomContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                      <xs:element name="FonctionContact" type="sa_int:FonctionContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                      <xs:element name="TelephoneContact" type="sa_int:TelephoneContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                      <xs:element name="FaxContact" type="sa_int:FaxContact" minOccurs="0" maxOccurs="1" nillable="false"/>
+                      <xs:element name="MailContact" type="sinp:Mail" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:for-each select="IntervenantRdd/Intervenant">
             <xsl:variable name="code" select="CdIntervenant"/>
             <xsl:variable name="role" select="@Role"/>
@@ -501,65 +688,10 @@
               </xsl:apply-templates>
             </gmd:pointOfContact>
           </xsl:for-each>
-          <!-- OLD
-          Bizarre already in citedResponsibleParty
-						<xsl:for-each select="DispositifCollecte/IntervenantRdd/Intervenant[@Role='POC']">
-						<xsl:variable name="idInt" select="./IdEchangeInt"/>
-						<gmd:pointOfContact>
-							<gmd:CI_ResponsibleParty>
-								<gmd:individualName>
-									<gco:CharacterString>
-										<xsl:value-of select="concat(concat(/SI_DC/DispositifCollecte/Contact/PrenomContact, ' '), /SI_DC/DispositifCollecte/Contact/NomContact)"/>
-									</gco:CharacterString>
-								</gmd:individualName>
-								<gmd:organisationName>
-									<gco:CharacterString>
-										<xsl:value-of select="/SI_DC/Intervenant[IdEchangeInt = $idInt]/NomIntervenant"/>
-									</gco:CharacterString>
-								</gmd:organisationName>
-								<gmd:positionName>
-									<gco:CharacterString>
-										<xsl:value-of select="/SI_DC/DispositifCollecte/Contact/FonctionContact"/>
-									</gco:CharacterString>
-								</gmd:positionName>
-								<gmd:contactInfo>
-									<gmd:CI_Contact>
-										<gmd:phone>
-											<gmd:CI_Telephone>
-												<gmd:voice>
-													<gco:CharacterString>
-										<xsl:value-of select="/SI_DC/DispositifCollecte/Contact/TelephoneContact"/>
-													</gco:CharacterString>
-												</gmd:voice>
-											</gmd:CI_Telephone>
-										</gmd:phone>
-
-										<gmd:onlineResource>
-											<gmd:CI_OnlineResource>
-												<gmd:linkage>
-													<gmd:URL>
-										<xsl:value-of select="/SI_DC/DispositifCollecte/Contact/MailContact"/>
-													</gmd:URL>
-												</gmd:linkage>
-											</gmd:CI_OnlineResource>
-										</gmd:onlineResource>
-									</gmd:CI_Contact>
-
-								</gmd:contactInfo>
-								<gmd:role>
-									<gmd:CI_roleCode>
-										<xsl:attribute name="codeList">CI_roleCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">pointOfContact</xsl:attribute>
-									</gmd:CI_roleCode>
-								</gmd:role>
-							</gmd:CI_ResponsibleParty>
-						</gmd:pointOfContact>
-						</xsl:for-each>
-          -->
 
           <!-- TODO: OLD
-          
-          
+
+
 						<xsl:for-each select="SupportRdd">
 						<gmd:resourceMaintenance>
 							<gmd:MD_MaintenanceInformation>
@@ -577,8 +709,10 @@
 							</gmd:MD_MaintenanceInformation>
 						</gmd:resourceMaintenance>
 						</xsl:for-each>
-						
+
           -->
+
+
           <gmd:resourceMaintenance>
             <gmd:MD_MaintenanceInformation>
               <gmd:maintenanceAndUpdateFrequency>
@@ -586,6 +720,16 @@
                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
                 />
               </gmd:maintenanceAndUpdateFrequency>
+              <!--
+              <xs:element name="DureeRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdDuree" type="sa_dc:CdDuree" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbDuree" type="sa_dc:LbDuree" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              -->
               <xsl:for-each select="DureeRdd/LbDuree">
                <gmd:maintenanceNote>
                  <gco:CharacterString>
@@ -601,9 +745,8 @@
              <gmd:MD_Keywords>
                <gmd:keyword>
                  <gco:CharacterString>
-                   <!-- TODO: Vérifier -->
-                   <xsl:value-of select="if (terre_ou_mer = 'T') then 'Terre' 
-                                         else if (terre_ou_mer = 'M') then 'Mer' 
+                   <xsl:value-of select="if (terre_ou_mer = 'T') then 'Terre'
+                                         else if (terre_ou_mer = 'M') then 'Mer'
                                          else 'Paysage'"></xsl:value-of>
                  </gco:CharacterString>
                </gmd:keyword>
@@ -691,7 +834,7 @@
               <gmd:thesaurusName>
                 <gmd:CI_Citation>
                   <gmd:title>
-                    <gco:CharacterString>Niveau territorial</gco:CsharacterString>
+                    <gco:CharacterString>Niveau territorial</gco:CharacterString>
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
@@ -720,6 +863,24 @@
           </gmd:descriptiveKeywords>
           <gmd:descriptiveKeywords>
             <gmd:MD_Keywords>
+              <!--
+               <xs:element name="RegionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdRegion" type="sa_com:CdRegion" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbRegion" type="sa_com:LbRegion" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DepartementRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdDepartement" type="sa_com:CdDepartement" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbDepartement" type="sa_com:LbDepartement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              -->
               <xsl:for-each select="RegionRdd|DepartementRdd">
                 <gmd:keyword>
                   <gco:CharacterString>
@@ -752,23 +913,23 @@
             </MD_Keywords>
           </descriptiveKeywords>
           -->
-          
-          <!-- TODO 
+
+          <!-- TODO
             Type de données observées remplacer par Cible taxonomique
-            TAXREF 
+            TAXREF
             - Migration mapping avec ancien tableau qui était un sous ensemble
             SupportRdd/Support/LbSupport
             -->
-          
-          <!-- TODO 
+
+          <!-- TODO
           Groupe taxonomique, espèces/ habitats suivi(e)s
           SupportRdd/DescriptifTaxon
           -->
-          
+
           <xsl:if test="count(descriptiveKeywords) > 0">
             <gmd:descriptiveKeywords>
-              <!-- OLD 
-              
+              <!-- OLD
+
 							<xsl:attribute name="xlink:href"><xsl:value-of select="MD_Keywords/codeMotCle"/></xsl:attribute>
 							<xsl:attribute name="xlink:role">pointOfContact</xsl:attribute>
               -->
@@ -897,7 +1058,17 @@
               </gmd:thesaurusName>
             </gmd:MD_Keywords>
           </gmd:descriptiveKeywords>
-          
+
+          <!--
+          <xs:element name="RefMilieux" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:if test="RefMilieux">
             <gmd:descriptiveKeywords>
               <gmd:MD_Keywords>
@@ -944,6 +1115,16 @@
             </gmd:descriptiveKeywords>
           </xsl:if>
 
+          <!--
+          <xs:element name="RefTaxons" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:if test="RefTaxons">
            <gmd:descriptiveKeywords>
              <gmd:MD_Keywords>
@@ -989,6 +1170,16 @@
            </gmd:descriptiveKeywords>
           </xsl:if>
 
+          <!--
+          <xs:element name="RefGeographiques" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdRefMetier" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbRefMetier" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:if test="RefGeographiques">
            <gmd:descriptiveKeywords>
              <gmd:MD_Keywords>
@@ -1035,7 +1226,16 @@
            </gmd:descriptiveKeywords>
           </xsl:if>
 
-          <!-- Jeu de données uniquement -->
+          <!-- Jeu de données uniquement
+          <xs:element name="ModeStockageRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdModeStockage" type="sa_dc:CdModeStockage" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbModeStockage" type="sa_dc:LbModeStockage" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:for-each select="ModeStockageRdd/LbModeStockage">
             <gmd:descriptiveKeywords>
               <gmd:MD_Keywords>
@@ -1075,29 +1275,113 @@
               </gmd:MD_Keywords>
             </gmd:descriptiveKeywords>
           </xsl:for-each>
-          
-          <!-- OLD
-          
-						<gmd:descriptiveKeywords>
-							<gmd:MD_Keywords>
-								<xsl:for-each select="DispositifCollecte/TypoMilieuRss">
-								<gmd:keyword>
-										<gco:CharacterString>
-											<xsl:value-of select="LbTypoMilieu"/>
-										</gco:CharacterString>
-								</gmd:keyword>
-								</xsl:for-each>
-								<gmd:type>
-									<gmd:MD_KeywordTypeCode>
-										<xsl:attribute name="codeList">MD_KeywordTypeCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">theme</xsl:attribute>
-									</gmd:MD_KeywordTypeCode>
-								</gmd:type>
-							</gmd:MD_Keywords>
-						</gmd:descriptiveKeywords>
-						
-						
-						
+
+
+          <!--
+          <xs:element name="TypoMilieuRss" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdTypoMilieu" type="sa_dc:CdTypoMilieu" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbTypoMilieu" type="sa_dc:LbTypoMilieu" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
+          <xsl:if test="TypoMilieuRss/LbTypoMilieu">
+            <gmd:descriptiveKeywords>
+              <gmd:MD_Keywords>
+                <xsl:for-each select="TypoMilieuRss/LbTypoMilieu">
+                  <gmd:keyword>
+                    <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                  </gmd:keyword>
+                </xsl:for-each>
+                <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="" codeListValue="theme"/>
+                </gmd:type>
+                <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                    <gmd:title>
+                      <gco:CharacterString>Type d'espace concerné</gco:CharacterString>
+                    </gmd:title>
+                    <gmd:date>
+                      <gmd:CI_Date>
+                        <gmd:date>
+                          <gco:Date>2015-11-27</gco:Date>
+                        </gmd:date>
+                        <gmd:dateType>
+                          <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                               codeListValue="publication"/>
+                        </gmd:dateType>
+                      </gmd:CI_Date>
+                    </gmd:date>
+                    <gmd:identifier>
+                      <gmd:MD_Identifier>
+                        <gmd:code>
+                          <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                                      xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-type-espace">geonetwork.thesaurus.external.theme.sinp-type-espace</gmx:Anchor>
+                        </gmd:code>
+                      </gmd:MD_Identifier>
+                    </gmd:identifier>
+                  </gmd:CI_Citation>
+                </gmd:thesaurusName>
+              </gmd:MD_Keywords>
+            </gmd:descriptiveKeywords>
+          </xsl:if>
+
+          <!--
+          <xs:element name="EmpriseAdminRdd" minOccurs="0" maxOccurs="1" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdEmpriseAdmin" type="sa_dc:CdEmpriseAdmin" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbEmpriseAdmin" type="sa_dc:LbEmpriseAdmin" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
+          <xsl:if test="EmpriseAdminRdd">
+            <gmd:descriptiveKeywords>
+              <gmd:MD_Keywords>
+                <xsl:for-each select="EmpriseAdminRdd/LbEmpriseAdmin">
+                  <gmd:keyword>
+                    <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                  </gmd:keyword>
+                </xsl:for-each>
+                <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_KeywordTypeCode"
+                                          codeListValue="theme"/>
+                </gmd:type>
+                <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                    <gmd:title>
+                      <gco:CharacterString>Niveau territorial</gco:CharacterString>
+                    </gmd:title>
+                    <gmd:date>
+                      <gmd:CI_Date>
+                        <gmd:date>
+                          <gco:Date>2015-11-27</gco:Date>
+                        </gmd:date>
+                        <gmd:dateType>
+                          <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
+                                               codeListValue="publication"/>
+                        </gmd:dateType>
+                      </gmd:CI_Date>
+                    </gmd:date>
+                    <gmd:identifier>
+                      <gmd:MD_Identifier>
+                        <gmd:code>
+                          <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                                      xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-niveau-territorial">geonetwork.thesaurus.external.theme.sinp-niveau-territorial</gmx:Anchor>
+                        </gmd:code>
+                      </gmd:MD_Identifier>
+                    </gmd:identifier>
+                  </gmd:CI_Citation>
+                </gmd:thesaurusName>
+              </gmd:MD_Keywords>
+            </gmd:descriptiveKeywords>
+          </xsl:if>
+
+          <!--
+
 						<gmd:descriptiveKeywords>
 							<gmd:MD_Keywords>
 								<xsl:for-each select="DispositifCollecte/SupportRdd/Support">
@@ -1131,35 +1415,42 @@
 							</gmd:MD_Keywords>
 						</gmd:descriptiveKeywords>
           -->
-          
+
+
+          <!--
+          <xs:element name="ConditionsUtilisation" type="sinp:ConditionsUtilisation" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
+          <xsl:for-each select="ConditionsUtilisation">
+            <gmd:resourceConstraints>
+              <gmd:MD_LegalConstraints>
+                <gmd:otherConstraints>
+                  <gco:CharacterString>
+                    <xsl:value-of select="."/>
+                  </gco:CharacterString>
+                </gmd:otherConstraints>
+
+                <!--
+                <xs:element name="AccesDonneesRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdAcces" type="sa_dc:CdAcces" minOccurs="1" maxOccurs="1" nillable="false"/>
+                      <xs:element name="LbAcces" type="sa_dc:LbAcces" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                -->
+                <xsl:for-each select="../AccesDonneesRdd/CdAcces">
+                  <gmd:classification>
+                    <gmd:MD_ClassificationCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ClassificationCode"
+                                               codeListValue="{if (. = '1') then 'unclassified'
+                                                               else if (. = '2') then 'restricted'
+                                                               else if (. = '3') then 'confidential' else ''}"/>
+                  </gmd:classification>
+                </xsl:for-each>
+              </gmd:MD_LegalConstraints>
+            </gmd:resourceConstraints>
+          </xsl:for-each>
           <gmd:resourceConstraints>
-            <!-- OLD 
-            <xsl:if test="not(DispositifCollecte/AccesDonneesRdd/CdAcces = 1)">
-							<gmd:MD_LegalConstraints>
-								<gmd:otherConstraints>
-									<gco:CharacterString>
-										<xsl:value-of select="DispositifCollecte/ConditionsUtilisation"/>
-									</gco:CharacterString>
-								</gmd:otherConstraints>
-							</gmd:MD_LegalConstraints>
-							</xsl:if>
-							
-							
-							<gmd:MD_SecurityConstraints>
-								<gmd:classification>
-									<gmd:MD_ClassificationCode>
-										<xsl:attribute name="codeList">MD_ClassificationCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">
-											<xsl:choose>
-												<xsl:when test="DispositifCollecte/AccesDonneesRdd/CdAcces = 1">unclassified</xsl:when>
-												<xsl:when test="DispositifCollecte/AccesDonneesRdd/CdAcces = 2">restricted</xsl:when>
-												<xsl:when test="DispositifCollecte/AccesDonneesRdd/CdAcces = 3">confidential</xsl:when>
-											</xsl:choose>
-										</xsl:attribute>
-									</gmd:MD_ClassificationCode>
-								</gmd:classification>
-							</gmd:MD_SecurityConstraints>
-            -->
             <gmd:MD_LegalConstraints>
               <gmd:accessConstraints>
                 <gmd:MD_RestrictionCode codeListValue="copyright"
@@ -1171,16 +1462,27 @@
                                         codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_RestrictionCode"
                 />
               </gmd:useConstraints>
-              <gmd:otherConstraints gco:nilReason="missing">
-                <gco:CharacterString>
-                  <!-- TODO: Vérifier ? -->
-                  <xsl:value-of select="AccesDonneesRdd/LbAcces"/>
-                </gco:CharacterString>
-              </gmd:otherConstraints>
+              <xsl:for-each select="AccesDonneesRdd/LbAcces">
+                <gmd:otherConstraints>
+                  <gco:CharacterString>
+                    <xsl:value-of select="."/>
+                  </gco:CharacterString>
+                </gmd:otherConstraints>
+              </xsl:for-each>
             </gmd:MD_LegalConstraints>
           </gmd:resourceConstraints>
 
 
+          <!--
+          <xs:element name="LanguesDonnees" minOccurs="0" maxOccurs="1" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdLangue" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbLangue" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:for-each select="LanguesDonnees">
             <gmd:language>
               <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/"
@@ -1191,13 +1493,20 @@
 
           <gmd:characterSet>
             <gmd:MD_CharacterSetCode codeListValue="utf8" codeList="MD_CharacterSetCode" />
-          </gmd:characterSet>		
+          </gmd:characterSet>
 
 
-          <xsl:variable name="topicCategoryMapping">
-            <value key="Flore et faune">biota</value>
-            <!-- TODO other values -->
-          </xsl:variable>
+
+          <!--
+          <xs:element name="Thematiques19115" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="CdThematique19115" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbThematique19115" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
           <xsl:for-each select="Thematique19115">
             <xsl:variable name="current" select="LbThematique19115"/>
             <gmd:topicCategory>
@@ -1239,18 +1548,17 @@
               </gmd:EX_Extent>
             </gmd:extent>
           </xsl:for-each>
-          
-          
+
+
           <gmd:extent>
             <gmd:EX_Extent>
               <gmd:description>
-                <gco:CharacterString>Emprise réelle et effective du territoire
-                  couvert</gco:CharacterString>
+                <gco:CharacterString>Emprise réelle et effective du territoire couvert</gco:CharacterString>
               </gmd:description>
               <gmd:temporalElement>
                 <gmd:EX_TemporalExtent>
                   <gmd:extent>
-                    <gml:TimePeriod gml:id="d16032e284a1052958">
+                    <gml:TimePeriod gml:id="{generate-id()}">
                       <gml:beginPosition/>
                       <gml:endPosition/>
                     </gml:TimePeriod>
@@ -1259,7 +1567,10 @@
               </gmd:temporalElement>
             </gmd:EX_Extent>
           </gmd:extent>
-          
+
+          <!--
+          <xs:element name="CommentairesRdd" type="sa_dc:CommentairesRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
           <xsl:for-each select="CommentairesRdd">
            <gmd:supplementalInformation>
              <gco:CharacterString>
@@ -1267,9 +1578,9 @@
              </gco:CharacterString>
            </gmd:supplementalInformation>
           </xsl:for-each>
-          
-          <!-- 
-          
+
+          <!--
+
 						<xsl:for-each select="DispositifCollecte/Publications">
 						<fra:relatedCitation>
 							<gmd:CI_Citation>
@@ -1331,12 +1642,108 @@
 						</fra:relatedCitation>
 						</xsl:for-each>
           -->
+
+
+          <!--
+          <xs:element name="SupportRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="Support" minOccurs="1" maxOccurs="1" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdSupport" type="sa_par:CdSupport" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                                          </xs:complexType>
+                </xs:element>
+                <xs:element name="FrequenceAnalyse" type="sa_dc:FrequenceAnalyse" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="DescriptifParametres" type="sa_dc:DescriptifParametres" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="GroupeParametreSupport" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdGroupeParametre" type="sa_dc:CdGroupeParametre" minOccurs="1" maxOccurs="1" nillable="false"/>
+                      <xs:element name="LbGroupeParametre" type="sa_dc:LbGroupeParametre" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                                          </xs:complexType>
+                </xs:element>
+                <xs:element name="ResolutionParametres" type="sinp:ResolutionParametres" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="FrequenceActualisation" type="sinp:FrequenceActualisation" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          eg.
+
+          <SupportRdd>
+            <Support>
+              <CdSupport schemeAgencyID="sandre">INSE</CdSupport>
+              <LbSupport>Classe des Insecta</LbSupport>
+            </Support>
+            <FrequenceAnalyse></FrequenceAnalyse>
+            <DescriptifParametres>richesse sp&#233;cifique, abondance, indices de biodiversit&#233;
+      temp&#233;rature thoracique (sphingid&#233;s), type d'exposition de la mine sur la feuille (Gracillariidae) + temp&#233;rature de la feuille</DescriptifParametres>
+            <ResolutionParametres></ResolutionParametres>
+            <FrequenceActualisation></FrequenceActualisation>
+            <DescriptifTaxon>tous + sphingid&#233;s et mineuses Gracillariidae pour l'&#233;cologie thermique</DescriptifTaxon>
+          </SupportRdd>
+          -->
+          <xsl:for-each select="SupportRdd">
+            <sinp:observationDetails>
+              <sinp:ObservationDetails>
+                <sinp:descriptiveKeywords>
+                  <gmd:MD_Keywords>
+                    <xsl:for-each select="Support">
+                      <gmd:keyword>
+                        <gco:CharacterString><xsl:value-of select="LbSupport"/></gco:CharacterString>
+                      </gmd:keyword>
+                    </xsl:for-each>
+                    <gmd:type>
+                      <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                                              codeListValue="theme"/>
+                    </gmd:type>
+                  </gmd:MD_Keywords>
+                </sinp:descriptiveKeywords>
+
+                <xsl:for-each select="DescriptifTaxon">
+                  <sinp:ecologicalTarget>
+                    <gco:CharacterString>
+                      <xsl:value-of select="."/>
+                    </gco:CharacterString>
+                  </sinp:ecologicalTarget>
+                </xsl:for-each>
+
+                <xsl:for-each select="DescriptifParametres">
+                  <sinp:parameter>
+                    <gco:CharacterString>
+                      <xsl:value-of select="."/>
+                    </gco:CharacterString>
+                  </sinp:parameter>
+                </xsl:for-each>
+
+                <xsl:for-each select="ResolutionParametres">
+                  <sinp:resolution>
+                    <gco:CharacterString>
+                      <xsl:value-of select="."/>
+                    </gco:CharacterString>
+                  </sinp:resolution>
+                </xsl:for-each>
+
+                <xsl:for-each select="FrequenceActualisation">
+                  <sinp:updateFrequency>
+                    <gco:CharacterString>
+                      <xsl:value-of select="."/>
+                    </gco:CharacterString>
+                  </sinp:updateFrequency>
+                </xsl:for-each>
+              </sinp:ObservationDetails>
+            </sinp:observationDetails>
+          </xsl:for-each>
+
         </gmd:MD_DataIdentification>
       </gmd:identificationInfo>
-      
+
       <!-- OLD
-      
-      
+
+
 				<xsl:for-each select="DispositifCollecte/Tarification">
 				<gmd:distributionInfo>
 					<gmd:MD_Distribution>
@@ -1359,16 +1766,16 @@
 					</gmd:MD_Distribution>
 				</gmd:distributionInfo>
 				</xsl:for-each>
-				
-				
+
+
 				<xsl:for-each select="DispositifCollecte/BddRdd/Bdd">
 					<xsl:variable name="idBdd" select="./IdEchangeBdd"/>
 					<xsl:call-template name="base">
 						<xsl:with-param name="nd" select="/SI_DC/Bdd[(IdEchangeBdd = $idBdd)]"/>
 					</xsl:call-template>
 				</xsl:for-each>
-				
-				
+
+
 		<xsl:template name="base">
 			<xsl:param name="nd"/>
 			<gmd:distributionInfo>
@@ -1477,59 +1884,9 @@
           </gmd:transferOptions>
         </gmd:MD_Distribution>
       </gmd:distributionInfo>
-      
-      <!-- 
-      OLD
-      
-				<xsl:for-each select="DispositifCollecte/DemarcheQualiteRdd[TypeQualite/CdTypeQualite=1]/MethodeQualite/LbMethodeQualite">
-					<xsl:call-template name="usability">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="nameOfMeasure">Recueil</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-				
-			<gmd:dataQualityInfo>
-				<gmd:DQ_DataQuality>
-					<gmd:report>
-						<gmi:QE_Usability>
-							<gmd:nameOfMeasure>
-								<gco:CharacterString>
-									<xsl:value-of select="$nameOfMeasure"/>
-								</gco:CharacterString>
-							</gmd:nameOfMeasure>
-							<gmd:result>
-								<gmd:DQ_ConformanceResult>
-									<gmd:specification>
-										<gmd:CI_Citation>
-											<gmd:title>
-												<gco:CharacterString>
-													<xsl:value-of select="."/>
-												</gco:CharacterString>
-											</gmd:title>
-											<gmd:date>
-												<xsl:attribute name="gco:nilReason">unknown</xsl:attribute>
-											</gmd:date>
-										</gmd:CI_Citation>
-									</gmd:specification>
-									<gmd:explanation>
-										<xsl:attribute name="gco:nilReason">unknown</xsl:attribute>
-									</gmd:explanation>
-									<gmd:pass>
-										<gco:Boolean>true</gco:Boolean>
-									</gmd:pass>
-				<xsl:for-each select="DispositifCollecte/DemarcheQualiteRdd[TypeQualite/CdTypeQualite=2]/MethodeQualite/LbMethodeQualite">
-					<xsl:call-template name="usability">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="nameOfMeasure">Echantillonnage</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
 
-				<xsl:for-each select="DispositifCollecte/DemarcheQualiteRdd[TypeQualite/CdTypeQualite=3]/MethodeQualite/LbMethodeQualite">
-					<xsl:call-template name="usability">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="nameOfMeasure">Autres</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
+      <!--
+      OLD
 
 				<xsl:for-each select="DispositifCollecte/ValidationRdd/LbProcValidation">
 					<xsl:call-template name="usability">
@@ -1539,40 +1896,10 @@
 				</xsl:for-each>
 
 				<gmd:dataQualityInfo>
-					<gmd:DQ_DataQuality>
-						<gmd:scope>
-							<gmd:DQ_Scope>
-								<gmd:level>
-									<gmd:MD_ScopeCode codeList="MD_ScopeCode" codeListValue="dataset"/>
-								</gmd:level>
-							</gmd:DQ_Scope>
-						</gmd:scope>
-
-						<gmd:lineage>
-							<gmd:LI_Lineage>
-								<gmd:processStep>
-									<xsl:for-each select="DispositifCollecte/EvenementsRdd">
-										<gmd:LI_ProcessStep>
-											<gmd:description>
-												<gco:CharacterString>
-													<xsl:value-of select="./LbEvenement"/>
-												</gco:CharacterString>
-											</gmd:description>
-												<gmd:dateTime>
-													<gco:DateTime>
-														<xsl:value-of select="concat(./DateEvenement, 'T12:00:00')"/>
-													</gco:DateTime>
-												</gmd:dateTime>
-											</gmd:LI_ProcessStep>
-									</xsl:for-each>
-								</gmd:processStep>
-							</gmd:LI_Lineage>
-						</gmd:lineage>
-					</gmd:DQ_DataQuality>
 					<gmd:DQ_Element>
 						<gmd:measureDescription>
 							<gco:CharacterString>
-								<xsl:value-of select="DispositifCollecte/PrecisionNbTotalRdd"/>	
+								<xsl:value-of select="DispositifCollecte/PrecisionNbTotalRdd"/>
 							</gco:CharacterString>
 						</gmd:measureDescription>
 					</gmd:DQ_Element>
@@ -1589,49 +1916,78 @@
               </gmd:level>
             </gmd:DQ_Scope>
           </gmd:scope>
-          <gmd:report>
-            <gmd:DQ_DomainConsistency>
-              <gmd:evaluationMethodType>
-                <gmd:DQ_EvaluationMethodTypeCode
-                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DQ_EvaluationMethodTypeCode"
-                  codeListValue="directInternal"/>
-              </gmd:evaluationMethodType>
-              <gmd:evaluationMethodDescription gco:nilReason="missing">
-                <gco:CharacterString/>
-              </gmd:evaluationMethodDescription>
-              <gmd:evaluationProcedure>
-                <gmd:CI_Citation>
-                  <gmd:title>
-                    <gco:CharacterString>Méthode de validation</gco:CharacterString>
-                  </gmd:title>
-                  <gmd:date>
-                    <gmd:CI_Date>
-                      <gmd:date>
-                        <gco:Date/>
-                      </gmd:date>
-                      <gmd:dateType>
-                        <gmd:CI_DateTypeCode
-                          codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
-                          codeListValue=""/>
-                      </gmd:dateType>
-                    </gmd:CI_Date>
-                  </gmd:date>
-                  <gmd:identifier>
-                    <gmd:MD_Identifier>
-                      <gmd:code>
-                        <gco:CharacterString>URL du protocol ?</gco:CharacterString>
-                      </gmd:code>
-                    </gmd:MD_Identifier>
-                  </gmd:identifier>
-                </gmd:CI_Citation>
-              </gmd:evaluationProcedure>
-            </gmd:DQ_DomainConsistency>
-          </gmd:report>
+
+
+          <!-- Liste des procédures de validation du dispositif
+          <xs:element name="ValidationRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                Valeurs possibles
+                  0 Inconnu
+                  1 expertise humaine
+                  2 test de cohérence
+                  3 test scientifique
+
+                <xs:element name="CdProcValidation" type="sa_dc:CdProcValidation" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="LbProcValidation" type="sa_dc:LbProcValidation" minOccurs="0" maxOccurs="1" nillable="false"/>
+                <xs:element name="DescMethodeValidation" type="sinp:DescMethodeValidation" minOccurs="0" maxOccurs="1" nillable="false"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
+          <xsl:for-each select="ValidationRdd">
+            <gmd:report>
+              <gmd:DQ_DomainConsistency>
+                <gmd:evaluationMethodType>
+                  <gmd:DQ_EvaluationMethodTypeCode
+                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DQ_EvaluationMethodTypeCode"
+                    codeListValue="directInternal"/>
+                </gmd:evaluationMethodType>
+                <xsl:for-each select="DescMethodeValidation">
+                  <gmd:evaluationMethodDescription>
+                    <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                  </gmd:evaluationMethodDescription>
+                </xsl:for-each>
+                <gmd:evaluationProcedure>
+                  <gmd:CI_Citation>
+                    <gmd:title>
+                      <gco:CharacterString>Procédures de validation du dispositif
+                        <xsl:if test="LbProcValidation">
+                          / <xsl:value-of select="LbProcValidation"/>
+                        </xsl:if>
+                        <xsl:if test="CdProcValidation">
+                          / <xsl:choose>
+                            <xsl:when test="CdProcValidation = 0">Inconnu</xsl:when>
+                            <xsl:when test="CdProcValidation = 1">Expertise humaine</xsl:when>
+                            <xsl:when test="CdProcValidation = 2">Test de cohérence</xsl:when>
+                            <xsl:when test="CdProcValidation = 3">Rest scientifique</xsl:when>
+                          </xsl:choose>
+                        </xsl:if>
+                      </gco:CharacterString>
+                    </gmd:title>
+                  </gmd:CI_Citation>
+                </gmd:evaluationProcedure>
+              </gmd:DQ_DomainConsistency>
+            </gmd:report>
+          </xsl:for-each>
+
           <gmd:lineage>
             <gmd:LI_Lineage>
               <gmd:statement gco:nilReason="missing">
                 <gco:CharacterString/>
               </gmd:statement>
+              <!--
+              <xs:element name="HistoriqueEvtsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="DtHistoriqueEvtsRdd" type="sa_bp:DtHistoriqueEvtsRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="TypeHistoriqueEvtsRdd" type="sa_bp:TypeHistoriqueEvtsRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    <xs:element name="DesHistoriqueEvtsRdd" type="sa_bp:DesHistoriqueEvtsRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    <xs:element name="AuteurHistoriqueEvtsRdd" type="sa_bp:AuteurHistoriqueEvtsRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              -->
               <xsl:for-each select="HistoriqueEvtsRdd">
                 <xsl:sort select="DtHistoriqueEvtsRdd" order="descending"/>
                 <gmd:processStep>
@@ -1641,12 +1997,63 @@
                         <xsl:value-of select="DesHistoriqueEvtsRdd"/>
                       </gco:CharacterString>
                     </gmd:description>
+                    <xsl:for-each select="TypeHistoriqueEvtsRdd">
+                      <gmd:rationale>
+                        <gco:CharacterString>
+                          <xsl:choose>
+                            <xsl:when test=". = '1'">Création</xsl:when>
+                            <xsl:when test=". = '2'">Modification</xsl:when>
+                            <xsl:when test=". = '3'">Changement de statut</xsl:when>
+                            <xsl:when test=". = '4'">Synchronisation</xsl:when>
+                          </xsl:choose>
+                        </gco:CharacterString>
+                      </gmd:rationale>
+                    </xsl:for-each>
                     <gmd:dateTime>
                       <gco:DateTime>
                         <xsl:value-of select="DtHistoriqueEvtsRdd"/>
                       </gco:DateTime>
                     </gmd:dateTime>
-                    <!-- TODO: AuteurHistoriqueEvtsRdd ? -->
+                    <xsl:for-each select="AuteurHistoriqueEvtsRdd">
+                      <gmd:processor>
+                        <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
+                          <gmd:organisationName>
+                            <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                          </gmd:organisationName>
+                          <gmd:role>
+                            <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                                             codeListValue="pointOfContact"/>
+                          </gmd:role>
+                        </sinp:CI_ResponsibleParty>
+                      </gmd:processor>
+                    </xsl:for-each>
+                  </gmd:LI_ProcessStep>
+                </gmd:processStep>
+              </xsl:for-each>
+
+              <!--
+              <xs:element name="EvenementsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="DateEvenement" type="sa_dc:DateEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbEvenement" type="sa_dc:LbEvenement" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              -->
+              <xsl:for-each select="EvenementsRdd">
+                <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                    <gmd:description>
+                      <gco:CharacterString>
+                        <xsl:value-of select="LbEvenement"/>
+                      </gco:CharacterString>
+                    </gmd:description>
+                    <gmd:dateTime>
+                      <gco:DateTime>
+                        <xsl:value-of select="concat(DateEvenement, 'T12:00:00')"/>
+                      </gco:DateTime>
+                    </gmd:dateTime>
                   </gmd:LI_ProcessStep>
                 </gmd:processStep>
               </xsl:for-each>
@@ -1654,7 +2061,97 @@
           </gmd:lineage>
         </gmd:DQ_DataQuality>
       </gmd:dataQualityInfo>
+
+      <!--
+      <xs:element name="DemarcheQualiteRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+        <xs:complexType mixed="false">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="DateDemarcheQualite" type="sa_dc:DateDemarcheQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="ReferenceDocDemarcheQualite" type="sa_dc:ReferenceDocDemarcheQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+            <xs:element name="TypeQualite" minOccurs="0" maxOccurs="1" nillable="false">
+              <xs:complexType mixed="false">
+                <xs:sequence minOccurs="1" maxOccurs="1">
+                  <xs:element name="CdTypeQualite" type="sa_dc:CdTypeQualite" minOccurs="1" maxOccurs="1" nillable="false"/>
+                  <xs:element name="LbTypeQualite" type="sa_dc:LbTypeQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+                </xs:sequence>
+                                      </xs:complexType>
+            </xs:element>
+            <xs:element name="MethodeQualite" type="sinp:MethodeQualite" minOccurs="0" maxOccurs="1" nillable="false"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      -->
+      <xsl:for-each select="DemarcheQualiteRdd">
+
+        <gmd:dataQualityInfo>
+          <gmd:DQ_DataQuality>
+            <xsl:for-each select="ValidationRdd">
+              <gmd:report>
+                <gmd:DQ_DomainConsistency>
+                  <gmd:evaluationMethodType>
+                    <gmd:DQ_EvaluationMethodTypeCode
+                      codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DQ_EvaluationMethodTypeCode"
+                      codeListValue="directInternal"/>
+                  </gmd:evaluationMethodType>
+                  <xsl:for-each select="MethodeQualite/LbMethodeQualite">
+                    <gmd:evaluationMethodDescription>
+                      <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                    </gmd:evaluationMethodDescription>
+                  </xsl:for-each>
+                  <gmd:evaluationProcedure>
+                    <gmd:CI_Citation>
+                      <gmd:title>
+                        <gco:CharacterString>
+                          <xsl:choose>
+                            <xsl:when test="TypeQualite">
+                              <xsl:value-of select="TypeQualite/LbTypeQualite"/>
+                            </xsl:when>
+                            <xsl:otherwise>Démarche qualité</xsl:otherwise>
+                          </xsl:choose>
+                        </gco:CharacterString>
+                      </gmd:title>
+
+                      <xsl:for-each select="DateDemarcheQualite">
+                        <gmd:dateTime>
+                          <gco:DateTime>
+                            <xsl:value-of select="."/>
+                          </gco:DateTime>
+                        </gmd:dateTime>
+                      </xsl:for-each>
+
+                      <xsl:for-each select="ReferenceDocDemarcheQualite">
+                        <gmd:otherCitationDetails>
+                          <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                        </gmd:otherCitationDetails>
+                      </xsl:for-each>
+                    </gmd:CI_Citation>
+                  </gmd:evaluationProcedure>
+                </gmd:DQ_DomainConsistency>
+              </gmd:report>
+            </xsl:for-each>
+          </gmd:DQ_DataQuality>
+        </gmd:dataQualityInfo>
+      </xsl:for-each>
+
+      <!--
+      <xs:element name="EtatAvancementFicheRdd" type="sa_dc:EtatAvancementFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+      -->
+      <xsl:for-each select="EtatAvancementFicheRdd">
+        <gmd:metadataMaintenance xmlns:xs="http://www.w3.org/2001/XMLSchema">
+          <gmd:MD_MaintenanceInformation>
+            <gmd:maintenanceAndUpdateFrequency>
+              <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
+                                               codeListValue="irregular"/>
+            </gmd:maintenanceAndUpdateFrequency>
+            <gmd:updateScopeDescription/>
+            <gmd:maintenanceNote>
+              <gco:CharacterString><xsl:value-of select="EtatAvancementFicheRdd"/></gco:CharacterString>
+            </gmd:maintenanceNote>
+          </gmd:MD_MaintenanceInformation>
+        </gmd:metadataMaintenance>
+      </xsl:for-each>
     </gmd:MD_Metadata>
   </xsl:template>
+
   <xsl:template match="*" mode="sinp"/>
 </xsl:stylesheet>
