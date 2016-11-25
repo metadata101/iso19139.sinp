@@ -82,7 +82,7 @@
           <xsl:value-of select="OrganismeResponsable|NomIntervenant"/>
         </gco:CharacterString>
       </gmd:organisationName>
-      
+
       <xsl:for-each select="ServiceResponsable[. != '']">
         <gmd:positionName>
           <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
@@ -315,7 +315,7 @@
       <!-- TODO Dans l'export SINP terreOuMerInt ? -->
       <xsl:for-each select="terreOuMerInt[. != '']">
        <sinp:scopeDescription>
-         <sinp:ResponsiblePartyScopeCode codeList="" 
+         <sinp:ResponsiblePartyScopeCode codeList=""
               codeListValue="{if (. = 'T') then 'Terre' else 'Mer'}"/>
        </sinp:scopeDescription>
       </xsl:for-each>
@@ -700,8 +700,6 @@
           </xsl:for-each>
 
           <!-- TODO: OLD
-
-
 						<xsl:for-each select="SupportRdd">
 						<gmd:resourceMaintenance>
 							<gmd:MD_MaintenanceInformation>
@@ -876,7 +874,7 @@
               </gmd:thesaurusName>
             </gmd:MD_Keywords>
           </gmd:descriptiveKeywords>
-         
+
           <gmd:descriptiveKeywords>
             <gmd:MD_Keywords>
               <!--
@@ -1750,6 +1748,225 @@
         </gmd:MD_DataIdentification>
       </gmd:identificationInfo>
 
+
+      <!--
+        <xs:element name="ModeDiffusionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+          <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="1">
+              <xs:element name="ModeDiffusion" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdModeTransmission" type="sa_dc:CdModeTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="LbModeTransmission" type="sa_dc:LbModeTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="AdresseInternetDiffusion" type="sa_dc:AdresseInternetDiffusion" minOccurs="0" maxOccurs="1" nillable="false"/>
+              <xs:element name="CommModeDiffusionRdd" type="sa_dc:CommModeDiffusionRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      -->
+      <xsl:if test="Tarification or ModeDiffusionRdd or Publications">
+        <gmd:distributionInfo>
+          <gmd:MD_Distribution>
+            <xsl:if test="Tarification">
+              <gmd:distributor>
+                <gmd:MD_Distributor>
+                  <gmd:distributorContact>
+                    <xsl:attribute name="gco:nilReason">unknown</xsl:attribute>
+                  </gmd:distributorContact>
+                  <xsl:for-each select="Tarification/LbTarification[. != '']">
+                    <gmd:distributionOrderProcess>
+                      <gmd:MD_StandardOrderProcess>
+                        <gmd:fees>
+                          <gco:CharacterString>
+                            <xsl:value-of select="."/>
+                          </gco:CharacterString>
+                        </gmd:fees>
+                      </gmd:MD_StandardOrderProcess>
+                    </gmd:distributionOrderProcess>
+                  </xsl:for-each>
+                </gmd:MD_Distributor>
+              </gmd:distributor>
+            </xsl:if>
+
+
+            <xsl:for-each select="ModeDiffusionRdd">
+              <gmd:transferOptions>
+                <gmd:MD_DigitalTransferOptions>
+                  <gmd:onLine>
+                    <gmd:CI_OnlineResource>
+                      <xsl:for-each select="AdresseInternetDiffusion[. != '']">
+                       <gmd:linkage>
+                         <gmd:URL>
+                           <xsl:value-of select="."/>
+                         </gmd:URL>
+                       </gmd:linkage>
+                      </xsl:for-each>
+                      <xsl:for-each select="ModeDiffusion/LbModeTransmission[. != '']">
+                        <gmd:name>
+                          <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                        </gmd:name>
+                      </xsl:for-each>
+                      <gmd:protocol>
+                        <gco:CharacterString>WWW-LINK</gco:CharacterString>
+                      </gmd:protocol>
+                      <gmd:function>
+                        <gmd:CI_OnLineFunctionCode>
+                          <xsl:attribute name="codeList">CI_OnLineFunctionCode</xsl:attribute>
+                          <xsl:attribute name="codeListValue">information</xsl:attribute>
+                        </gmd:CI_OnLineFunctionCode>
+                      </gmd:function>
+                    </gmd:CI_OnlineResource>
+                  </gmd:onLine>
+                </gmd:MD_DigitalTransferOptions>
+              </gmd:transferOptions>
+            </xsl:for-each>
+
+
+
+            <!--
+            <xs:element name="Publications" minOccurs="0" maxOccurs="unbounded" nillable="false">
+            <xs:complexType mixed="false">
+              <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="IdDoc" type="xs:long" minOccurs="1" maxOccurs="1" nillable="false"/>
+                <xs:element name="AuteurDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="100" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="TitreDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="100" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="AnneeDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="4" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="TitreVolDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="100" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="VolumeDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="10" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="PageDoc" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="20" fixed="false"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          -->
+          <xsl:if test="Publications">
+            <gmd:transferOptions>
+              <gmd:MD_DigitalTransferOptions>
+                <xsl:for-each select="Publications">
+                  <gmd:onLine>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage gco:nilReason="missing">
+                        <gmd:URL/>
+                      </gmd:linkage>
+                      <gmd:name>
+                        <gco:CharacterString><xsl:value-of select="TitreDoc"/></gco:CharacterString>
+                      </gmd:name>
+                      <gmd:description>
+                        <gco:CharacterString>
+                          <xsl:for-each select="TitreVolDoc[. != '']|
+                                                VolumeDoc[. != '']|
+                                                AnneeDoc[. != '']|
+                                                PageDoc[. != '']|
+                                                AuteurDoc[. != '']">
+                            <xsl:variable name="name"
+                                          select="if (name() = 'TitreVolDoc') then 'Titre'
+                                                  else if (name() = 'VolumeDoc') then 'Volume'
+                                                  else if (name() = 'AnneeDoc') then 'Année'
+                                                  else if (name() = 'PageDoc') then 'Pages'
+                                                  else if (name() = 'AuteurDoc') then 'Auteur'
+                                                  else name(.)"/>
+                            <xsl:value-of select="concat('* ', $name, ' : ', .)"/><xsl:text>
+                          </xsl:text>
+                          </xsl:for-each>
+                        </gco:CharacterString>
+                      </gmd:description>
+                      <gmd:protocol>
+                        <gco:CharacterString>OFFLINE</gco:CharacterString>
+                      </gmd:protocol>
+                      <gmd:function>
+                        <gmd:CI_OnLineFunctionCode>
+                          <xsl:attribute name="codeList">CI_OnLineFunctionCode</xsl:attribute>
+                          <xsl:attribute name="codeListValue">information</xsl:attribute>
+                        </gmd:CI_OnLineFunctionCode>
+                      </gmd:function>
+                    </gmd:CI_OnlineResource>
+                  </gmd:onLine>
+                </xsl:for-each>
+              </gmd:MD_DigitalTransferOptions>
+            </gmd:transferOptions>
+          </xsl:if>
+          </gmd:MD_Distribution>
+        </gmd:distributionInfo>
+      </xsl:if>
+
+
+      <!--
+       <xs:element name="BddRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
+          <xs:complexType mixed="false">
+            <xs:sequence minOccurs="1" maxOccurs="1">
+              <xs:element name="Bdd" minOccurs="1" maxOccurs="1" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdBdd" type="sa_dc:CdBdd" minOccurs="1" maxOccurs="1" nillable="false"/>
+                    <xs:element name="MOuvrageBdd" minOccurs="1" maxOccurs="1" nillable="false">
+                      <xs:complexType mixed="false">
+                        <xs:sequence minOccurs="1" maxOccurs="1">
+                          <xs:element name="CdIntervenant" type="sa_int:CdIntervenant" minOccurs="1" maxOccurs="1"
+                                      nillable="false"/>
+                          <xs:element name="IdEchangeInt" type="sa_bp:IdEchangeInt" minOccurs="1" maxOccurs="1"
+                                      nillable="false"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="IdEchangeBdd" type="sa_bp:IdEchangeBdd" minOccurs="1" maxOccurs="1"
+                                nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="FrequenceBancarisationBddRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                <xs:complexType mixed="false">
+                  <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="CdFrequence" type="sa_dc:CdFrequence" minOccurs="1" maxOccurs="1"
+                                nillable="false"/>
+                    <xs:element name="LbFrequence" type="sa_dc:LbFrequence" minOccurs="0" maxOccurs="1"
+                                nillable="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      -->
+
+
       <!-- OLD
 				<xsl:for-each select="DispositifCollecte/BddRdd/Bdd">
 					<xsl:variable name="idBdd" select="./IdEchangeBdd"/>
@@ -1798,110 +2015,144 @@
 				</gmd:MD_Distribution>
 			</gmd:distributionInfo>
 		</xsl:template>
-				<gmd:distributionInfo>
-					<gmd:MD_Distribution>
-						<xsl:if test="DispositifCollecte/ModeDiffusionRdd/AdresseInternetDiffusion">
-						<gmd:transferOptions>
-							<gmd:MD_DigitalTransferOptions>
-								<gmd:onLine>
-									<gmd:CI_OnlineResource>
-										<gmd:linkage>
-											<gmd:URL>
-												<xsl:value-of select="DispositifCollecte/ModeDiffusionRdd/AdresseInternetDiffusion"/>
-											</gmd:URL>
-										</gmd:linkage>
-										<gmd:protocol>
-											<gco:CharacterString>HTTP</gco:CharacterString>
-										</gmd:protocol>
-										<gmd:function>
-											<gmd:CI_OnLineFunctionCode>
-												<xsl:attribute name="codeList">CI_OnLineFunctionCode</xsl:attribute>
-												<xsl:attribute name="codeListValue">information</xsl:attribute>
-											</gmd:CI_OnLineFunctionCode>
-										</gmd:function>
-									</gmd:CI_OnlineResource>
-								</gmd:onLine>
-							</gmd:MD_DigitalTransferOptions>
-						</gmd:transferOptions>
-						</xsl:if>
-					</gmd:MD_Distribution>
-				</gmd:distributionInfo>
       -->
-      
-      <!-- 
-        <xs:element name="ModeDiffusionRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
-          <xs:complexType mixed="false">
-            <xs:sequence minOccurs="1" maxOccurs="1">
-              <xs:element name="ModeDiffusion" minOccurs="1" maxOccurs="1" nillable="false">
-                <xs:complexType mixed="false">
-                  <xs:sequence minOccurs="1" maxOccurs="1">
-                    <xs:element name="CdModeTransmission" type="sa_dc:CdModeTransmission" minOccurs="1" maxOccurs="1" nillable="false"/>
-                    <xs:element name="LbModeTransmission" type="sa_dc:LbModeTransmission" minOccurs="0" maxOccurs="1" nillable="false"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="AdresseInternetDiffusion" type="sa_dc:AdresseInternetDiffusion" minOccurs="0" maxOccurs="1" nillable="false"/>
-              <xs:element name="CommModeDiffusionRdd" type="sa_dc:CommModeDiffusionRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      -->
-      <xsl:if test="Tarification or ModeDiffusionRdd">
+
+      <xsl:for-each select="BddRdd/Bdd">
         <gmd:distributionInfo>
           <gmd:MD_Distribution>
             <gmd:distributor>
               <gmd:MD_Distributor>
-                <gmd:distributorContact>
-                  <xsl:attribute name="gco:nilReason">unknown</xsl:attribute>
-                </gmd:distributorContact>
-                <xsl:for-each select="Tarification/LbTarification[. != '']">
-                  <gmd:distributionOrderProcess>
-                    <gmd:MD_StandardOrderProcess>
-                      <gmd:fees>
-                        <gco:CharacterString>
-                          <xsl:value-of select="."/>
-                        </gco:CharacterString>
-                      </gmd:fees>
-                    </gmd:MD_StandardOrderProcess>
-                  </gmd:distributionOrderProcess>
+                <xsl:for-each select="MOuvrageBdd">
+                  <xsl:variable name="code" select="CdIntervenant"/>
+                  <xsl:variable name="role" select="'MOE'"/>
+                  <gmd:distributorContact>
+                    <xsl:apply-templates mode="sinp-contact"
+                                         select="/SI_DC/Intervenant[CdIntervenant = $code]">
+                      <xsl:with-param name="role" select="$roleMapping/value[@key = $role]/text()"/>
+                    </xsl:apply-templates>
+                  </gmd:distributorContact>
+                </xsl:for-each>
+
+                <xsl:variable name="cdBdd" select="CdBdd"/>
+                <xsl:for-each select="/SI_DC/Bdd[CdBdd = $cdBdd]">
+                  <!-- TODO discuss -->
+                  <xsl:if test="AdresseURLBdd">
+                    <gmd:distributorTransferOptions>
+                      <gmd:MD_DigitalTransferOptions>
+                        <gmd:onLine>
+                          <gmd:CI_OnlineResource>
+                            <gmd:linkage>
+                              <gmd:URL>
+                                <xsl:value-of select="AdresseURLBdd"/>
+                              </gmd:URL>
+                            </gmd:linkage>
+                            <gmd:name>
+                              <gco:CharacterString>
+                                <xsl:value-of select="LbUsuelBdd"/>
+                              </gco:CharacterString>
+                            </gmd:name>
+                            <gmd:description>
+                              <gco:CharacterString>
+                                <xsl:value-of select="CommBdd"/>
+                              </gco:CharacterString>
+                            </gmd:description>
+                            <gmd:protocol>
+                              <gco:CharacterString>
+                                WWW:LINK
+                              </gco:CharacterString>
+                            </gmd:protocol>
+                          </gmd:CI_OnlineResource>
+                        </gmd:onLine>
+
+                      </gmd:MD_DigitalTransferOptions>
+                    </gmd:distributorTransferOptions>
+                  </xsl:if>
+
+                  <gmd:distributorTransferOptions>
+                    <sinp:MD_DigitalTransferOptions gco:isoType="gmd:MD_DigitalTransferOptions">
+                      <sinp:database>
+                        <sinp:Database uuid="{CdBdd}">
+                          <sinp:name>
+                            <gco:CharacterString>
+                              <xsl:value-of select="LbBdd"/>
+                            </gco:CharacterString>
+                          </sinp:name>
+                          <xsl:for-each select="AdresseURLBdd">
+                          <sinp:url>
+                            <gco:CharacterString>
+                              <xsl:value-of select="."/>
+                            </gco:CharacterString>
+                          </sinp:url>
+                          </xsl:for-each>
+                          <sinp:startYear>
+                            <gco:Date>
+                              <xsl:value-of select="AnneeBdd"/>
+                            </gco:Date>
+                          </sinp:startYear>
+                          <xsl:for-each select="EvenementsBdd">
+                            <sinp:history>
+                              <gmd:LI_ProcessStep>
+                                <gmd:description>
+                                  <gco:CharacterString>
+                                    <xsl:value-of select="LbEvenement"/>
+                                  </gco:CharacterString>
+                                </gmd:description>
+                                <gmd:dateTime>
+                                  <gco:Date><xsl:value-of select="DateEvenement"/></gco:Date>
+                                </gmd:dateTime>
+                              </gmd:LI_ProcessStep>
+                            </sinp:history>
+                          </xsl:for-each>
+
+                          <xsl:for-each select="Contact">
+                            <sinp:contact>
+                              <sinp:CI_ResponsibleParty uuid="{CdContact}"
+                                                        gco:isoType="gmd:CI_ResponsibleParty">
+                                <gmd:individualName>
+                                  <gco:CharacterString>
+                                    <xsl:value-of select="concat(PrenomContact, ' ', NomContact)"/>
+                                  </gco:CharacterString>
+                                </gmd:individualName>
+                                <gmd:organisationName>
+                                  <gco:CharacterString>
+                                    <xsl:value-of select="ServiceContact"/>
+                                  </gco:CharacterString>
+                                </gmd:organisationName>
+                                <gmd:positionName>
+                                  <gco:CharacterString>
+                                    <xsl:value-of select="FonctionContact"/>
+                                  </gco:CharacterString>
+                                </gmd:positionName>
+                                <gmd:contactInfo>
+                                  <gmd:CI_Contact>
+                                    <gmd:address>
+                                      <gmd:CI_Address>
+                                        <gmd:electronicMailAddress gco:nilReason="missing">
+                                          <gco:CharacterString/>
+                                        </gmd:electronicMailAddress>
+                                      </gmd:CI_Address>
+                                    </gmd:address>
+                                  </gmd:CI_Contact>
+                                </gmd:contactInfo>
+                                <gmd:role>
+                                  <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                                                   codeListValue=""/>
+                                </gmd:role>
+                              </sinp:CI_ResponsibleParty>
+                            </sinp:contact>
+                          </xsl:for-each>
+                        </sinp:Database>
+                      </sinp:database>
+                    </sinp:MD_DigitalTransferOptions>
+                  </gmd:distributorTransferOptions>
                 </xsl:for-each>
               </gmd:MD_Distributor>
             </gmd:distributor>
-            <xsl:for-each select="ModeDiffusionRdd">
-              <gmd:transferOptions>
-                <gmd:MD_DigitalTransferOptions>
-                  <gmd:onLine>
-                    <gmd:CI_OnlineResource>
-                      <xsl:for-each select="AdresseInternetDiffusion[. != '']">
-                       <gmd:linkage>
-                         <gmd:URL>
-                           <xsl:value-of select="."/>
-                         </gmd:URL>
-                       </gmd:linkage>
-                      </xsl:for-each>
-                      <xsl:for-each select="ModeDiffusion/LbModeTransmission[. != '']">
-                        <gmd:name>
-                          <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
-                        </gmd:name>
-                      </xsl:for-each>
-                      <gmd:protocol>
-                        <gco:CharacterString>WWW-LINK</gco:CharacterString>
-                      </gmd:protocol>
-                      <gmd:function>
-                        <gmd:CI_OnLineFunctionCode>
-                          <xsl:attribute name="codeList">CI_OnLineFunctionCode</xsl:attribute>
-                          <xsl:attribute name="codeListValue">information</xsl:attribute>
-                        </gmd:CI_OnLineFunctionCode>
-                      </gmd:function>
-                    </gmd:CI_OnlineResource>
-                  </gmd:onLine>
-                </gmd:MD_DigitalTransferOptions>
-              </gmd:transferOptions>
-            </xsl:for-each>
           </gmd:MD_Distribution>
         </gmd:distributionInfo>
-      </xsl:if>
-      
+      </xsl:for-each>
+
+
       <!--
       <gmd:distributionInfo>
         <gmd:MD_Distribution>
@@ -2044,7 +2295,7 @@
                     <gco:CharacterString/>
                   </xsl:otherwise>
                 </xsl:choose>
-                
+
               </gmd:statement>
               <!--
               <xs:element name="HistoriqueEvtsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
