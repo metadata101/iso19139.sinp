@@ -8,6 +8,7 @@
 
   <xsl:output indent="yes" method="xml"/>
 
+  <xsl:param name="jdd" select="false()" as="xs:boolean"/>
 
   <xsl:variable name="topicCategoryMapping">
     <value key="Flore et faune">biota</value>
@@ -59,6 +60,7 @@
    -->
   <xsl:template match="*" mode="sinp-contact">
     <xsl:param name="role" select="''" as="xs:string?"/>
+    <xsl:param name="period" select="''" as="xs:string?"/>
 
     <sinp:CI_ResponsibleParty gco:isoType="gmd:CI_ResponsibleParty">
       <!--
@@ -187,6 +189,14 @@
               </gmd:CI_OnlineResource>
             </gmd:onlineResource>
           </xsl:if>
+
+          <xsl:if test="$period != '' and $period != ' - '">
+            <gmd:contactInstructions>
+              <gco:CharacterString>
+                Période d'intervention : <xsl:value-of select="$period"/>
+              </gco:CharacterString>
+            </gmd:contactInstructions>
+          </xsl:if>
         </gmd:CI_Contact>
       </gmd:contactInfo>
       <gmd:role>
@@ -198,7 +208,7 @@
       <!--
      <xs:element name="MnIntervenant" type="sa_int:MnIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
       -->
-      <xsl:for-each select="MnIntervenant">
+      <xsl:for-each select="MnIntervenant|NomInternationalIntervenant">
         <sinp:altIndividualName>
           <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
         </sinp:altIndividualName>
@@ -316,7 +326,7 @@
       <xsl:for-each select="terreOuMerInt[. != '']">
        <sinp:scopeDescription>
          <sinp:ResponsiblePartyScopeCode codeList=""
-              codeListValue="{if (. = 'T') then 'Terre' else 'Mer'}"/>
+              codeListValue="{if (. = 'T') then 'Terre' else if (. = 'M') then 'Mer' else ''}"/>
        </sinp:scopeDescription>
       </xsl:for-each>
 
@@ -372,8 +382,13 @@
                 mode="sinp"/>
 
 
-  <xsl:template match="DispositifCollecte"
+  <xsl:template match="DispositifCollecte[not($jdd) or ($jdd and DataNom != '')]"
                 mode="sinp">
+
+
+    <xsl:variable name="uuid">
+      urn:idcnp:<xsl:value-of select="if ($jdd) then 'jdd' else 'dc'"/>:<xsl:value-of select="IdEchangeRdd"/>
+    </xsl:variable>
     <!--
 
 
@@ -383,14 +398,13 @@
       <xs:element name="IdEchangeRdd" type="sa_bp:IdEchangeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
       -->
       <gmd:fileIdentifier>
-        <gco:CharacterString>urn:idcnp:<xsl:value-of select="IdEchangeRdd"/></gco:CharacterString>
+        <gco:CharacterString><xsl:value-of select="$uuid"/></gco:CharacterString>
       </gmd:fileIdentifier>
 
 
-      <!-- TODOXSD : Pas dans le schéma ? -->
-      <xsl:for-each select="DispositifAssocie/IdReseauPere[. != '']">
+      <xsl:for-each select="DispositifAssocie/IdReseauPere[. != '' and not($jdd)]">
        <gmd:parentIdentifier>
-         <gco:CharacterString>urn:idcnp:<xsl:value-of select="."/></gco:CharacterString>
+         <gco:CharacterString>urn:idcnp:dc:<xsl:value-of select="."/></gco:CharacterString>
        </gmd:parentIdentifier>
       </xsl:for-each>
 
@@ -410,7 +424,7 @@
       Dans l'ancien export, series est utilisé. -->
       <gmd:hierarchyLevel>
         <gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode"
-                          codeListValue="collectionSystem"/>
+                          codeListValue="{if ($jdd) then 'dataset' else 'collectionSystem'}"/>
       </gmd:hierarchyLevel>
 
       <!--
@@ -427,13 +441,15 @@
         ‘3’ : Autosurveillance
       </xs:element>
       -->
-      <xsl:for-each select="TypeRdd/LbTypeRdd">
-        <gmd:hierarchyLevelName>
-          <gco:CharacterString>
-            <xsl:value-of select="."/>
-          </gco:CharacterString>
-        </gmd:hierarchyLevelName>
-      </xsl:for-each>
+      <xsl:if test="not($jdd)">
+        <xsl:for-each select="TypeRdd/LbTypeRdd">
+          <gmd:hierarchyLevelName>
+            <gco:CharacterString>
+              <xsl:value-of select="."/>
+            </gco:CharacterString>
+          </gmd:hierarchyLevelName>
+        </xsl:for-each>
+      </xsl:if>
 
       <xsl:for-each select="Responsable">
         <gmd:contact>
@@ -458,26 +474,6 @@
       </gmd:metadataStandardVersion>
 
 
-      <!--
-      <xs:element name="NbTotalRdd" type="sa_dc:NbTotalRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
-      -->
-      <xsl:for-each select="NbTotalRdd">
-        <gmd:spatialRepresentationInfo>
-          <gmd:MD_VectorSpatialRepresentation>
-            <gmd:geometricObjects>
-              <gmd:MD_GeometricObjects>
-                <gmd:geometricObjectType>
-                  <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_GeometricObjectTypeCode"
-                                                  codeListValue="point"/>
-                </gmd:geometricObjectType>
-                <gmd:geometricObjectCount>
-                  <gco:Integer><xsl:value-of select="NbTotalRdd"/></gco:Integer>
-                </gmd:geometricObjectCount>
-              </gmd:MD_GeometricObjects>
-            </gmd:geometricObjects>
-          </gmd:MD_VectorSpatialRepresentation>
-        </gmd:spatialRepresentationInfo>
-      </xsl:for-each>
 
 
       <!--
@@ -509,37 +505,6 @@
        </gmd:referenceSystemInfo>
       </xsl:for-each>
 
-      <!--
-      OLD
-				<xsl:for-each select="DispositifCollecte/RefGeographiques/LbRefMetier">
-					<xsl:call-template name="referenceSystemInfo">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="codeSpace">geographic</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-
-				<xsl:for-each select="DispositifCollecte/CRS/CdCRS">
-					<xsl:call-template name="directReferenceSystemInfo">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="codeSpace">epsg</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-
-				<xsl:for-each select="DispositifCollecte/RefMilieux/LbRefMetier">
-					<xsl:call-template name="referenceSystemInfo">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="codeSpace">milieu</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-
-				<xsl:for-each select="DispositifCollecte/RefTaxons/LbRefMetier">
-					<xsl:call-template name="referenceSystemInfo">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="codeSpace">taxon</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-
-      -->
 
       <gmd:identificationInfo>
         <gmd:MD_DataIdentification>
@@ -551,10 +516,10 @@
               -->
               <gmd:title>
                 <gco:CharacterString>
-                  <xsl:value-of select="NomRdd"/>
+                  <xsl:value-of select="if ($jdd) then DataNom else NomRdd"/>
                 </gco:CharacterString>
               </gmd:title>
-              <xsl:for-each select="MnRdd[. != '']">
+              <xsl:for-each select="MnRdd[. != '' and not($jdd)]">
                 <gmd:alternateTitle>
                   <gco:CharacterString>
                     <xsl:value-of select="."/>
@@ -568,7 +533,7 @@
               A priori correspond à AnneeMisePlaceRdd
               <xs:element name="AnneeMisePlaceRdd" type="sa_dc:AnneeMisePlaceRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
               -->
-              <xsl:if test="AnneeMisePlaceRdd">
+              <xsl:if test="AnneeMisePlaceRdd and not($jdd)">
                 <gmd:date>
                   <gmd:CI_Date>
                     <gmd:date>
@@ -586,36 +551,11 @@
                 <gmd:MD_Identifier>
                   <gmd:code>
                     <gco:CharacterString>
-                      <xsl:value-of select="IdEchangeRdd"/>
+                      <xsl:value-of select="if ($jdd) then DataIdentifier else $uuid"/>
                     </gco:CharacterString>
                   </gmd:code>
                 </gmd:MD_Identifier>
               </gmd:identifier>
-
-              <!--
-              Dans l'ancien export le champ presentationForm est utilisé
-              -->
-
-              <!-- OLD
-    					<gmd:othercitationdetails>
-    						<gco:CharacterString>
-    							<xsl:value-of select="ModeStockageRdd/PrecisionModeStockage"/>
-    						</gco:CharacterString>
-    					</gmd:othercitationdetails>
-
-    					<gmd:presentationForm>
-    						<gmd:CI_PresentationFormCode>
-    									<xsl:attribute name="codeList">http://www.isotc211.org/2005/resources/codeList.xml#CI_PresentationFormCode</xsl:attribute>
-    									<xsl:choose>
-    										<xsl:when test="ModeStockageRdd/CdModeStockage = 1"><xsl:attribute name="codeListValue">documentHardcopy</xsl:attribute></xsl:when>
-    										<xsl:when test="ModeStockageRdd/CdModeStockage = 2"><xsl:attribute name="codeListValue">documentDigital</xsl:attribute></xsl:when>
-    										<xsl:when test="ModeStockageRdd/CdModeStockage = 3"><xsl:attribute name="codeListValue">tableDigital</xsl:attribute></xsl:when>
-    										<xsl:otherwise><xsl:attribute name="codeListValue"></xsl:attribute></xsl:otherwise>
-    									</xsl:choose>
-
-    						</gmd:CI_PresentationFormCode>
-    					</gmd:presentationForm>
-          -->
             </gmd:CI_Citation>
           </gmd:citation>
 
@@ -625,15 +565,23 @@
           -->
           <gmd:abstract>
             <gco:CharacterString>
-              <xsl:value-of select="DescriptionFinaliteRdd"/>
+              <xsl:value-of select="if ($jdd) then DataDesc else DescriptionFinaliteRdd"/>
             </gco:CharacterString>
           </gmd:abstract>
 
 
-          <!-- TODO: Objectifs scientifiques
-          <gmd:purpose>
-            <gco:CharacterString/>
-          </gmd:purpose> -->
+          <!-- Objectifs scientifiques -->
+          <!--
+          <xs:element name="NbTotalRdd" type="sa_dc:NbTotalRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
+          -->
+          <xsl:if test="NbTotalRdd and not($jdd)">
+            <gmd:purpose>
+              <gco:CharacterString>
+                * Nombre de réseaux de mesure : <xsl:value-of select="NbTotalRdd"/>
+                * Précision TODO <xsl:value-of select="'TODO'"/>
+              </gco:CharacterString>
+            </gmd:purpose>
+          </xsl:if>
 
 
           <!--
@@ -646,12 +594,14 @@
                 </xs:complexType>
               </xs:element>
           -->
-          <xsl:for-each select="EtatActivite/CdEtatActivite">
-            <gmd:status>
-              <gmd:MD_ProgressCode codeListValue="{if (. = '2') then 'completed' else 'onGoing'}"
-                                   codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ProgressCode"/>
-            </gmd:status>
-          </xsl:for-each>
+          <xsl:if test="not($jdd)">
+           <xsl:for-each select="EtatActivite/CdEtatActivite">
+             <gmd:status>
+               <gmd:MD_ProgressCode codeListValue="{if (. = '2') then 'completed' else 'onGoing'}"
+                                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ProgressCode"/>
+             </gmd:status>
+           </xsl:for-each>
+         </xsl:if>
 
 
           <!--
@@ -691,62 +641,44 @@
           <xsl:for-each select="IntervenantRdd/Intervenant">
             <xsl:variable name="code" select="CdIntervenant"/>
             <xsl:variable name="role" select="@Role"/>
+            <xsl:variable name="period" select="concat(../DateDebutIntervenant, ' - ', ../DateFinIntervenant)"/>
             <gmd:pointOfContact>
               <xsl:apply-templates mode="sinp-contact"
                                    select="/SI_DC/Intervenant[CdIntervenant = $code]">
                 <xsl:with-param name="role" select="$roleMapping/value[@key = $role]/text()"/>
+                <xsl:with-param name="period" select="$period"/>
               </xsl:apply-templates>
             </gmd:pointOfContact>
           </xsl:for-each>
 
-          <!-- TODO: OLD
-						<xsl:for-each select="SupportRdd">
-						<gmd:resourceMaintenance>
-							<gmd:MD_MaintenanceInformation>
-								<gmd:maintenanceAndUpdateFrequency>
-									<gmd:MD_MaintenanceFrequencyCode>
-										<xsl:attribute name="codeList">MD_MaintenanceFrequencyCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">irregular</xsl:attribute>
-									</gmd:MD_MaintenanceFrequencyCode>
-								</gmd:maintenanceAndUpdateFrequency>
-								<gmd:maintenanceNote>
-									<gco:CharacterString>
-										<xsl:value-of select="FrequenceActualisation"/>
-									</gco:CharacterString>
-								</gmd:maintenanceNote>
-							</gmd:MD_MaintenanceInformation>
-						</gmd:resourceMaintenance>
-						</xsl:for-each>
-
-          -->
-
-
-          <gmd:resourceMaintenance>
-            <gmd:MD_MaintenanceInformation>
-              <gmd:maintenanceAndUpdateFrequency>
-                <gmd:MD_MaintenanceFrequencyCode codeListValue="asNeeded"
-                  codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
-                />
-              </gmd:maintenanceAndUpdateFrequency>
-              <!--
-              <xs:element name="DureeRdd" minOccurs="0" maxOccurs="1" nillable="false">
-                <xs:complexType mixed="false">
-                  <xs:sequence minOccurs="1" maxOccurs="1">
-                    <xs:element name="CdDuree" type="sa_dc:CdDuree" minOccurs="1" maxOccurs="1" nillable="false"/>
-                    <xs:element name="LbDuree" type="sa_dc:LbDuree" minOccurs="0" maxOccurs="1" nillable="false"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              -->
-              <xsl:for-each select="DureeRdd/LbDuree">
-               <gmd:maintenanceNote>
-                 <gco:CharacterString>
-                   <xsl:value-of select="."/>
-                 </gco:CharacterString>
-               </gmd:maintenanceNote>
-              </xsl:for-each>
-            </gmd:MD_MaintenanceInformation>
-          </gmd:resourceMaintenance>
+          <xsl:if test="not($jdd)">
+            <gmd:resourceMaintenance>
+              <gmd:MD_MaintenanceInformation>
+                <gmd:maintenanceAndUpdateFrequency>
+                  <gmd:MD_MaintenanceFrequencyCode codeListValue="asNeeded"
+                    codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
+                  />
+                </gmd:maintenanceAndUpdateFrequency>
+                <!--
+                <xs:element name="DureeRdd" minOccurs="0" maxOccurs="1" nillable="false">
+                  <xs:complexType mixed="false">
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                      <xs:element name="CdDuree" type="sa_dc:CdDuree" minOccurs="1" maxOccurs="1" nillable="false"/>
+                      <xs:element name="LbDuree" type="sa_dc:LbDuree" minOccurs="0" maxOccurs="1" nillable="false"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                -->
+                <xsl:for-each select="DureeRdd/LbDuree">
+                 <gmd:maintenanceNote>
+                   <gco:CharacterString>
+                     <xsl:value-of select="."/>
+                   </gco:CharacterString>
+                 </gmd:maintenanceNote>
+                </xsl:for-each>
+              </gmd:MD_MaintenanceInformation>
+            </gmd:resourceMaintenance>
+          </xsl:if>
 
           <xsl:if test="DataKwInspire[. != '']">
             <gmd:descriptiveKeywords>
@@ -780,7 +712,7 @@
                       <gmd:MD_Identifier>
                         <gmd:code>
                           <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                            xlink:href="http://localhost:8080/geonetwork/srv/fre/thesaurus.download?ref=external.theme.inspire-theme">geonetwork.thesaurus.external.theme.inspire-theme</gmx:Anchor>
+                            xlink:href="inventaire.naturefrance.fr/catalogue/srv/fre/thesaurus.download?ref=external.theme.inspire-theme">geonetwork.thesaurus.external.theme.inspire-theme</gmx:Anchor>
                         </gmd:code>
                       </gmd:MD_Identifier>
                     </gmd:identifier>
@@ -826,7 +758,7 @@
                      <gmd:MD_Identifier>
                        <gmd:code>
                          <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                           xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-volet"
+                           xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-volet"
                            >geonetwork.thesaurus.external.theme.sinp-volet</gmx:Anchor>
                        </gmd:code>
                      </gmd:MD_Identifier>
@@ -865,7 +797,7 @@
                     <gmd:MD_Identifier>
                       <gmd:code>
                         <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-type-de-dispositif"
+                          xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-type-de-dispositif"
                           >geonetwork.thesaurus.external.theme.sinp-type-de-dispositif</gmx:Anchor>
                       </gmd:code>
                     </gmd:MD_Identifier>
@@ -907,37 +839,10 @@
               </gmd:type>
             </gmd:MD_Keywords>
           </gmd:descriptiveKeywords>
-          <!--
-            TODO: Que faire du type, code ?
-          <descriptiveKeywords>
-            <MD_Keywords>
-              <keyword>INSECTE</keyword>
-              <type>environnement</type>
-              <codeMotCle>http://rdfdata.eionet.europa.eu/sidetheme#2309</codeMotCle>
-            </MD_Keywords>
-          </descriptiveKeywords>
-          -->
-
-          <!-- TODO
-            Type de données observées remplacer par Cible taxonomique
-            TAXREF
-            - Migration mapping avec ancien tableau qui était un sous ensemble
-            SupportRdd/Support/LbSupport
-            -->
-
-          <!-- TODO
-          Groupe taxonomique, espèces/ habitats suivi(e)s
-          SupportRdd/DescriptifTaxon
-          -->
 
           <xsl:if test="count(descriptiveKeywords/MD_Keywords/keyword[. != '']) > 0 or
             count(keyword[. != '']) > 0">
             <gmd:descriptiveKeywords>
-              <!-- OLD
-
-							<xsl:attribute name="xlink:href"><xsl:value-of select="MD_Keywords/codeMotCle"/></xsl:attribute>
-							<xsl:attribute name="xlink:role">pointOfContact</xsl:attribute>
-              -->
               <gmd:MD_Keywords>
                 <xsl:for-each select="descriptiveKeywords/MD_Keywords/keyword[. != '']|keyword[. != '']">
                   <gmd:keyword>
@@ -980,7 +885,7 @@
                     <gmd:MD_Identifier>
                       <gmd:code>
                         <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-type-de-financement"
+                          xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-type-de-financement"
                           >geonetwork.thesaurus.external.theme.sinp-type-de-financement</gmx:Anchor>
                       </gmd:code>
                     </gmd:MD_Identifier>
@@ -1017,7 +922,7 @@
                     <gmd:MD_Identifier>
                       <gmd:code>
                         <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-plan-d-echantillonnage"
+                          xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-plan-d-echantillonnage"
                           >geonetwork.thesaurus.external.theme.sinp-plan-d-echantillonnage</gmx:Anchor>
                       </gmd:code>
                     </gmd:MD_Identifier>
@@ -1054,7 +959,7 @@
                     <gmd:MD_Identifier>
                       <gmd:code>
                         <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                          xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-methode-de-recueil"
+                          xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-methode-de-recueil"
                           >geonetwork.thesaurus.external.theme.sinp-methode-de-recueil</gmx:Anchor>
                       </gmd:code>
                     </gmd:MD_Identifier>
@@ -1109,7 +1014,7 @@
                       <gmd:MD_Identifier>
                         <gmd:code>
                           <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                            xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-milieux"
+                            xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-milieux"
                             >geonetwork.thesaurus.external.theme.sinp-referentiels-milieux</gmx:Anchor>
                         </gmd:code>
                       </gmd:MD_Identifier>
@@ -1164,7 +1069,7 @@
                      <gmd:MD_Identifier>
                        <gmd:code>
                          <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                           xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-taxonomiques"
+                           xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-taxonomiques"
                            >geonetwork.thesaurus.external.theme.sinp-referentiels-taxonomiques</gmx:Anchor>
                        </gmd:code>
                      </gmd:MD_Identifier>
@@ -1220,7 +1125,7 @@
                      <gmd:MD_Identifier>
                        <gmd:code>
                          <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                           xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-geographiques"
+                           xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-referentiels-geographiques"
                            >geonetwork.thesaurus.external.theme.sinp-referentiels-geographiques</gmx:Anchor>
                        </gmd:code>
                      </gmd:MD_Identifier>
@@ -1264,14 +1169,14 @@
                         <gmd:dateType>
                           <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"
                             codeListValue="publication"/>
-            Acces            </gmd:dateType>
+                        </gmd:dateType>
                       </gmd:CI_Date>
                     </gmd:date>
                     <gmd:identifier>
                       <gmd:MD_Identifier>
                         <gmd:code>
                           <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                            xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-stockage">geonetwork.thesaurus.external.theme.sinp-stockage</gmx:Anchor>
+                            xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-stockage">geonetwork.thesaurus.external.theme.sinp-stockage</gmx:Anchor>
                         </gmd:code>
                       </gmd:MD_Identifier>
                     </gmd:identifier>
@@ -1323,7 +1228,7 @@
                       <gmd:MD_Identifier>
                         <gmd:code>
                           <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                      xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-type-espace">geonetwork.thesaurus.external.theme.sinp-type-espace</gmx:Anchor>
+                                      xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-type-espace">geonetwork.thesaurus.external.theme.sinp-type-espace</gmx:Anchor>
                         </gmd:code>
                       </gmd:MD_Identifier>
                     </gmd:identifier>
@@ -1375,7 +1280,7 @@
                       <gmd:MD_Identifier>
                         <gmd:code>
                           <gmx:Anchor xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                                      xlink:href="http://localhost:8080/geonetwork/srv/eng/thesaurus.download?ref=external.theme.sinp-niveau-territorial">geonetwork.thesaurus.external.theme.sinp-niveau-territorial</gmx:Anchor>
+                                      xlink:href="inventaire.naturefrance.fr/catalogue/srv/eng/thesaurus.download?ref=external.theme.sinp-niveau-territorial">geonetwork.thesaurus.external.theme.sinp-niveau-territorial</gmx:Anchor>
                         </gmd:code>
                       </gmd:MD_Identifier>
                     </gmd:identifier>
@@ -1384,43 +1289,6 @@
               </gmd:MD_Keywords>
             </gmd:descriptiveKeywords>
           </xsl:if>
-
-          <!--
-
-						<gmd:descriptiveKeywords>
-							<gmd:MD_Keywords>
-								<xsl:for-each select="DispositifCollecte/SupportRdd/Support">
-								<gmd:keyword>
-									<gco:CharacterString>
-										<xsl:value-of select="LbSupport"/>
-									</gco:CharacterString>
-								</gmd:keyword>
-								</xsl:for-each>
-								<gmd:type>
-									<gmd:MD_KeywordTypeCode>
-										<xsl:attribute name="codeList">MD_KeywordTypeCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">theme</xsl:attribute>
-									</gmd:MD_KeywordTypeCode>
-								</gmd:type>
-							</gmd:MD_Keywords>
-						</gmd:descriptiveKeywords>
-						<gmd:descriptiveKeywords>
-							<gmd:MD_Keywords>
-								<gmd:keyword>
-									<gco:CharacterString>
-										<xsl:value-of select="DispositifCollecte/keyword"/>
-									</gco:CharacterString>
-								</gmd:keyword>
-								<gmd:type>
-									<gmd:MD_KeywordTypeCode>
-										<xsl:attribute name="codeList">MD_KeywordTypeCode</xsl:attribute>
-										<xsl:attribute name="codeListValue">theme</xsl:attribute>
-									</gmd:MD_KeywordTypeCode>
-								</gmd:type>
-							</gmd:MD_Keywords>
-						</gmd:descriptiveKeywords>
-          -->
-
 
           <!--
           <xs:element name="ConditionsUtilisation" type="sinp:ConditionsUtilisation" minOccurs="0" maxOccurs="1" nillable="false"/>
@@ -1557,7 +1425,7 @@
           </xsl:for-each>
 
 
-          <gmd:extent>
+          <!--<gmd:extent>
             <gmd:EX_Extent>
               <gmd:description>
                 <gco:CharacterString>Emprise réelle et effective du territoire couvert</gco:CharacterString>
@@ -1573,83 +1441,18 @@
                 </gmd:EX_TemporalExtent>
               </gmd:temporalElement>
             </gmd:EX_Extent>
-          </gmd:extent>
+          </gmd:extent>-->
 
           <!--
           <xs:element name="CommentairesRdd" type="sa_dc:CommentairesRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
           -->
-          <xsl:for-each select="CommentairesRdd">
+          <xsl:for-each select="CommentairesRdd and not($jdd)">
            <gmd:supplementalInformation>
              <gco:CharacterString>
                <xsl:value-of select="."/>
              </gco:CharacterString>
            </gmd:supplementalInformation>
           </xsl:for-each>
-
-          <!--
-
-						<xsl:for-each select="DispositifCollecte/Publications">
-						<fra:relatedCitation>
-							<gmd:CI_Citation>
-								<gmd:title>
-									<gco:CharacterString>
-								<xsl:value-of select="TitreDoc"/>
-									</gco:CharacterString>
-								</gmd:title>
-								<gmd:date>
-									<gmd:CI_Date>
-										<gmd:date>
-											<gco:Date>
-								<xsl:value-of select="concat(AnneeDoc, '-01-01')"/>
-											</gco:Date>
-										</gmd:date>
-										<gmd:dateType>
-											<gmd:CI_DateTypeCode>
-												<xsl:attribute name="codeList">CI_DateTypeCode</xsl:attribute>
-												<xsl:attribute name="codeListValue">PublicationCollectiveTitle</xsl:attribute>
-											</gmd:CI_DateTypeCode>
-										</gmd:dateType>
-									</gmd:CI_Date>
-								</gmd:date>
-								<gmd:otherCitationDetails>
-									<gco:CharacterString>
-								<xsl:value-of select="FrequenceDoc"/>
-									</gco:CharacterString>
-								</gmd:otherCitationDetails>
-								<gmd:citedResponsibleParty>
-									<gmd:CI_ResponsibleParty>
-										<gmd:individualName>
-											<gco:CharacterString>
-								<xsl:value-of select="AuteurDoc"/>
-											</gco:CharacterString>
-										</gmd:individualName>
-										<gmd:role>
-											<gmd:CI_roleCode>
-												<xsl:attribute name="codeList">CI_roleCode</xsl:attribute>
-												<xsl:attribute name="codeListValue">author</xsl:attribute>
-											</gmd:CI_roleCode>
-										</gmd:role>
-									</gmd:CI_ResponsibleParty>
-								</gmd:citedResponsibleParty>
-								<gmd:series>
-									<gmd:CI_Series>
-										<gmd:name>
-											<gco:CharacterString>
-								<xsl:value-of select="VolumeDoc"/>
-											</gco:CharacterString>
-										</gmd:name>
-										<gmd:page>
-											<gco:CharacterString>
-								<xsl:value-of select="PageDoc"/>
-											</gco:CharacterString>
-										</gmd:page>
-									</gmd:CI_Series>
-								</gmd:series>
-							</gmd:CI_Citation>
-						</fra:relatedCitation>
-						</xsl:for-each>
-          -->
-
 
           <!--
           <xs:element name="SupportRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
@@ -1693,7 +1496,7 @@
             <DescriptifTaxon>tous + sphingid&#233;s et mineuses Gracillariidae pour l'&#233;cologie thermique</DescriptifTaxon>
           </SupportRdd>
           -->
-          <xsl:for-each select="SupportRdd">
+          <xsl:for-each select="SupportRdd[not($jdd)]">
             <sinp:observationDetails>
               <sinp:ObservationDetails>
                 <sinp:descriptiveKeywords>
@@ -1734,13 +1537,19 @@
                   </sinp:resolution>
                 </xsl:for-each>
 
-                <xsl:for-each select="FrequenceActualisation">
+                <xsl:if test="FrequenceActualisation|FrequenceAnalyse">
                   <sinp:updateFrequency>
                     <gco:CharacterString>
-                      <xsl:value-of select="."/>
+                      <xsl:if test="FrequenceActualisation">
+                        <xsl:value-of select="concat('Fréquence d''actualisation: ', FrequenceActualisation)"/><xsl:text>
+                      </xsl:text>
+                      </xsl:if>
+                      <xsl:if test="FrequenceActualisation">
+                        <xsl:value-of select="concat('Fréquence d''analyse: ', FrequenceAnalyse)"/>
+                      </xsl:if>
                     </gco:CharacterString>
                   </sinp:updateFrequency>
-                </xsl:for-each>
+                </xsl:if>
               </sinp:ObservationDetails>
             </sinp:observationDetails>
           </xsl:for-each>
@@ -1767,7 +1576,7 @@
           </xs:complexType>
         </xs:element>
       -->
-      <xsl:if test="Tarification or ModeDiffusionRdd or Publications">
+      <xsl:if test="not($jdd) and (Tarification or ModeDiffusionRdd or Publications)">
         <gmd:distributionInfo>
           <gmd:MD_Distribution>
             <xsl:if test="Tarification">
@@ -1909,7 +1718,7 @@
                         </gco:CharacterString>
                       </gmd:description>
                       <gmd:protocol>
-                        <gco:CharacterString>OFFLINE</gco:CharacterString>
+                        <gco:CharacterString>DB</gco:CharacterString>
                       </gmd:protocol>
                       <gmd:function>
                         <gmd:CI_OnLineFunctionCode>
@@ -1967,56 +1776,6 @@
       -->
 
 
-      <!-- OLD
-				<xsl:for-each select="DispositifCollecte/BddRdd/Bdd">
-					<xsl:variable name="idBdd" select="./IdEchangeBdd"/>
-					<xsl:call-template name="base">
-						<xsl:with-param name="nd" select="/SI_DC/Bdd[(IdEchangeBdd = $idBdd)]"/>
-					</xsl:call-template>
-				</xsl:for-each>
-
-
-		<xsl:template name="base">
-			<xsl:param name="nd"/>
-			<gmd:distributionInfo>
-				<gmd:MD_Distribution>
-					<gmd:distributor>
-						<gmd:MD_Distributor>
-							<gmd:distributorContact>
-								<xsl:variable name="idInt" select="$nd/MOuvrageBdd/IdEchangeInt"/>
-								<xsl:call-template name="acteur">
-									<xsl:with-param name="nd" select="/SI_DC/Intervenant[IdEchangeInt = $idInt]"/>
-									<xsl:with-param name="role">distributor</xsl:with-param>
-								</xsl:call-template>
-							</gmd:distributorContact>
-
-							<gmd:distributorTransferOptions>
-								<gmd:MD_DigitalTransferOptions>
-									<gmd:unitsOfDistribution>
-										<gco:CharacterString>
-											<xsl:value-of select="$nd/LbBdd"/>
-										</gco:CharacterString>
-									</gmd:unitsOfDistribution>
-
-									<gmd:onLine>
-										<gmd:CI_OnlineResource>
-											<gmd:linkage>
-												<gmd:URL>
-											<xsl:value-of select="$nd/AdresseURLBdd"/>
-												</gmd:URL>
-											</gmd:linkage>
-										</gmd:CI_OnlineResource>
-									</gmd:onLine>
-
-								</gmd:MD_DigitalTransferOptions>
-							</gmd:distributorTransferOptions>
-						</gmd:MD_Distributor>
-					</gmd:distributor>
-				</gmd:MD_Distribution>
-			</gmd:distributionInfo>
-		</xsl:template>
-      -->
-
       <xsl:for-each select="BddRdd/Bdd">
         <gmd:distributionInfo>
           <gmd:MD_Distribution>
@@ -2035,8 +1794,7 @@
 
                 <xsl:variable name="cdBdd" select="CdBdd"/>
                 <xsl:for-each select="/SI_DC/Bdd[CdBdd = $cdBdd]">
-                  <!-- TODO discuss -->
-                  <xsl:if test="AdresseURLBdd">
+                  <xsl:if test="AdresseURLBdd or LbUsuelBdd or CommBdd">
                     <gmd:distributorTransferOptions>
                       <gmd:MD_DigitalTransferOptions>
                         <gmd:onLine>
@@ -2078,11 +1836,11 @@
                             </gco:CharacterString>
                           </sinp:name>
                           <xsl:for-each select="AdresseURLBdd">
-                          <sinp:url>
-                            <gco:CharacterString>
-                              <xsl:value-of select="."/>
-                            </gco:CharacterString>
-                          </sinp:url>
+                            <sinp:url>
+                              <gco:CharacterString>
+                                <xsl:value-of select="."/>
+                              </gco:CharacterString>
+                            </sinp:url>
                           </xsl:for-each>
                           <sinp:startYear>
                             <gco:Date>
@@ -2136,7 +1894,7 @@
                                 </gmd:contactInfo>
                                 <gmd:role>
                                   <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
-                                                   codeListValue=""/>
+                                                   codeListValue="pointOfContact"/>
                                 </gmd:role>
                               </sinp:CI_ResponsibleParty>
                             </sinp:contact>
@@ -2153,68 +1911,6 @@
       </xsl:for-each>
 
 
-      <!--
-      <gmd:distributionInfo>
-        <gmd:MD_Distribution>
-          <gmd:transferOptions>
-            <gmd:MD_DigitalTransferOptions>
-              <gmd:onLine>
-                <gmd:CI_OnlineResource>
-                  <gmd:linkage>
-                    <gmd:URL/>
-                  </gmd:linkage>
-                  <gmd:protocol>
-                    <gco:CharacterString>WWW:LINK</gco:CharacterString>
-                  </gmd:protocol>
-                  <gmd:name gco:nilReason="missing">
-                    <gco:CharacterString/>
-                  </gmd:name>
-                  <gmd:description gco:nilReason="missing">
-                    <gco:CharacterString/>
-                  </gmd:description>
-                </gmd:CI_OnlineResource>
-              </gmd:onLine>
-              <gmd:onLine>
-                <gmd:CI_OnlineResource>
-                  <gmd:linkage>
-                    <gmd:URL/>
-                  </gmd:linkage>
-                  <gmd:protocol>
-                    <gco:CharacterString>OGC:WMS</gco:CharacterString>
-                  </gmd:protocol>
-                  <gmd:name gco:nilReason="missing">
-                    <gco:CharacterString/>
-                  </gmd:name>
-                  <gmd:description gco:nilReason="missing">
-                    <gco:CharacterString/>
-                  </gmd:description>
-                </gmd:CI_OnlineResource>
-              </gmd:onLine>
-            </gmd:MD_DigitalTransferOptions>
-          </gmd:transferOptions>
-        </gmd:MD_Distribution>
-      </gmd:distributionInfo>-->
-
-      <!--
-      OLD
-
-				<xsl:for-each select="DispositifCollecte/ValidationRdd/LbProcValidation">
-					<xsl:call-template name="usability">
-						<xsl:with-param name="code" select="."/>
-						<xsl:with-param name="nameOfMeasure">Validation</xsl:with-param>
-					</xsl:call-template>
-				</xsl:for-each>
-
-				<gmd:dataQualityInfo>
-					<gmd:DQ_Element>
-						<gmd:measureDescription>
-							<gco:CharacterString>
-								<xsl:value-of select="PrecisionNbTotalRdd"/>
-							</gco:CharacterString>
-						</gmd:measureDescription>
-					</gmd:DQ_Element>
-				</gmd:dataQualityInfo>
-      -->
       <gmd:dataQualityInfo>
         <gmd:DQ_DataQuality>
           <gmd:scope>
@@ -2245,7 +1941,7 @@
             </xs:complexType>
           </xs:element>
           -->
-          <xsl:for-each select="ValidationRdd">
+          <xsl:for-each select="xValidationRdd[not($jdd)]">
             <gmd:report>
               <gmd:DQ_DomainConsistency>
                 <gmd:evaluationMethodType>
@@ -2285,7 +1981,7 @@
             <gmd:LI_Lineage>
               <gmd:statement>
                 <xsl:choose>
-                  <xsl:when test="Genealogie[. != '']">
+                  <xsl:when test="$jdd and Genealogie[. != '']">
                     <gco:CharacterString>
                       <xsl:value-of select="Genealogie"/>
                     </gco:CharacterString>
@@ -2309,7 +2005,7 @@
                 </xs:complexType>
               </xs:element>
               -->
-              <xsl:for-each select="HistoriqueEvtsRdd">
+              <xsl:for-each select="HistoriqueEvtsRdd[not($jdd)]">
                 <xsl:sort select="DtHistoriqueEvtsRdd" order="descending"/>
                 <gmd:processStep>
                   <gmd:LI_ProcessStep>
@@ -2362,7 +2058,7 @@
                 </xs:complexType>
               </xs:element>
               -->
-              <xsl:for-each select="EvenementsRdd">
+              <xsl:for-each select="EvenementsRdd[not($jdd)]">
                 <gmd:processStep>
                   <gmd:LI_ProcessStep>
                     <gmd:description>
@@ -2402,7 +2098,7 @@
         </xs:complexType>
       </xs:element>
       -->
-      <xsl:for-each select="DemarcheQualiteRdd">
+      <xsl:for-each select="DemarcheQualiteRdd[not($jdd)]">
 
         <gmd:dataQualityInfo>
           <gmd:DQ_DataQuality>
@@ -2457,7 +2153,7 @@
       <!--
       <xs:element name="EtatAvancementFicheRdd" type="sa_dc:EtatAvancementFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
       -->
-      <xsl:for-each select="EtatAvancementFicheRdd">
+      <xsl:for-each select="not($jdd) and EtatAvancementFicheRdd">
         <gmd:metadataMaintenance xmlns:xs="http://www.w3.org/2001/XMLSchema">
           <gmd:MD_MaintenanceInformation>
             <gmd:maintenanceAndUpdateFrequency>
