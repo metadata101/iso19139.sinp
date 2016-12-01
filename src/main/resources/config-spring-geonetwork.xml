@@ -4,5 +4,5 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans
                             http://www.springframework.org/schema/beans/spring-beans.xsd">
   <bean id="iso19139.sinpSchemaPlugin"
-        class="org.fao.geonet.schema.iso19139.ISO19139SchemaPlugin"/>
+        class="org.fao.geonet.schema.iso19139.sinp.ISO19139SinpSchemaPlugin"/>
 </beans>
