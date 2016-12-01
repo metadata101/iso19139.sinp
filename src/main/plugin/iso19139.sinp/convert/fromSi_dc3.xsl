@@ -8,7 +8,9 @@
 
   <xsl:output indent="yes" method="xml"/>
 
-  <xsl:param name="jdd" select="false()" as="xs:boolean"/>
+  <xsl:param name="mode" select="''" as="xs:string"/>
+
+  <xsl:variable name="jdd" select="if ($mode = 'jdd') then true() else false()" as="xs:boolean"/>
 
   <xsl:variable name="topicCategoryMapping">
     <value key="Flore et faune">biota</value>
@@ -29,13 +31,13 @@
 
 
   <xsl:template match="/">
+    <xsl:message><xsl:value-of select="$jdd"/></xsl:message>
     <xsl:apply-templates select="SI_DC/*" mode="sinp"/>
   </xsl:template>
 
 
 
   <!--
-  TODOXSD
 <xs:element name="Intervenant" minOccurs="0" maxOccurs="unbounded" nillable="false">
   <xs:complexType mixed="false">
       <xs:sequence minOccurs="1" maxOccurs="1">
@@ -368,10 +370,9 @@
           </gco:CharacterString>
         </sinp:description>
       </xsl:for-each>
-      <!-- TODO -->
-      <xsl:for-each select="TODO">
+      <xsl:for-each select="StructureMere/CdIntervenant/text()">
         <sinp:relatedResponsibleParty>
-          <gco:CharacterString/>
+          <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
         </sinp:relatedResponsibleParty>
       </xsl:for-each>
     </sinp:CI_ResponsibleParty>
@@ -386,13 +387,10 @@
                 mode="sinp">
 
 
-    <xsl:variable name="uuid">
-      urn:idcnp:<xsl:value-of select="if ($jdd) then 'jdd' else 'dc'"/>:<xsl:value-of select="IdEchangeRdd"/>
-    </xsl:variable>
-    <!--
+    <xsl:variable name="uuid">urn:idcnp:<xsl:value-of select="if ($jdd) then 'jdd' else 'dc'"/>:<xsl:value-of select="IdEchangeRdd"/></xsl:variable>
 
 
-    -->
+
     <gmd:MD_Metadata>
       <!--
       <xs:element name="IdEchangeRdd" type="sa_bp:IdEchangeRdd" minOccurs="1" maxOccurs="1" nillable="false"/>
@@ -577,8 +575,12 @@
           <xsl:if test="NbTotalRdd and not($jdd)">
             <gmd:purpose>
               <gco:CharacterString>
-                * Nombre de réseaux de mesure : <xsl:value-of select="NbTotalRdd"/>
-                * Précision TODO <xsl:value-of select="'TODO'"/>
+                <xsl:if test="NbTotalRdd != ''">
+                  * Nombre de points d'observation ou de mesure : <xsl:value-of select="NbTotalRdd"/>
+                </xsl:if>
+                <xsl:if test="PrecisionNbTotalRdd != ''">
+                  * Précisions : <xsl:value-of select="PrecisionNbTotalRdd"/>
+                </xsl:if>
               </gco:CharacterString>
             </gmd:purpose>
           </xsl:if>
@@ -845,6 +847,13 @@
             <gmd:descriptiveKeywords>
               <gmd:MD_Keywords>
                 <xsl:for-each select="descriptiveKeywords/MD_Keywords/keyword[. != '']|keyword[. != '']">
+                  <gmd:keyword>
+                    <gco:CharacterString>
+                      <xsl:value-of select="."/>
+                    </gco:CharacterString>
+                  </gmd:keyword>
+                </xsl:for-each>
+                <xsl:for-each select="ModeStockageRdd/PrecisionModeStockage[. != '']">
                   <gmd:keyword>
                     <gco:CharacterString>
                       <xsl:value-of select="."/>
@@ -1290,6 +1299,23 @@
             </gmd:descriptiveKeywords>
           </xsl:if>
 
+          <xsl:if test="$jdd">
+            <gmd:aggregationInfo>
+              <gmd:MD_AggregateInformation>
+                <gmd:aggregateDataSetIdentifier>
+                  <gmd:MD_Identifier>
+                    <gmd:code>
+                      <gco:CharacterString>urn:idcnp:dc:<xsl:value-of select="IdEchangeRdd"/></gco:CharacterString>
+                    </gmd:code>
+                  </gmd:MD_Identifier>
+                </gmd:aggregateDataSetIdentifier>
+                <gmd:associationType>
+                  <gmd:DS_AssociationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#DS_AssociationTypeCode"
+                                              codeListValue="collectionSystem"/>
+                </gmd:associationType>
+              </gmd:MD_AggregateInformation>
+            </gmd:aggregationInfo>
+          </xsl:if>
           <!--
           <xs:element name="ConditionsUtilisation" type="sinp:ConditionsUtilisation" minOccurs="0" maxOccurs="1" nillable="false"/>
           -->

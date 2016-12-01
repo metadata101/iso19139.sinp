@@ -140,6 +140,11 @@
       <label>Publication</label>
       <description>Référence vers une publication</description>
     </entry>
+    <entry>
+      <code>collectionSystem</code>
+      <label>Dispositif de collecte</label>
+      <description>Référence vers un dispositif de collecte</description>
+    </entry>
     <entry hideInEditMode="true">
       <code>crossReference</code>
       <label>Référence croisée</label>

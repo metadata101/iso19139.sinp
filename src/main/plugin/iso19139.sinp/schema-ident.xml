@@ -5,6 +5,15 @@
   <name>iso19139.sinp</name>
   <id>934a436d-e9cd-4601-84a3-20ae7bdeafef</id>
   <version>1.0</version>
+  <title xml:lang="en">Profil ISO19139 pour le SINP</title>
+  <title xml:lang="fr">Profil ISO19139 pour le SINP</title>
+  <description xml:lang="en">
+    Profil de métadonnées des ressources du Système d’Information sur la Nature et le Paysage (SINP).
+  </description>
+  <description xml:lang="fr">
+    Profil de métadonnées des ressources du Système d’Information sur la Nature et le Paysage (SINP).
+  </description>
+  <standardUrl>http://inventaire.naturefrance.fr</standardUrl>
   <depends>iso19139</depends>
   <schemaLocation>http://www.isotc211.org/2005/gmd
     http://www.isotc211.org/2005/gmd/gmd.xsd
