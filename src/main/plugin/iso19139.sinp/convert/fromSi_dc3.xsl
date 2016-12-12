@@ -505,7 +505,7 @@
 
 
       <gmd:identificationInfo>
-        <gmd:MD_DataIdentification>
+        <sinp:DispositifIdentification gco:isoType="gmd:MD_DataIdentification">
           <gmd:citation>
             <gmd:CI_Citation>
               <!--
@@ -1580,7 +1580,7 @@
             </sinp:observationDetails>
           </xsl:for-each>
 
-        </gmd:MD_DataIdentification>
+        </sinp:DispositifIdentification>
       </gmd:identificationInfo>
 
 

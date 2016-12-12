@@ -27,7 +27,8 @@
   <keyword>Mots-clés</keyword>
   <cibleEcologique>Cible écologique</cibleEcologique>
   <identificationInfo>Identification</identificationInfo>
-  <dcInformation>Informations sur le dispositif</dcInformation>
+  <dcDetails>Informations sur le dispositif</dcDetails>
+  <dcInformation>Informations générales</dcInformation>
   <dcDataInformation>Données ciblées par le dispositif</dcDataInformation>
   <mdInformation>Métadonnées</mdInformation>
   <dcContact>Contact sur le dispositif</dcContact>
@@ -35,6 +36,7 @@
   <mdContact>Point de contact sur les métadonnées</mdContact>
   <mdConformity>Conformité et cohérence des métadonnées du dispositif de collecte</mdConformity>
   <publication>Publications</publication>
+  <dcPublication>Publications</dcPublication>
   <jddThematic>Thématique</jddThematic>
   <distributionInfo>Distribution</distributionInfo>
   <dataQualityInfo>Qualité</dataQualityInfo>
