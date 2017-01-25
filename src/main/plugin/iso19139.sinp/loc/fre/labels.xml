@@ -20,6 +20,19 @@
       Exemple : Abondance des mammifères marins
     </help>
   </element>
+  <element name="gmd:title" id="360.0"
+           context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title">
+    <label>Nom complet</label>
+    <description>Intitulé exact de la ressource qui permet de l’identifier
+      explicitement.
+    </description>
+    <help>Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Inventaire exhaustif de la flore vasculaire de Mayotte
+
+      Nom caractéristique et souvent unique sous lequel la donnée est connue.
+      Exemple : Abondance des mammifères marins
+    </help>
+  </element>
   <element name="gmd:alternateTitle" id="361.0" context="/gmd:MD_Metadata/gmd:identificationInfo/sinp:DispositifIdentification/gmd:citation/gmd:CI_Citation/gmd:alternateTitle">
     <label>Nom usuel du dispositif</label>
     <description>Intitulé utilisé pour dénommer couramment la ressource.
