@@ -559,13 +559,16 @@
           <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:extent/*/gmd:temporalElement"/>
         </section>
         <section>
-          <!-- TODO : Ne pas afficher ?-->
-          <field xpath="/gmd:MD_Metadata/gmd:hierarchyLevel"/>
-          <!-- TODO : Type de données -->
+
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                            */gmd:thesaurusName/*/gmd:identifier/*/gmd:code/* = 'geonetwork.thesaurus.external.theme.sinp-type-de-donnees']"/>
           <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:citation/*/gmd:identifier/*/gmd:code"/>
           <!-- TODO : groupe écologique -->
-          <!-- TODO : type de plan d'échantillonnage -->
-          <!-- TODO : Types d'unités d'échantillonnage -->
+
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                            */gmd:thesaurusName/*/gmd:identifier/*/gmd:code/* = 'geonetwork.thesaurus.external.theme.sinp-plan-d-echantillonnage']"/>
+          <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords[
+                            */gmd:thesaurusName/*/gmd:identifier/*/gmd:code/* = 'geonetwork.thesaurus.external.theme.sinp-type-d-unites-echantillonage']"/>
           <field
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:descriptiveKeywords/*[not(gmd:thesaurusName)]/gmd:keyword"
             or="keyword"
