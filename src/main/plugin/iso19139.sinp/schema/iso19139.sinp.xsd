@@ -155,7 +155,7 @@
     </xs:sequence>
     <xs:attribute ref="gco:nilReason"/>
   </xs:complexType>
-<
+
   <xs:element name="ResponsiblePartyScopeCode"
               type="gco:CodeListValue_Type"
               substitutionGroup="gco:CharacterString"/>
