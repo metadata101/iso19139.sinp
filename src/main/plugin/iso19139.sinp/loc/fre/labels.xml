@@ -43,6 +43,16 @@
       Exemple : Atlas de la flore vasculaire de Mayotte
     </help>
   </element>
+  <element name="gmd:alternateTitle" id="361.0" context="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:alternateTitle">
+    <label>Nom usuel</label>
+    <description>Intitulé utilisé pour dénommer couramment la ressource.
+    </description>
+    <help>Correspond à un sigle, une abréviation, un acronyme ou un diminutif du
+      nom complet.
+      Le domaine de valeur de cet élément de métadonnées est du texte libre.
+      Exemple : Atlas de la flore vasculaire de Mayotte
+    </help>
+  </element>
   <element name="gmd:abstract" id="25.0">
     <label>Résumé</label>
     <description>Brève description du dispositif de collecte et/ou du programme associé, et de ses objectifs. Bref résumé narratif du contenu du jeu de données.</description>
@@ -63,6 +73,15 @@
       <li>Comprendre les facteurs et processus impliqués dans la production effective des services écosystémiques,</li>
       </ul>
       ]]></help>
+  </element>
+  <element name="gmd:date">
+    <label>Date</label>
+    <btnClass>fa fa-calendar-plus-o</btnClass>
+    <description>Date de référence pour la ressource en question</description>
+    <help>Date de référence indiquée sous forme de date (jj.mm.aaaa) et de type de date (création,
+      publication, traitement). Ces informations sont du type CI_Date et sont gérées dans la classe
+      du même nom.
+    </help>
   </element>
 
   <element name="gmd:code" id="207.0" context="gmd:MD_Identifier">
@@ -179,6 +198,18 @@
     <description>Période de temps durant laquelle un acteur intervient. Cette période est exprimée sous la forme d’un intervalle de dates exprimé par la date de début et la date de fin.</description>
   </element>
 
+  <element name="gmd:EX_TemporalExtent" id="350.0">
+    <label>Période de collecte</label>
+    <description>Type de données pour la description de la période de temps couverte par le contenu
+      du jeu de donnée
+    </description>
+    <help>La validité temporelle du jeu de données est définie dans cette classe. Cette classe
+      connaît la représentation EX_SpatialTemporalExtent. Des informations supplémentaires peuvent
+      être trouvées sous EX_Extent.
+    </help>
+    <condition/>
+
+  </element>
   <element name="sinp:description">
     <label>Commentaires</label>
     <description>Informations complémentaires permettant d’ajouter les informations manquantes sur l’acteur. Le domaine de valeur est du texte libre.</description>
