@@ -67,9 +67,10 @@
       </xsl:choose>
     </xsl:variable>
 
+
     <xsl:call-template name="render-element">
       <xsl:with-param name="label"
-                      select="gn-fn-metadata:getLabel($schema, name(), $labels, name(..), $isoType, $xpath)/label"/>
+                      select="gn-fn-metadata:getLabel($schema, name(), $labels, name(..), $isoType, $xpath)"/>
       <xsl:with-param name="value" select="*/@codeListValue"/>
       <xsl:with-param name="cls" select="local-name()"/>
       <xsl:with-param name="xpath" select="$xpath"/>
