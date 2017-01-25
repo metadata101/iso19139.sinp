@@ -216,31 +216,6 @@
           <sinp:altIndividualName>
             <gco:CharacterString/>
           </sinp:altIndividualName>
-          <sinp:responsiblePartyStatus>
-            <sinp:ResponsiblePartyStatusCode codeList="" codeListValue=""/>
-          </sinp:responsiblePartyStatus>
-          <sinp:extentDescription>
-            <gco:CharacterString/>
-          </sinp:extentDescription>
-          <sinp:scopeDescription>
-            <sinp:ResponsiblePartyScopeCode codeList="" codeListValue="Mer"/>
-          </sinp:scopeDescription>
-          <sinp:history>
-            <gmd:LI_ProcessStep>
-              <gmd:description>
-                <gco:CharacterString/>
-              </gmd:description>
-              <gmd:dateTime>
-                <gco:DateTime/>
-              </gmd:dateTime>
-            </gmd:LI_ProcessStep>
-          </sinp:history>
-          <sinp:description>
-            <gco:CharacterString/>
-          </sinp:description>
-          <sinp:relatedResponsibleParty>
-            <gco:CharacterString/>
-          </sinp:relatedResponsibleParty>
         </sinp:CI_ResponsibleParty>
       </gmd:pointOfContact>
       <gmd:resourceMaintenance>

@@ -216,61 +216,6 @@
         </sinp:altIndividualName>
       </xsl:for-each>
 
-      <!-- TODO Dans l'export SINP StIntervenant = A ?
-      LbStatut ? -->
-      <xsl:variable name="statusMapping">
-        <entry>
-          <code>association</code>
-          <label>Association</label>
-        </entry>
-        <entry>
-          <code>collectivite-territoriale</code>
-          <label>Collectivité territoriale</label>
-        </entry>
-        <entry>
-          <code>entreprise</code>
-          <label>Entreprise</label>
-        </entry>
-        <entry>
-          <code>etablissement-public-de-l-etat</code>
-          <label>Établissement public de l'État</label>
-        </entry>
-        <entry>
-          <code>etablissement-public-regional</code>
-          <label>Établissement public Régional</label>
-        </entry>
-        <entry>
-          <code>etat</code>
-          <label>État</label>
-        </entry>
-        <entry>
-          <code>fondation</code>
-          <label>Fondation</label>
-        </entry>
-        <entry>
-          <code>gip</code>
-          <label>Groupement d'Intérêt Public (GIP)</label>
-        </entry>
-        <entry>
-          <code>gis</code>
-          <label>Groupement d'Intérêt Scientifique (GIS)</label>
-        </entry>
-        <entry>
-          <code>syndicat-mixte</code>
-          <label>Syndicat Mixte</label>
-        </entry>
-        <entry>
-          <code>ue</code>
-          <label>Union Européenne</label>
-        </entry>
-        <entry>
-          <code>univ-ees</code>
-          <label>Université / établissement d’enseignement supérieur</label>
-        </entry>
-        <!-- TODO: ?
-        Établissement public de l'État != Etablissement public de l'Etat
-        On corrige -->
-      </xsl:variable>
 
       <!--
       <xs:element name="Statut" type="sinp:Statut" minOccurs="0" maxOccurs="1" nillable="false"/>
@@ -279,7 +224,7 @@
       <Statut>4</Statut>
       <LbStatut>Etablissement public de l'Etat</LbStatut>
       -->
-      <xsl:for-each select="LbStatut">
+     <!-- <xsl:for-each select="LbStatut">
         <xsl:variable name="current" select="normalize-space(.)"/>
         <xsl:variable name="code" select="$statusMapping/entry[label/text() = $current]/code"/>
 
@@ -287,7 +232,7 @@
          <sinp:ResponsiblePartyStatusCode codeList=""
            codeListValue="{if ($code != '') then $code else .}"/>
        </sinp:responsiblePartyStatus>
-      </xsl:for-each>
+      </xsl:for-each>-->
 
 
       <!--
@@ -308,7 +253,7 @@
         </xs:complexType>
       </xs:element>
       -->
-      <xsl:for-each select="DepartementInt|RegionInt">
+      <!--<xsl:for-each select="DepartementInt|RegionInt">
         <sinp:extentDescription>
           <gco:CharacterString>
             <xsl:value-of select="LbDepartement|LbRegion"/>
@@ -322,16 +267,16 @@
           </gco:CharacterString>
         </sinp:extentDescription>
       </xsl:for-each>
-
+-->
 
       <!-- TODO Dans l'export SINP terreOuMerInt ? -->
-      <xsl:for-each select="terreOuMerInt[. != '']">
+      <!--<xsl:for-each select="terreOuMerInt[. != '']">
        <sinp:scopeDescription>
          <sinp:ResponsiblePartyScopeCode codeList=""
               codeListValue="{if (. = 'T') then 'Terre' else if (. = 'M') then 'Mer' else ''}"/>
        </sinp:scopeDescription>
       </xsl:for-each>
-
+-->
       <!--
       <xs:element name="EvenementsInt" minOccurs="0" maxOccurs="unbounded" nillable="false">
         <xs:complexType mixed="false">
@@ -342,7 +287,7 @@
         </xs:complexType>
       </xs:element>
       -->
-      <xsl:for-each select="EvenementsInt">
+      <!--<xsl:for-each select="EvenementsInt">
         <sinp:history>
           <gmd:LI_ProcessStep>
             <gmd:description>
@@ -357,13 +302,13 @@
             </gmd:dateTime>
           </gmd:LI_ProcessStep>
         </sinp:history>
-      </xsl:for-each>
+      </xsl:for-each>-->
 
 
       <!--
       <xs:element name="CommentairesIntervenant" type="sa_int:CommentairesIntervenant" minOccurs="0" maxOccurs="1" nillable="false"/>
       -->
-      <xsl:for-each select="CommentairesIntervenant[. != '']">
+      <!--<xsl:for-each select="CommentairesIntervenant[. != '']">
         <sinp:description>
           <gco:CharacterString>
             <xsl:value-of select="."/>
@@ -374,7 +319,7 @@
         <sinp:relatedResponsibleParty>
           <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
         </sinp:relatedResponsibleParty>
-      </xsl:for-each>
+      </xsl:for-each>-->
     </sinp:CI_ResponsibleParty>
   </xsl:template>
 
@@ -490,11 +435,11 @@
            <gmd:referenceSystemIdentifier>
              <gmd:RS_Identifier>
                <gmd:code>
-                 <gco:CharacterString><xsl:value-of select="CdCRS"/></gco:CharacterString>
+                 <gco:CharacterString><xsl:value-of select="concat(LbCRS, ' (EPSG:', CdCRS, ')')"/></gco:CharacterString>
                </gmd:code>
                <gmd:codeSpace>
                  <gco:CharacterString>
-                   <xsl:value-of select="epsg"/>
+                   <xsl:value-of select="'EPSG'"/>
                  </gco:CharacterString>
                </gmd:codeSpace>
              </gmd:RS_Identifier>
@@ -549,7 +494,9 @@
                 <gmd:MD_Identifier>
                   <gmd:code>
                     <gco:CharacterString>
-                      <xsl:value-of select="if ($jdd) then DataIdentifier else $uuid"/>
+                      <xsl:value-of select="if ($jdd)
+                                            then concat('http://inventaire.naturefrance.fr/JDD/', DataIdentifier)
+                                            else concat('http://inventaire.naturefrance.fr/DC/', $uuid)"/>
                     </gco:CharacterString>
                   </gmd:code>
                 </gmd:MD_Identifier>
@@ -652,6 +599,47 @@
               </xsl:apply-templates>
             </gmd:pointOfContact>
           </xsl:for-each>
+
+
+          <xsl:for-each select="Contact">
+            <gmd:pointOfContact>
+              <sinp:CI_ResponsibleParty uuid="{CdContact}"
+                                        gco:isoType="gmd:CI_ResponsibleParty">
+                <gmd:individualName>
+                  <gco:CharacterString>
+                    <xsl:value-of select="concat(PrenomContact, ' ', NomContact)"/>
+                  </gco:CharacterString>
+                </gmd:individualName>
+                <gmd:organisationName>
+                  <gco:CharacterString>
+                    <xsl:value-of select="ServiceContact"/>
+                  </gco:CharacterString>
+                </gmd:organisationName>
+                <gmd:positionName>
+                  <gco:CharacterString>
+                    <xsl:value-of select="FonctionContact"/>
+                  </gco:CharacterString>
+                </gmd:positionName>
+                <gmd:contactInfo>
+                  <gmd:CI_Contact>
+                    <gmd:address>
+                      <gmd:CI_Address>
+                        <gmd:electronicMailAddress>
+                          <gco:CharacterString><xsl:value-of select="MailContact"/></gco:CharacterString>
+                        </gmd:electronicMailAddress>
+                      </gmd:CI_Address>
+                    </gmd:address>
+                  </gmd:CI_Contact>
+                </gmd:contactInfo>
+                <gmd:role>
+                  <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                                   codeListValue="pointOfContact"/>
+                </gmd:role>
+              </sinp:CI_ResponsibleParty>
+            </gmd:pointOfContact>
+          </xsl:for-each>
+
+
 
           <xsl:if test="not($jdd)">
             <gmd:resourceMaintenance>
@@ -837,7 +825,8 @@
                 </gmd:keyword>
               </xsl:for-each>
               <gmd:type>
-                <gmd:MD_KeywordTypeCode codeList="" codeListValue="place"/>
+                <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                                        codeListValue="place"/>
               </gmd:type>
             </gmd:MD_Keywords>
           </gmd:descriptiveKeywords>
@@ -846,7 +835,7 @@
             count(keyword[. != '']) > 0">
             <gmd:descriptiveKeywords>
               <gmd:MD_Keywords>
-                <xsl:for-each select="descriptiveKeywords/MD_Keywords/keyword[. != '']|keyword[. != '']">
+                <xsl:for-each select="descriptiveKeywords/MD_Keywords/keyword[. != '']|keyword[. != '' and keyword != 'Terrestre' and keyword != 'Marin']">
                   <gmd:keyword>
                     <gco:CharacterString>
                       <xsl:value-of select="."/>
@@ -861,7 +850,8 @@
                   </gmd:keyword>
                 </xsl:for-each>
                 <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="" codeListValue="theme"/>
+                  <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                                          codeListValue="theme"/>
                 </gmd:type>
               </gmd:MD_Keywords>
             </gmd:descriptiveKeywords>
@@ -991,7 +981,7 @@
           <xsl:if test="RefMilieux">
             <gmd:descriptiveKeywords>
               <gmd:MD_Keywords>
-                <xsl:for-each select="RefMilieux">
+                <xsl:for-each select="RefMilieux[LbRefMetier != 'Non renseigné']">
                   <!-- TODO: Devons nous vérifier que les valeurs sont bien dans le thésaurus ? -->
                   <gmd:keyword>
                     <gco:CharacterString><xsl:value-of select="LbRefMetier"/></gco:CharacterString>
@@ -1215,7 +1205,8 @@
                   </gmd:keyword>
                 </xsl:for-each>
                 <gmd:type>
-                  <gmd:MD_KeywordTypeCode codeList="" codeListValue="theme"/>
+                  <gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_KeywordTypeCode"
+                                          codeListValue="theme"/>
                 </gmd:type>
                 <gmd:thesaurusName>
                   <gmd:CI_Citation>
@@ -1472,13 +1463,15 @@
           <!--
           <xs:element name="CommentairesRdd" type="sa_dc:CommentairesRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
           -->
-          <xsl:for-each select="CommentairesRdd and not($jdd)">
-           <gmd:supplementalInformation>
-             <gco:CharacterString>
-               <xsl:value-of select="."/>
-             </gco:CharacterString>
-           </gmd:supplementalInformation>
-          </xsl:for-each>
+          <xsl:if test="not($jdd)">
+            <xsl:for-each select="CommentairesRdd">
+             <gmd:supplementalInformation>
+               <gco:CharacterString>
+                 <xsl:value-of select="."/>
+               </gco:CharacterString>
+             </gmd:supplementalInformation>
+            </xsl:for-each>
+          </xsl:if>
 
           <!--
           <xs:element name="SupportRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
@@ -1566,12 +1559,12 @@
                 <xsl:if test="FrequenceActualisation|FrequenceAnalyse">
                   <sinp:updateFrequency>
                     <gco:CharacterString>
-                      <xsl:if test="FrequenceActualisation">
-                        <xsl:value-of select="concat('Fréquence d''actualisation: ', FrequenceActualisation)"/><xsl:text>
+                      <xsl:if test="FrequenceActualisation != ''">
+                        <xsl:value-of select="concat('* Fréquence d''actualisation: ', FrequenceActualisation)"/><xsl:text>
                       </xsl:text>
                       </xsl:if>
-                      <xsl:if test="FrequenceActualisation">
-                        <xsl:value-of select="concat('Fréquence d''analyse: ', FrequenceAnalyse)"/>
+                      <xsl:if test="FrequenceAnalyse != ''">
+                        <xsl:value-of select="concat('* Fréquence d''observation: ', FrequenceAnalyse)"/>
                       </xsl:if>
                     </gco:CharacterString>
                   </sinp:updateFrequency>
@@ -1911,8 +1904,8 @@
                                   <gmd:CI_Contact>
                                     <gmd:address>
                                       <gmd:CI_Address>
-                                        <gmd:electronicMailAddress gco:nilReason="missing">
-                                          <gco:CharacterString/>
+                                        <gmd:electronicMailAddress>
+                                          <gco:CharacterString><xsl:value-of select="MailContact"/></gco:CharacterString>
                                         </gmd:electronicMailAddress>
                                       </gmd:CI_Address>
                                     </gmd:address>
@@ -2031,7 +2024,7 @@
                 </xs:complexType>
               </xs:element>
               -->
-              <xsl:for-each select="HistoriqueEvtsRdd[not($jdd)]">
+              <!--<xsl:for-each select="HistoriqueEvtsRdd[not($jdd)]">
                 <xsl:sort select="DtHistoriqueEvtsRdd" order="descending"/>
                 <gmd:processStep>
                   <gmd:LI_ProcessStep>
@@ -2072,7 +2065,7 @@
                     </xsl:for-each>
                   </gmd:LI_ProcessStep>
                 </gmd:processStep>
-              </xsl:for-each>
+              </xsl:for-each>-->
 
               <!--
               <xs:element name="EvenementsRdd" minOccurs="0" maxOccurs="unbounded" nillable="false">
@@ -2128,7 +2121,7 @@
 
         <gmd:dataQualityInfo>
           <gmd:DQ_DataQuality>
-            <xsl:for-each select="ValidationRdd">
+            <!--<xsl:for-each select="ValidationRdd">-->
               <gmd:report>
                 <gmd:DQ_DomainConsistency>
                   <gmd:evaluationMethodType>
@@ -2171,7 +2164,7 @@
                   </gmd:evaluationProcedure>
                 </gmd:DQ_DomainConsistency>
               </gmd:report>
-            </xsl:for-each>
+            <!--</xsl:for-each>-->
           </gmd:DQ_DataQuality>
         </gmd:dataQualityInfo>
       </xsl:for-each>
@@ -2179,20 +2172,22 @@
       <!--
       <xs:element name="EtatAvancementFicheRdd" type="sa_dc:EtatAvancementFicheRdd" minOccurs="0" maxOccurs="1" nillable="false"/>
       -->
-      <xsl:for-each select="not($jdd) and EtatAvancementFicheRdd">
-        <gmd:metadataMaintenance xmlns:xs="http://www.w3.org/2001/XMLSchema">
-          <gmd:MD_MaintenanceInformation>
-            <gmd:maintenanceAndUpdateFrequency>
-              <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
-                                               codeListValue="irregular"/>
-            </gmd:maintenanceAndUpdateFrequency>
-            <gmd:updateScopeDescription/>
-            <gmd:maintenanceNote>
-              <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
-            </gmd:maintenanceNote>
-          </gmd:MD_MaintenanceInformation>
-        </gmd:metadataMaintenance>
-      </xsl:for-each>
+      <xsl:if test="not($jdd)">
+        <xsl:for-each select="EtatAvancementFicheRdd">
+          <gmd:metadataMaintenance xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <gmd:MD_MaintenanceInformation>
+              <gmd:maintenanceAndUpdateFrequency>
+                <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_MaintenanceFrequencyCode"
+                                                 codeListValue="irregular"/>
+              </gmd:maintenanceAndUpdateFrequency>
+              <gmd:updateScopeDescription/>
+              <gmd:maintenanceNote>
+                <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+              </gmd:maintenanceNote>
+            </gmd:MD_MaintenanceInformation>
+          </gmd:metadataMaintenance>
+        </xsl:for-each>
+      </xsl:if>
     </gmd:MD_Metadata>
   </xsl:template>
 

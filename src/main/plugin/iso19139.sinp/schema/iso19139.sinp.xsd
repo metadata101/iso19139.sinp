@@ -117,7 +117,7 @@
           <xs:element name="altIndividualName"
                       type="gco:CharacterString_PropertyType"
                       minOccurs="0" maxOccurs="1"/>
-          <xs:element name="responsiblePartyStatus"
+          <!--<xs:element name="responsiblePartyStatus"
                       type="sinp:ResponsiblePartyStatus_PropertyType"
                       minOccurs="0" maxOccurs="1"/>
           <xs:element name="extentDescription"
@@ -137,7 +137,7 @@
                       minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="relatedResponsibleParty"
                       type="gco:CharacterString_PropertyType"
-                      minOccurs="0" maxOccurs="unbounded"/>
+                      minOccurs="0" maxOccurs="unbounded"/>-->
         </xs:sequence>
         <xs:attribute ref="gco:isoType" use="required"
                       fixed="gmd:CI_ResponsibleParty"/>
@@ -155,7 +155,7 @@
     </xs:sequence>
     <xs:attribute ref="gco:nilReason"/>
   </xs:complexType>
-
+<
   <xs:element name="ResponsiblePartyScopeCode"
               type="gco:CodeListValue_Type"
               substitutionGroup="gco:CharacterString"/>
