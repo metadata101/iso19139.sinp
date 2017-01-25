@@ -913,7 +913,7 @@
               <gmd:thesaurusName>
                 <gmd:CI_Citation>
                   <gmd:title>
-                    <gco:CharacterString>Plan d'échantillonnage</gco:CharacterString>
+                    <gco:CharacterString>Type de plan d'échantillonnage</gco:CharacterString>
                   </gmd:title>
                   <gmd:date>
                     <gmd:CI_Date>
